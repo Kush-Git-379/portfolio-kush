@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aerial Robotics — Kush Mehta</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .page-hero {
+      padding: 10rem 4rem 5rem;
+      background: var(--ink);
+      color: var(--bg);
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '✈';
+      position: absolute;
+      right: 4rem; top: 50%;
+      transform: translateY(-50%);
+      font-size: 18rem;
+      opacity: 0.04;
+      line-height: 1;
+    }
+    .back-link {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(247,245,240,0.4);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--accent); }
+    .page-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+    }
+    .page-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+    .page-title em { font-style: italic; color: var(--accent); }
+    .page-intro {
+      font-size: 1.05rem;
+      color: rgba(247,245,240,0.65);
+      max-width: 600px;
+      line-height: 1.8;
+    }
+    .achievements-strip {
+      display: flex; gap: 0; background: var(--accent);
+    }
+    .ach-item {
+      flex: 1; padding: 1.5rem 2rem;
+      border-right: 1px solid rgba(255,255,255,0.2);
+      color: white;
+    }
+    .ach-item:last-child { border-right: none; }
+    .ach-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem; line-height: 1; margin-bottom: 0.3rem;
+    }
+    .ach-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem; letter-spacing: 0.08em;
+      text-transform: uppercase; opacity: 0.8;
+    }
+    .projects-list { padding: 5rem 4rem; }
+    .project-entry {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 3rem;
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .project-entry:last-child { border-bottom: none; }
+    .project-num-big {
+      font-family: 'DM Serif Display', serif;
+      font-size: 4rem; color: var(--border);
+      line-height: 1; padding-top: 0.2rem;
+      width: 80px; text-align: right;
+      flex-shrink: 0;
+    }
+    .project-content {}
+    .project-meta {
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 0.8rem; flex-wrap: wrap;
+    }
+    .project-title-big {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.8rem; line-height: 1.2; margin-bottom: 1rem;
+    }
+    .project-abstract {
+      font-size: 0.95rem; color: var(--muted);
+      line-height: 1.8; margin-bottom: 1.5rem;
+      max-width: 700px;
+    }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
+    .project-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .team-arrow-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      margin-top: 1.5rem;
+      max-width: 700px;
+    }
+    .team-arrow-section h4 {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .timeline { display: flex; flex-direction: column; gap: 0.8rem; }
+    .timeline-item { display: flex; gap: 1.2rem; align-items: flex-start; }
+    .timeline-year {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem; color: var(--accent);
+      letter-spacing: 0.06em; flex-shrink: 0;
+      padding-top: 0.1rem; width: 40px;
+    }
+    .timeline-text { font-size: 0.9rem; color: var(--muted); line-height: 1.5; }
+    .timeline-text strong { color: var(--ink); }
+
+    @media (max-width: 900px) {
+      .page-hero { padding: 8rem 1.5rem 3rem; }
+      .projects-list { padding: 3rem 1.5rem; }
+      .project-entry { grid-template-columns: 1fr; gap: 1rem; }
+      .project-num-big { font-size: 2rem; width: auto; text-align: left; }
+      .achievements-strip { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Kush Mehta</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects-aerial.html" class="active">Aerial Robotics</a></li>
+    <li><a href="projects-embedded.html">Embedded & Security</a></li>
+    <li><a href="projects-data.html">Data Science</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <a href="index.html" class="back-link">← Back to Home</a>
+  <p class="page-label">Domain — Aerial Robotics</p>
+  <h1 class="page-title">Flying machines &<br/><em>competition wins.</em></h1>
+  <p class="page-intro">Three years as Electronics Lead for Team Arrow — Nirma University's official aeromodelling club — building competition aircraft and earning international recognition at SAE events.</p>
+</div>
+
+<div class="achievements-strip">
+  <div class="ach-item">
+    <div class="ach-num">2nd</div>
+    <div class="ach-label">SAE DDC Micro 2024 & 2026 — Overall</div>
+  </div>
+  <div class="ach-item">
+    <div class="ach-num">3rd</div>
+    <div class="ach-label">SAE DDC Micro 2025 — Overall</div>
+  </div>
+  <div class="ach-item">
+    <div class="ach-num">5th</div>
+    <div class="ach-label">SAE Aero Design West 2025 — International Mission Score</div>
+  </div>
+  <div class="ach-item">
+    <div class="ach-num">3+</div>
+    <div class="ach-label">Years as Electronics Lead</div>
+  </div>
+</div>
+
+<div class="projects-list">
+
+  <div class="project-entry reveal">
+    <div class="project-num-big">01</div>
+    <div class="project-content">
+      <div class="project-meta">
+        <span class="tag accent">Flagship Project</span>
+        <span class="tag">Team Arrow</span>
+        <span class="tag">2024–2025</span>
+      </div>
+      <h2 class="project-title-big">Autonomous VTOL Tricopter Tilt-Rotor Plane with Payload Delivery & Capture</h2>
+      <p class="project-abstract">
+        Designed and built a hybrid fixed-wing/multirotor aircraft capable of vertical takeoff and landing (VTOL) using a tricopter tilt-rotor configuration. The aircraft transitions between hover and forward flight modes autonomously using ArduPilot with custom parameter tuning. Key engineering challenges included designing the tilt-rotor servo mechanism, calibrating the flight controller for stable mode transitions, and integrating a payload delivery and capture system capable of precision drop at target coordinates. The electronics stack included custom power distribution, telemetry, GPS-assisted navigation, and a camera-based image processing pipeline for target detection.
+      </p>
+      <div class="project-tags">
+        <span class="tag accent">Aerial Robotics</span>
+        <span class="tag">ArduPilot</span>
+        <span class="tag">Flight Controllers</span>
+        <span class="tag">Embedded C</span>
+        <span class="tag">Image Processing</span>
+        <span class="tag">SolidWorks</span>
+        <span class="tag">Fusion 360</span>
+        <span class="tag">Python</span>
+      </div>
+      <div class="project-actions">
+        <a href="#" class="btn btn-primary">Full Report (Coming Soon)</a>
+        <a href="#" class="btn-small">GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-entry reveal">
+    <div class="project-num-big">02</div>
+    <div class="project-content">
+      <div class="project-meta">
+        <span class="tag blue">Competition Journey</span>
+        <span class="tag">SAE DDC · SAE Aero Design</span>
+        <span class="tag">2022–2026</span>
+      </div>
+      <h2 class="project-title-big">Team Arrow — SAE Competition Electronics Lead</h2>
+      <p class="project-abstract">
+        As Electronics Lead for Team Arrow, Nirma University's official aeromodelling club, I was responsible for the complete electronics design, integration, and debugging of competition aircraft across multiple SAE seasons. This included power systems design, ESC/motor selection, flight controller integration, telemetry setup, and sensor fusion. The role demanded rapid iteration under competition deadlines and cross-functional collaboration with mechanical and software sub-teams.
+      </p>
+      <div class="team-arrow-section">
+        <h4>Competition Timeline</h4>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-year">2024</div>
+            <div class="timeline-text"><strong>2nd Overall</strong> — SAE DDC Micro 2024. First major international podium as Electronics Lead.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2025</div>
+            <div class="timeline-text"><strong>3rd Overall</strong> — SAE DDC Micro 2025 · <strong>5th Internationally</strong> in Mission Score — SAE Aero Design West 2025.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2026</div>
+            <div class="timeline-text"><strong>2nd Overall</strong> — SAE DDC Micro 2026. Consistent podium performance over three competition years.</div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:1.5rem;">
+        <div class="project-tags">
+          <span class="tag accent">SAE Competition</span>
+          <span class="tag">ArduPilot</span>
+          <span class="tag">Power Systems</span>
+          <span class="tag">Telemetry</span>
+          <span class="tag">Sensor Fusion</span>
+          <span class="tag">Robotics</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <span>© 2025 Kush Mehta</span>
+  <a href="index.html">← Back to Portfolio</a>
+  <a href="mailto:379kushmehta@gmail.com">379kushmehta@gmail.com</a>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

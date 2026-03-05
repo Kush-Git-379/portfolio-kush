@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Embedded Systems & Security — Kush Mehta</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .page-hero {
+      padding: 10rem 4rem 5rem;
+      background: #0D1117;
+      color: var(--bg);
+      position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content: '🔐';
+      position: absolute; right: 4rem; top: 50%;
+      transform: translateY(-50%);
+      font-size: 16rem; opacity: 0.05; line-height: 1;
+    }
+    .back-link {
+      font-family: 'DM Mono', monospace; font-size: 0.72rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(247,245,240,0.4); text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      margin-bottom: 2rem; transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--accent); }
+    .page-label {
+      font-family: 'DM Mono', monospace; font-size: 0.72rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.8rem;
+    }
+    .page-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.5rem;
+    }
+    .page-title em { font-style: italic; color: var(--accent); }
+    .page-intro { font-size: 1.05rem; color: rgba(247,245,240,0.65); max-width: 600px; line-height: 1.8; }
+    .projects-list { padding: 5rem 4rem; }
+    .project-entry {
+      display: grid; grid-template-columns: auto 1fr;
+      gap: 3rem; padding: 3rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .project-entry:last-child { border-bottom: none; }
+    .project-num-big {
+      font-family: 'DM Serif Display', serif;
+      font-size: 4rem; color: var(--border);
+      line-height: 1; padding-top: 0.2rem;
+      width: 80px; text-align: right;
+    }
+    .project-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.8rem; flex-wrap: wrap; }
+    .project-title-big { font-family: 'DM Serif Display', serif; font-size: 1.8rem; line-height: 1.2; margin-bottom: 1rem; }
+    .project-abstract { font-size: 0.95rem; color: var(--muted); line-height: 1.8; margin-bottom: 1.5rem; max-width: 700px; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
+    .project-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .tech-breakdown {
+      background: #0D1117; color: var(--bg);
+      padding: 1.5rem; margin-top: 1.2rem; max-width: 700px;
+    }
+    .tech-breakdown h4 {
+      font-family: 'DM Mono', monospace; font-size: 0.68rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1rem;
+    }
+    .tech-row { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .tech-item { font-family: 'DM Mono', monospace; font-size: 0.8rem; color: rgba(247,245,240,0.7); }
+    .tech-item::before { content: '> '; color: var(--accent); }
+
+    @media (max-width: 900px) {
+      .page-hero { padding: 8rem 1.5rem 3rem; }
+      .projects-list { padding: 3rem 1.5rem; }
+      .project-entry { grid-template-columns: 1fr; gap: 1rem; }
+      .project-num-big { font-size: 2rem; width: auto; text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Kush Mehta</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects-aerial.html">Aerial Robotics</a></li>
+    <li><a href="projects-embedded.html" class="active">Embedded & Security</a></li>
+    <li><a href="projects-data.html">Data Science</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <a href="index.html" class="back-link">← Back to Home</a>
+  <p class="page-label">Domain — Embedded Systems & Security</p>
+  <h1 class="page-title">Hardware meets<br/><em>cryptography.</em></h1>
+  <p class="page-intro">From FPGA digital design to lightweight encryption on microcontrollers — projects at the intersection of hardware architecture and security engineering.</p>
+</div>
+
+<div class="projects-list">
+
+  <div class="project-entry reveal">
+    <div class="project-num-big">01</div>
+    <div class="project-content">
+      <div class="project-meta">
+        <span class="tag accent">Research</span>
+        <span class="tag">Cryptography</span>
+      </div>
+      <h2 class="project-title-big">Simulation & Comparison of Cryptography Techniques for Lightweight Systems</h2>
+      <p class="project-abstract">
+        A comparative simulation study of four cryptographic algorithms — AES, DES, ECC, and ASCON — evaluated for suitability in lightweight embedded systems. The study benchmarks each algorithm across key metrics: encryption/decryption speed, key size, memory footprint, and energy consumption on resource-constrained hardware profiles. ASCON, the NIST-selected lightweight cryptography standard, is evaluated against traditional algorithms to quantify its advantages for IoT and embedded use cases. Simulation conducted using Python with custom benchmarking scripts.
+      </p>
+      <div class="tech-breakdown">
+        <h4>Technical Stack</h4>
+        <div class="tech-row">
+          <span class="tech-item">Python</span>
+          <span class="tech-item">PyCryptodome</span>
+          <span class="tech-item">AES-128/256</span>
+          <span class="tech-item">DES/3DES</span>
+          <span class="tech-item">ECC</span>
+          <span class="tech-item">ASCON</span>
+          <span class="tech-item">Matplotlib</span>
+        </div>
+      </div>
+      <div style="margin-top:1.2rem;">
+        <div class="project-tags">
+          <span class="tag accent">Cryptography</span>
+          <span class="tag">AES</span><span class="tag">ASCON</span>
+          <span class="tag">ECC</span><span class="tag">Python</span>
+          <span class="tag">Lightweight Security</span>
+        </div>
+      </div>
+      <div class="project-actions">
+        <a href="#" class="btn btn-primary">Full Report (Coming Soon)</a>
+        <a href="#" class="btn-small">GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-entry reveal">
+    <div class="project-num-big">02</div>
+    <div class="project-content">
+      <div class="project-meta">
+        <span class="tag accent">IoT · Security</span>
+        <span class="tag">ESP32</span>
+      </div>
+      <h2 class="project-title-big">AES & ASCON Implementation on ESP32 via MQTT with Python Decryption</h2>
+      <p class="project-abstract">
+        End-to-end implementation of AES and ASCON encryption on an ESP32 microcontroller, transmitting encrypted payloads over MQTT to a broker, with a Python-based subscriber performing decryption on the host machine. Demonstrates a practical IoT security pipeline — from sensor data encryption at the edge to secure cloud delivery. The project validates the feasibility of ASCON on constrained hardware and benchmarks its performance against AES in a real communication scenario.
+      </p>
+      <div class="tech-breakdown">
+        <h4>Technical Stack</h4>
+        <div class="tech-row">
+          <span class="tech-item">ESP32</span>
+          <span class="tech-item">Arduino IDE</span>
+          <span class="tech-item">MQTT</span>
+          <span class="tech-item">Mosquitto Broker</span>
+          <span class="tech-item">Python</span>
+          <span class="tech-item">Paho MQTT</span>
+          <span class="tech-item">AES / ASCON</span>
+        </div>
+      </div>
+      <div style="margin-top:1.2rem;">
+        <div class="project-tags">
+          <span class="tag accent">IoT</span>
+          <span class="tag">ESP32</span><span class="tag">MQTT</span>
+          <span class="tag">Python</span><span class="tag">AES</span>
+          <span class="tag">ASCON</span><span class="tag">Embedded C</span>
+        </div>
+      </div>
+      <div class="project-actions">
+        <a href="#" class="btn btn-primary">Full Report (Coming Soon)</a>
+        <a href="#" class="btn-small">GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-entry reveal">
+    <div class="project-num-big">03</div>
+    <div class="project-content">
+      <div class="project-meta">
+        <span class="tag accent">Computer Architecture</span>
+        <span class="tag">gem5</span>
+      </div>
+      <h2 class="project-title-big">Cache Analysis of Matrix Multiplication & AES Encryption Benchmarks using gem5</h2>
+      <p class="project-abstract">
+        Architectural simulation and cache performance analysis using the gem5 simulator. Two workloads were benchmarked: a matrix multiplication routine (compute-bound) and AES encryption (memory-access-intensive). Analysis covers L1/L2 cache hit rates, miss penalties, memory bandwidth utilization, and the effect of cache size and associativity on performance. Results provide insight into how cryptographic workloads behave differently from standard compute benchmarks at the microarchitecture level.
+      </p>
+      <div class="tech-breakdown">
+        <h4>Technical Stack</h4>
+        <div class="tech-row">
+          <span class="tech-item">gem5 Simulator</span>
+          <span class="tech-item">C / C++</span>
+          <span class="tech-item">Assembly</span>
+          <span class="tech-item">Linux</span>
+          <span class="tech-item">Python (gem5 config)</span>
+          <span class="tech-item">x86 ISA</span>
+        </div>
+      </div>
+      <div style="margin-top:1.2rem;">
+        <div class="project-tags">
+          <span class="tag accent">Architecture</span>
+          <span class="tag">gem5</span><span class="tag">Cache Analysis</span>
+          <span class="tag">Assembly</span><span class="tag">C</span>
+          <span class="tag">AES</span>
+        </div>
+      </div>
+      <div class="project-actions">
+        <a href="#" class="btn btn-primary">Full Report (Coming Soon)</a>
+        <a href="#" class="btn-small">GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-entry reveal">
+    <div class="project-num-big">04</div>
+    <div class="project-content">
+      <div class="project-meta">
+        <span class="tag accent">FPGA</span>
+        <span class="tag">Digital Design</span>
+      </div>
+      <h2 class="project-title-big">FPGA Projects — Fastest Finger First Game & Wallace Tree Multiplier</h2>
+      <p class="project-abstract">
+        Two digital design projects implemented on FPGA using Verilog HDL. The Fastest Finger First (FFF) game detects the first button press among multiple players with microsecond precision, using finite state machines and debounce logic. The Wallace Tree Multiplier implements a high-speed parallel multiplier architecture using carry-save adders for reduced propagation delay compared to standard array multipliers — demonstrating understanding of combinational optimization and hardware arithmetic.
+      </p>
+      <div class="tech-breakdown">
+        <h4>Technical Stack</h4>
+        <div class="tech-row">
+          <span class="tech-item">Verilog HDL</span>
+          <span class="tech-item">Quartus Prime</span>
+          <span class="tech-item">ModelSim</span>
+          <span class="tech-item">FPGA (Cyclone)</span>
+          <span class="tech-item">FSM Design</span>
+          <span class="tech-item">Testbenches</span>
+        </div>
+      </div>
+      <div style="margin-top:1.2rem;">
+        <div class="project-tags">
+          <span class="tag accent">FPGA</span>
+          <span class="tag">Verilog HDL</span><span class="tag">Quartus</span>
+          <span class="tag">ModelSim</span><span class="tag">Digital Design</span>
+          <span class="tag">FSM</span>
+        </div>
+      </div>
+      <div class="project-actions">
+        <a href="#" class="btn btn-primary">Full Report (Coming Soon)</a>
+        <a href="#" class="btn-small">GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-entry reveal">
+    <div class="project-num-big">05</div>
+    <div class="project-content">
+      <div class="project-meta">
+        <span class="tag accent">DevOps · Scripting</span>
+        <span class="tag">Linux</span>
+      </div>
+      <h2 class="project-title-big">Log Analytics & Alert Mail System Automation</h2>
+      <p class="project-abstract">
+        Automated system monitoring and alerting pipeline built with Bash and Python on Ubuntu. The system parses system and application logs, detects anomalies and critical events using pattern matching and threshold rules, and triggers automated email alerts to administrators. Designed for reliability in headless server environments, with cron-based scheduling and modular script architecture for easy extension to new log sources.
+      </p>
+      <div class="tech-breakdown">
+        <h4>Technical Stack</h4>
+        <div class="tech-row">
+          <span class="tech-item">Bash</span>
+          <span class="tech-item">Python</span>
+          <span class="tech-item">Cron</span>
+          <span class="tech-item">Ubuntu</span>
+          <span class="tech-item">SMTP / smtplib</span>
+          <span class="tech-item">Regex</span>
+        </div>
+      </div>
+      <div style="margin-top:1.2rem;">
+        <div class="project-tags">
+          <span class="tag accent">DevOps</span>
+          <span class="tag">Bash</span><span class="tag">Python</span>
+          <span class="tag">Ubuntu</span><span class="tag">Automation</span>
+          <span class="tag">Linux</span>
+        </div>
+      </div>
+      <div class="project-actions">
+        <a href="#" class="btn btn-primary">Full Report (Coming Soon)</a>
+        <a href="#" class="btn-small">GitHub</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <span>© 2025 Kush Mehta</span>
+  <a href="index.html">← Back to Portfolio</a>
+  <a href="mailto:379kushmehta@gmail.com">379kushmehta@gmail.com</a>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

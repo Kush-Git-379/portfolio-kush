@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Data Science & Software — Kush Mehta</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .page-hero {
+      padding: 10rem 4rem 5rem;
+      background: #1A1F2E;
+      color: var(--bg);
+      position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content: '📊';
+      position: absolute; right: 4rem; top: 50%;
+      transform: translateY(-50%);
+      font-size: 16rem; opacity: 0.05; line-height: 1;
+    }
+    .back-link {
+      font-family: 'DM Mono', monospace; font-size: 0.72rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(247,245,240,0.4); text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      margin-bottom: 2rem; transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--accent2); }
+    .page-label {
+      font-family: 'DM Mono', monospace; font-size: 0.72rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--accent2); margin-bottom: 0.8rem;
+    }
+    .page-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.5rem;
+    }
+    .page-title em { font-style: italic; color: var(--accent2); }
+    .page-intro { font-size: 1.05rem; color: rgba(247,245,240,0.65); max-width: 600px; line-height: 1.8; }
+    .projects-list { padding: 5rem 4rem; }
+    .project-entry {
+      display: grid; grid-template-columns: auto 1fr;
+      gap: 3rem; padding: 3rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .project-entry:last-child { border-bottom: none; }
+    .project-num-big {
+      font-family: 'DM Serif Display', serif;
+      font-size: 4rem; color: var(--border);
+      line-height: 1; padding-top: 0.2rem;
+      width: 80px; text-align: right;
+    }
+    .project-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.8rem; flex-wrap: wrap; }
+    .project-title-big { font-family: 'DM Serif Display', serif; font-size: 1.8rem; line-height: 1.2; margin-bottom: 1rem; }
+    .project-abstract { font-size: 0.95rem; color: var(--muted); line-height: 1.8; margin-bottom: 1.5rem; max-width: 700px; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
+    .project-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .tech-breakdown {
+      background: #1A1F2E; color: var(--bg);
+      padding: 1.5rem; margin-top: 1.2rem; max-width: 700px;
+    }
+    .tech-breakdown h4 {
+      font-family: 'DM Mono', monospace; font-size: 0.68rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent2); margin-bottom: 1rem;
+    }
+    .tech-row { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .tech-item { font-family: 'DM Mono', monospace; font-size: 0.8rem; color: rgba(247,245,240,0.7); }
+    .tech-item::before { content: '> '; color: var(--accent2); }
+
+    @media (max-width: 900px) {
+      .page-hero { padding: 8rem 1.5rem 3rem; }
+      .projects-list { padding: 3rem 1.5rem; }
+      .project-entry { grid-template-columns: 1fr; gap: 1rem; }
+      .project-num-big { font-size: 2rem; width: auto; text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Kush Mehta</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects-aerial.html">Aerial Robotics</a></li>
+    <li><a href="projects-embedded.html">Embedded & Security</a></li>
+    <li><a href="projects-data.html" class="active">Data Science</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <a href="index.html" class="back-link">← Back to Home</a>
+  <p class="page-label">Domain — Data Science & Software</p>
+  <h1 class="page-title">Data that tells<br/><em>a story.</em></h1>
+  <p class="page-intro">Analytics, visualization, and software projects — applying data science to financial modeling, system automation, and database engineering.</p>
+</div>
+
+<div class="projects-list">
+
+  <div class="project-entry reveal">
+    <div class="project-num-big">01</div>
+    <div class="project-content">
+      <div class="project-meta">
+        <span class="tag blue">Data Science</span>
+        <span class="tag">Finance</span>
+      </div>
+      <h2 class="project-title-big">Portfolio Analysis using Python</h2>
+      <p class="project-abstract">
+        A financial portfolio analysis tool built in Python for evaluating multi-asset investment portfolios. The project covers asset allocation modeling, return calculation, risk metrics (standard deviation, Sharpe ratio, beta), and portfolio optimization using Modern Portfolio Theory. Includes visualization of the efficient frontier, correlation heatmaps, and historical performance charts. Designed as both an analytical and educational tool for understanding risk-return tradeoffs.
+      </p>
+      <div class="tech-breakdown">
+        <h4>Technical Stack</h4>
+        <div class="tech-row">
+          <span class="tech-item">Python</span>
+          <span class="tech-item">Pandas</span>
+          <span class="tech-item">NumPy</span>
+          <span class="tech-item">Matplotlib / Seaborn</span>
+          <span class="tech-item">yFinance</span>
+          <span class="tech-item">SciPy</span>
+        </div>
+      </div>
+      <div style="margin-top:1.2rem;">
+        <div class="project-tags">
+          <span class="tag blue">Python</span>
+          <span class="tag">Finance</span><span class="tag">Data Visualization</span>
+          <span class="tag">Pandas</span><span class="tag">Portfolio Optimization</span>
+        </div>
+      </div>
+      <div class="project-actions">
+        <a href="#" class="btn btn-primary">Full Report (Coming Soon)</a>
+        <a href="#" class="btn-small">GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-entry reveal">
+    <div class="project-num-big">02</div>
+    <div class="project-content">
+      <div class="project-meta">
+        <span class="tag blue">Data Science</span>
+        <span class="tag">KNIME · Tableau</span>
+      </div>
+      <h2 class="project-title-big">Credit Score Analysis & Visualization</h2>
+      <p class="project-abstract">
+        End-to-end credit score analysis pipeline processing real-world financial datasets. KNIME was used for data preprocessing, feature engineering, missing value handling, and predictive modeling — classifying credit risk into categories. Tableau was used to build an interactive dashboard enabling stakeholders to explore credit score distributions, risk factors, and segment-level insights. The project demonstrates a full ML pipeline from raw data to business-ready visualization.
+      </p>
+      <div class="tech-breakdown">
+        <h4>Technical Stack</h4>
+        <div class="tech-row">
+          <span class="tech-item">KNIME Analytics</span>
+          <span class="tech-item">Tableau</span>
+          <span class="tech-item">Decision Trees</span>
+          <span class="tech-item">Feature Engineering</span>
+          <span class="tech-item">Data Cleaning</span>
+        </div>
+      </div>
+      <div style="margin-top:1.2rem;">
+        <div class="project-tags">
+          <span class="tag blue">KNIME</span>
+          <span class="tag">Tableau</span><span class="tag">Machine Learning</span>
+          <span class="tag">Credit Risk</span><span class="tag">Data Visualization</span>
+        </div>
+      </div>
+      <div class="project-actions">
+        <a href="#" class="btn btn-primary">Full Report (Coming Soon)</a>
+        <a href="#" class="btn-small">Tableau Dashboard</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-entry reveal">
+    <div class="project-num-big">03</div>
+    <div class="project-content">
+      <div class="project-meta">
+        <span class="tag blue">Software</span>
+        <span class="tag">Python · MySQL</span>
+      </div>
+      <h2 class="project-title-big">Student Management System</h2>
+      <p class="project-abstract">
+        A full-featured student management application built with Python and MySQL. The system supports complete CRUD operations — creating, reading, updating, and deleting student records — with a menu-driven CLI interface. Features include grade management, attendance tracking, search and filter capabilities, and data export. Built with a normalized relational database schema and parameterized queries to prevent SQL injection.
+      </p>
+      <div class="tech-breakdown">
+        <h4>Technical Stack</h4>
+        <div class="tech-row">
+          <span class="tech-item">Python</span>
+          <span class="tech-item">MySQL</span>
+          <span class="tech-item">mysql-connector-python</span>
+          <span class="tech-item">Relational DB Design</span>
+          <span class="tech-item">CLI</span>
+        </div>
+      </div>
+      <div style="margin-top:1.2rem;">
+        <div class="project-tags">
+          <span class="tag blue">Python</span>
+          <span class="tag">MySQL</span><span class="tag">Database</span>
+          <span class="tag">CRUD</span><span class="tag">SQL</span>
+        </div>
+      </div>
+      <div class="project-actions">
+        <a href="#" class="btn btn-primary">Full Report (Coming Soon)</a>
+        <a href="#" class="btn-small">GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-entry reveal">
+    <div class="project-num-big">04</div>
+    <div class="project-content">
+      <div class="project-meta">
+        <span class="tag blue">Automation</span>
+        <span class="tag">NGO Volunteering</span>
+      </div>
+      <h2 class="project-title-big">Volunteer Experience — Akshaya Patra Foundation</h2>
+      <p class="project-abstract">
+        Three weeks of volunteering at Akshaya Patra Foundation, one of India's largest NGOs running mid-day meal programs. Contributed to operations and gained perspective on large-scale logistics, data management, and social impact. This experience reinforced the value of applying engineering and analytical thinking to real-world humanitarian challenges.
+      </p>
+      <div style="margin-top:1.2rem;">
+        <div class="project-tags">
+          <span class="tag blue">NGO</span>
+          <span class="tag">Volunteering</span>
+          <span class="tag">Akshaya Patra</span>
+          <span class="tag">Social Impact</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <span>© 2025 Kush Mehta</span>
+  <a href="index.html">← Back to Portfolio</a>
+  <a href="mailto:379kushmehta@gmail.com">379kushmehta@gmail.com</a>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
