@@ -7,223 +7,252 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
   <style>
-    .page-hero {
-      padding: 10rem 4rem 5rem;
-      background: #1A1F2E;
-      color: var(--bg);
-      position: relative; overflow: hidden;
-    }
-    .page-hero::before {
-      content: '📊';
-      position: absolute; right: 4rem; top: 50%;
-      transform: translateY(-50%);
-      font-size: 16rem; opacity: 0.05; line-height: 1;
-    }
-    .back-link {
-      font-family: 'DM Mono', monospace; font-size: 0.72rem;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: rgba(247,245,240,0.4); text-decoration: none;
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      margin-bottom: 2rem; transition: color 0.2s;
-    }
+    .page-hero { padding: 10rem 4rem 5rem; background: #1A1F2E; color: var(--bg); position: relative; overflow: hidden; }
+    .page-hero::before { content: '◈'; position: absolute; right: 4rem; top: 50%; transform: translateY(-50%); font-size: 18rem; opacity: 0.04; line-height: 1; }
+    .back-link { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(247,245,240,0.4); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; transition: color 0.2s; }
     .back-link:hover { color: var(--accent2); }
-    .page-label {
-      font-family: 'DM Mono', monospace; font-size: 0.72rem;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--accent2); margin-bottom: 0.8rem;
-    }
-    .page-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.5rem;
-    }
+    .page-label { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent2); margin-bottom: 0.8rem; }
+    .page-title { font-family: 'DM Serif Display', serif; font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
     .page-title em { font-style: italic; color: var(--accent2); }
     .page-intro { font-size: 1.05rem; color: rgba(247,245,240,0.65); max-width: 600px; line-height: 1.8; }
     .projects-list { padding: 5rem 4rem; }
-    .project-entry {
-      display: grid; grid-template-columns: auto 1fr;
-      gap: 3rem; padding: 3rem 0;
-      border-bottom: 1px solid var(--border);
-    }
+    .project-entry { display: grid; grid-template-columns: auto 1fr; gap: 3rem; padding: 3.5rem 0; border-bottom: 1px solid var(--border); }
     .project-entry:last-child { border-bottom: none; }
-    .project-num-big {
-      font-family: 'DM Serif Display', serif;
-      font-size: 4rem; color: var(--border);
-      line-height: 1; padding-top: 0.2rem;
-      width: 80px; text-align: right;
-    }
+    .project-num-big { font-family: 'DM Serif Display', serif; font-size: 4rem; color: var(--border); line-height: 1; padding-top: 0.2rem; width: 80px; text-align: right; flex-shrink: 0; }
     .project-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.8rem; flex-wrap: wrap; }
     .project-title-big { font-family: 'DM Serif Display', serif; font-size: 1.8rem; line-height: 1.2; margin-bottom: 1rem; }
-    .project-abstract { font-size: 0.95rem; color: var(--muted); line-height: 1.8; margin-bottom: 1.5rem; max-width: 700px; }
+    .project-abstract { font-size: 0.95rem; color: var(--muted); line-height: 1.8; margin-bottom: 1.5rem; max-width: 720px; }
     .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
     .project-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .tech-breakdown {
-      background: #1A1F2E; color: var(--bg);
-      padding: 1.5rem; margin-top: 1.2rem; max-width: 700px;
-    }
-    .tech-breakdown h4 {
-      font-family: 'DM Mono', monospace; font-size: 0.68rem;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--accent2); margin-bottom: 1rem;
-    }
+    .tech-breakdown { background: #1A1F2E; color: var(--bg); padding: 1.5rem; margin-top: 1.2rem; max-width: 720px; }
+    .tech-breakdown h4 { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent2); margin-bottom: 1rem; }
     .tech-row { display: flex; gap: 1.5rem; flex-wrap: wrap; }
     .tech-item { font-family: 'DM Mono', monospace; font-size: 0.8rem; color: rgba(247,245,240,0.7); }
     .tech-item::before { content: '> '; color: var(--accent2); }
-
+    .highlights-box { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--accent2, #3b6fba); padding: 1.5rem 1.8rem; margin: 1.2rem 0; max-width: 720px; }
+    .highlights-box h4 { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+    .highlights-box ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+    .highlights-box ul li { font-size: 0.9rem; color: var(--muted); line-height: 1.6; padding-left: 1.2rem; position: relative; }
+    .highlights-box ul li::before { content: '→'; position: absolute; left: 0; color: var(--accent2, #3b6fba); font-size: 0.8rem; }
+    .stat-row { display: flex; gap: 2rem; flex-wrap: wrap; margin: 1.2rem 0; max-width: 720px; }
+    .stat-item { text-align: center; padding: 1rem 1.5rem; border: 1px solid var(--border); flex: 1; min-width: 120px; }
+    .stat-num { font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: var(--ink); line-height: 1; margin-bottom: 0.3rem; }
+    .stat-label { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+    .semester-badge { display: inline-block; font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.08em; padding: 0.2rem 0.7rem; border: 1px solid var(--border); color: var(--muted); }
     @media (max-width: 900px) {
       .page-hero { padding: 8rem 1.5rem 3rem; }
       .projects-list { padding: 3rem 1.5rem; }
       .project-entry { grid-template-columns: 1fr; gap: 1rem; }
       .project-num-big { font-size: 2rem; width: auto; text-align: left; }
+      .stat-row { gap: 1rem; }
     }
   </style>
 </head>
 <body>
-
 <nav>
   <a href="index.html" class="nav-logo">Kush Mehta</a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="projects-aerial.html">Aerial Robotics</a></li>
-    <li><a href="projects-embedded.html">Embedded & Security</a></li>
+    <li><a href="projects-embedded.html">Embedded &amp; Security</a></li>
     <li><a href="projects-data.html" class="active">Data Science</a></li>
   </ul>
 </nav>
 
 <div class="page-hero">
   <a href="index.html" class="back-link">← Back to Home</a>
-  <p class="page-label">Domain — Data Science & Software</p>
+  <p class="page-label">Domain — Data Science &amp; Software</p>
   <h1 class="page-title">Data that tells<br/><em>a story.</em></h1>
-  <p class="page-intro">Analytics, visualization, and software projects — applying data science to financial modeling, system automation, and database engineering.</p>
+  <p class="page-intro">Analytics, computer vision, and software engineering projects — from financial portfolio optimization and credit risk dashboards to real-time augmented reality and sports prediction.</p>
 </div>
 
 <div class="projects-list">
 
+  <!-- 01 Portfolio Analyzer -->
   <div class="project-entry reveal">
     <div class="project-num-big">01</div>
     <div class="project-content">
       <div class="project-meta">
-        <span class="tag blue">Data Science</span>
-        <span class="tag">Finance</span>
+        <span class="tag blue">Data Science · Finance</span>
+        <span class="tag">PSC · Semester 5 · Oct 2025</span>
       </div>
-      <h2 class="project-title-big">Portfolio Analysis using Python</h2>
-      <p class="project-abstract">
-        A financial portfolio analysis tool built in Python for evaluating multi-asset investment portfolios. The project covers asset allocation modeling, return calculation, risk metrics (standard deviation, Sharpe ratio, beta), and portfolio optimization using Modern Portfolio Theory. Includes visualization of the efficient frontier, correlation heatmaps, and historical performance charts. Designed as both an analytical and educational tool for understanding risk-return tradeoffs.
-      </p>
+      <h2 class="project-title-big">Investment Portfolio Analyzer — OOP &amp; Financial Metrics in Python</h2>
+      <p class="project-abstract">A Python-based investment portfolio analysis tool that reads a synthetic multi-asset portfolio from CSV, models each investment using an OOP inheritance hierarchy, computes portfolio-wide financial metrics, and produces visualizations and a written summary report. The system follows a four-stage pipeline: CSV ingestion via pandas, OOP modeling (Investment base class with Stock, RealEstate, BankDeposit, MutualFund, and DebtBond subclasses), statistical analysis with NumPy, and chart generation with Matplotlib. Each subclass inherits computed_growth(), predict_value(), and info() methods, making the system extensible to new asset types without modifying core logic.</p>
+
+      <div class="stat-row">
+        <div class="stat-item"><div class="stat-num">₹92.1M</div><div class="stat-label">Total Portfolio Value</div></div>
+        <div class="stat-item"><div class="stat-num">₹100.1M</div><div class="stat-label">Predicted End-of-FY</div></div>
+        <div class="stat-item"><div class="stat-num">9%</div><div class="stat-label">Avg Growth Rate</div></div>
+        <div class="stat-item"><div class="stat-num">+39.8%</div><div class="stat-label">Best Performer (Stock #21)</div></div>
+      </div>
+
+      <div class="highlights-box">
+        <h4>Technical Scope</h4>
+        <ul>
+          <li>OOP hierarchy: Investment base class → 5 subclasses (Stock, RealEstate, BankDeposit, MutualFund, DebtBond) with shared attributes and overridable methods</li>
+          <li>pandas groupby for asset-type aggregation; NumPy for median, standard deviation, and growth statistics</li>
+          <li>Pie chart: portfolio composition by value (Bank Deposits dominate at 33.4%); bar chart: average growth by asset class (Mutual Funds lead)</li>
+          <li>Best and worst performer flagged automatically: Stock #21 (+39.8%), Stock #8 (−21.2%)</li>
+          <li>Results exported to report.txt for stakeholder distribution without requiring Python environment</li>
+        </ul>
+      </div>
       <div class="tech-breakdown">
         <h4>Technical Stack</h4>
         <div class="tech-row">
-          <span class="tech-item">Python</span>
-          <span class="tech-item">Pandas</span>
-          <span class="tech-item">NumPy</span>
-          <span class="tech-item">Matplotlib / Seaborn</span>
-          <span class="tech-item">yFinance</span>
-          <span class="tech-item">SciPy</span>
+          <span class="tech-item">Python</span><span class="tech-item">Pandas</span><span class="tech-item">NumPy</span><span class="tech-item">Matplotlib</span><span class="tech-item">OOP / Inheritance</span><span class="tech-item">CSV I/O</span>
         </div>
       </div>
       <div style="margin-top:1.2rem;">
         <div class="project-tags">
-          <span class="tag blue">Python</span>
-          <span class="tag">Finance</span><span class="tag">Data Visualization</span>
-          <span class="tag">Pandas</span><span class="tag">Portfolio Optimization</span>
+          <span class="tag blue">Python</span><span class="tag">OOP</span><span class="tag">Finance</span><span class="tag">Pandas</span><span class="tag">Data Visualization</span><span class="tag">Portfolio Analysis</span>
         </div>
       </div>
-      <div class="project-actions">
-        <a href="#" class="btn btn-primary">Full Report (Coming Soon)</a>
-        <a href="#" class="btn-small">GitHub</a>
-      </div>
+      <div class="project-actions"><a href="#" class="btn btn-primary">Full Report (Coming Soon)</a><a href="#" class="btn-small">GitHub</a></div>
     </div>
   </div>
 
+  <!-- 02 Credit Score -->
   <div class="project-entry reveal">
     <div class="project-num-big">02</div>
     <div class="project-content">
       <div class="project-meta">
-        <span class="tag blue">Data Science</span>
+        <span class="tag blue">Data Science · BI</span>
         <span class="tag">KNIME · Tableau</span>
+        <span class="tag">DAV · Semester 5 · Oct 2025</span>
       </div>
-      <h2 class="project-title-big">Credit Score Analysis & Visualization</h2>
-      <p class="project-abstract">
-        End-to-end credit score analysis pipeline processing real-world financial datasets. KNIME was used for data preprocessing, feature engineering, missing value handling, and predictive modeling — classifying credit risk into categories. Tableau was used to build an interactive dashboard enabling stakeholders to explore credit score distributions, risk factors, and segment-level insights. The project demonstrates a full ML pipeline from raw data to business-ready visualization.
-      </p>
+      <h2 class="project-title-big">Credit Risk Analysis &amp; Stakeholder Dashboard — KNIME &amp; Tableau</h2>
+      <p class="project-abstract">End-to-end credit risk analysis pipeline on a 100,000-record Kaggle credit scoring dataset (28 features, three-class target: Good / Standard / Poor). KNIME Analytics Platform was used for preprocessing — including missing salary imputation from annual income, median imputation of delayed payments, data type correction, and credit history age parsing — followed by decision tree classification. Tableau was used to build stakeholder-specific dashboard views, explicitly designed around the analytical questions of three different business teams: Sales &amp; Marketing, Risk Management, and Product Development.</p>
+
+      <div class="highlights-box">
+        <h4>Stakeholder-Driven Dashboard Design</h4>
+        <ul>
+          <li>Sales &amp; Marketing view: treemap of credit score distribution by occupation; bubble chart of average customer age per credit score category</li>
+          <li>Risk Management view: Sankey diagram mapping credit score → payment behavior flow; bar chart of credit utilisation ratio per payment pattern</li>
+          <li>Pearson correlation heatmap surfaces relationships between outstanding debt, interest rate, and credit utilisation ratio</li>
+          <li>Visual segmentation achieves classification without ML models — the occupation treemap inherently groups professions by dominant credit score</li>
+          <li>Future scope: Logistic Regression, Random Forest, XGBoost for automated scoring; Explainable AI (XAI) for regulatory compliance</li>
+        </ul>
+      </div>
       <div class="tech-breakdown">
         <h4>Technical Stack</h4>
         <div class="tech-row">
-          <span class="tech-item">KNIME Analytics</span>
-          <span class="tech-item">Tableau</span>
-          <span class="tech-item">Decision Trees</span>
-          <span class="tech-item">Feature Engineering</span>
-          <span class="tech-item">Data Cleaning</span>
+          <span class="tech-item">KNIME Analytics</span><span class="tech-item">Tableau</span><span class="tech-item">Decision Trees</span><span class="tech-item">Feature Engineering</span><span class="tech-item">Pearson Correlation</span>
         </div>
       </div>
       <div style="margin-top:1.2rem;">
         <div class="project-tags">
-          <span class="tag blue">KNIME</span>
-          <span class="tag">Tableau</span><span class="tag">Machine Learning</span>
-          <span class="tag">Credit Risk</span><span class="tag">Data Visualization</span>
+          <span class="tag blue">KNIME</span><span class="tag">Tableau</span><span class="tag">Credit Risk</span><span class="tag">Sankey Diagram</span><span class="tag">Classification</span><span class="tag">Data Visualization</span><span class="tag">100K Records</span>
         </div>
       </div>
-      <div class="project-actions">
-        <a href="#" class="btn btn-primary">Full Report (Coming Soon)</a>
-        <a href="#" class="btn-small">Tableau Dashboard</a>
-      </div>
+      <div class="project-actions"><a href="#" class="btn btn-primary">Full Report (Coming Soon)</a><a href="#" class="btn-small">Tableau Dashboard</a></div>
     </div>
   </div>
 
+  <!-- 03 Virtual Try-On -->
   <div class="project-entry reveal">
     <div class="project-num-big">03</div>
     <div class="project-content">
       <div class="project-meta">
-        <span class="tag blue">Software</span>
-        <span class="tag">Python · MySQL</span>
+        <span class="tag blue">Computer Vision · AR</span>
+        <span class="tag">OpenCV · Python</span>
+        <span class="tag">B.Tech ECE · Nirma University</span>
       </div>
-      <h2 class="project-title-big">Student Management System</h2>
-      <p class="project-abstract">
-        A full-featured student management application built with Python and MySQL. The system supports complete CRUD operations — creating, reading, updating, and deleting student records — with a menu-driven CLI interface. Features include grade management, attendance tracking, search and filter capabilities, and data export. Built with a normalized relational database schema and parameterized queries to prevent SQL injection.
-      </p>
+      <h2 class="project-title-big">Real-Time Virtual Try-On of Color-Adjustable Sunglasses using OpenCV</h2>
+      <p class="project-abstract">A real-time augmented reality virtual try-on system for sunglasses built entirely using classical computer vision — no deep learning or GPU required. The system detects faces and eyes via Viola-Jones Haar Cascade classifiers, estimates geometric pose from inter-pupillary distance and eye midpoint coordinates, and overlays a sunglasses model scaled and rotated to match head tilt. A key differentiating feature is on-the-fly color customization via HSV hue shifting — the hue channel is shifted modulo 180 while preserving brightness and the alpha channel, allowing seamless cycling through the full color spectrum without reloading assets. Frame-to-frame jitter is suppressed using Exponential Moving Average (α = 0.2) as a temporal low-pass filter on all positional parameters.</p>
+      <div class="highlights-box">
+        <h4>Technical Pipeline</h4>
+        <ul>
+          <li>Preprocessing: CLAHE (Contrast Limited Adaptive Histogram Equalization) enhances local contrast under varying lighting without amplifying noise</li>
+          <li>Detection: Viola-Jones Haar Cascade for face, then eye detection restricted to face ROI — reduces search space and improves accuracy</li>
+          <li>Pose estimation: scale from Euclidean inter-pupillary distance; rotation via atan2 on eye center coordinates; position at eye midpoint</li>
+          <li>Color customization: BGR→HSV conversion, hue channel shift (mod 180), alpha channel preserved and restored after conversion</li>
+          <li>Temporal smoothing: EMA with α=0.2 on x, y, scale, and rotation — eliminates jitter without introducing lag</li>
+          <li>Per-pixel alpha blending for seamless compositing of glasses onto live video stream</li>
+        </ul>
+      </div>
       <div class="tech-breakdown">
         <h4>Technical Stack</h4>
         <div class="tech-row">
-          <span class="tech-item">Python</span>
-          <span class="tech-item">MySQL</span>
-          <span class="tech-item">mysql-connector-python</span>
-          <span class="tech-item">Relational DB Design</span>
-          <span class="tech-item">CLI</span>
+          <span class="tech-item">Python</span><span class="tech-item">OpenCV</span><span class="tech-item">Haar Cascade</span><span class="tech-item">HSV Color Space</span><span class="tech-item">EMA Filtering</span><span class="tech-item">Alpha Blending</span>
         </div>
       </div>
       <div style="margin-top:1.2rem;">
         <div class="project-tags">
-          <span class="tag blue">Python</span>
-          <span class="tag">MySQL</span><span class="tag">Database</span>
-          <span class="tag">CRUD</span><span class="tag">SQL</span>
+          <span class="tag blue">Computer Vision</span><span class="tag">OpenCV</span><span class="tag">Augmented Reality</span><span class="tag">Python</span><span class="tag">Face Detection</span><span class="tag">HSV</span><span class="tag">Real-Time</span>
         </div>
       </div>
-      <div class="project-actions">
-        <a href="#" class="btn btn-primary">Full Report (Coming Soon)</a>
-        <a href="#" class="btn-small">GitHub</a>
-      </div>
+      <div class="project-actions"><a href="#" class="btn btn-primary">Full Report (Coming Soon)</a><a href="#" class="btn-small">GitHub</a></div>
     </div>
   </div>
 
+  <!-- 04 Student Management -->
   <div class="project-entry reveal">
     <div class="project-num-big">04</div>
     <div class="project-content">
       <div class="project-meta">
-        <span class="tag blue">Automation</span>
-        <span class="tag">NGO Volunteering</span>
+        <span class="tag blue">Software Engineering</span>
+        <span class="tag">Python · MySQL</span>
       </div>
-      <h2 class="project-title-big">Volunteer Experience — Akshaya Patra Foundation</h2>
-      <p class="project-abstract">
-        Three weeks of volunteering at Akshaya Patra Foundation, one of India's largest NGOs running mid-day meal programs. Contributed to operations and gained perspective on large-scale logistics, data management, and social impact. This experience reinforced the value of applying engineering and analytical thinking to real-world humanitarian challenges.
-      </p>
-      <div style="margin-top:1.2rem;">
-        <div class="project-tags">
-          <span class="tag blue">NGO</span>
-          <span class="tag">Volunteering</span>
-          <span class="tag">Akshaya Patra</span>
-          <span class="tag">Social Impact</span>
+      <h2 class="project-title-big">Student Management System — Python &amp; MySQL</h2>
+      <p class="project-abstract">A full-featured student records management application built with Python and MySQL. The relational database schema is normalized to 3NF with separate tables for students, courses, enrollments, grades, and attendance. All queries use parameterized statements via mysql-connector-python to prevent SQL injection. Multi-step operations such as enrollment and grade assignment are wrapped in atomic transactions with rollback on failure. A menu-driven CLI supports search and filter by name, student ID, course, grade range, and attendance percentage, with CSV export for external reporting.</p>
+      <div class="highlights-box">
+        <h4>Technical Design</h4>
+        <ul>
+          <li>3NF-normalized schema — eliminates redundancy across students, courses, enrollments, grades, and attendance tables</li>
+          <li>All queries parameterized via mysql-connector-python — no string interpolation into SQL</li>
+          <li>Transaction management: multi-step operations wrapped in atomic transactions with rollback on failure</li>
+          <li>Search and filter by name, student ID, course, grade range, and attendance percentage</li>
+          <li>CSV export for integration with external reporting tools without requiring database access</li>
+        </ul>
+      </div>
+      <div class="tech-breakdown">
+        <h4>Technical Stack</h4>
+        <div class="tech-row">
+          <span class="tech-item">Python</span><span class="tech-item">MySQL</span><span class="tech-item">mysql-connector-python</span><span class="tech-item">Relational DB Design</span><span class="tech-item">CLI</span>
         </div>
       </div>
+      <div style="margin-top:1.2rem;">
+        <div class="project-tags">
+          <span class="tag blue">Python</span><span class="tag">MySQL</span><span class="tag">3NF Normalization</span><span class="tag">CRUD</span><span class="tag">SQL</span><span class="tag">Transactions</span>
+        </div>
+      </div>
+      <div class="project-actions"><a href="#" class="btn btn-primary">Full Report (Coming Soon)</a><a href="#" class="btn-small">GitHub</a></div>
+    </div>
+  </div>
+
+  <!-- 05 IPL Prediction -->
+  <div class="project-entry reveal">
+    <div class="project-num-big">05</div>
+    <div class="project-content">
+      <div class="project-meta">
+        <span class="tag blue">Machine Learning</span>
+        <span class="tag">1CS101 · Semester II · Apr 2024</span>
+        <span class="semester-badge">First ML Project</span>
+      </div>
+      <h2 class="project-title-big">IPL Match Winner Prediction using K-Nearest Neighbours</h2>
+      <p class="project-abstract">A classification model predicting IPL cricket match winners using historical match data — built as a first introduction to machine learning in Semester II. The dataset (636 matches, 6 columns from Kaggle) uses four features: Team 1, Team 2, Toss Winner, and Toss Decision. A KNN classifier with K=9 and Euclidean distance was implemented in Python after categorical encoding. The model achieved 57.81% accuracy — interpreted as reflecting cricket's inherent unpredictability rather than model failure, given only four input features and no player statistics, venue, or pitch condition data.</p>
+      <div class="highlights-box">
+        <h4>Results &amp; Observations</h4>
+        <ul>
+          <li>Overall accuracy: 57.81% on historical IPL data (636 matches)</li>
+          <li>Strong performers: Mumbai Indians (precision 0.64 / recall 0.74), Kolkata Knight Riders (0.65 / 0.73)</li>
+          <li>Per-team variance reflects sample size imbalance — Kochi Tuskers Kerala (few matches, perfect 1.0/1.0) vs Rising Pune Supergiant (0.0/0.0)</li>
+          <li>Feature limitation identified: toss outcome alone is a weak predictor; player form, venue, and pitch conditions would substantially improve accuracy</li>
+          <li>Toss Decision column had 21 null values — imputed with most frequent value ("field") as preprocessing step</li>
+        </ul>
+      </div>
+      <div class="tech-breakdown">
+        <h4>Technical Stack</h4>
+        <div class="tech-row">
+          <span class="tech-item">Python</span><span class="tech-item">scikit-learn</span><span class="tech-item">KNN (K=9)</span><span class="tech-item">Pandas</span><span class="tech-item">Label Encoding</span><span class="tech-item">Kaggle Dataset</span>
+        </div>
+      </div>
+      <div style="margin-top:1.2rem;">
+        <div class="project-tags">
+          <span class="tag blue">Machine Learning</span><span class="tag">KNN</span><span class="tag">Classification</span><span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">Sports Analytics</span>
+        </div>
+      </div>
+      <div class="project-actions"><a href="#" class="btn btn-primary">Full Report (Coming Soon)</a><a href="#" class="btn-small">GitHub</a></div>
     </div>
   </div>
 
@@ -232,7 +261,7 @@
 <footer>
   <span>© 2025 Kush Mehta</span>
   <a href="index.html">← Back to Portfolio</a>
-  <a href="mailto:379kushmehta@gmail.com">379kushmehta@gmail.com</a>
+  <a href="mailto:kush@example.com">kush@example.com</a>
 </footer>
 
 <script>
@@ -240,12 +269,12 @@
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+        setTimeout(() => { entry.target.style.opacity = '1'; entry.target.style.transform = 'translateY(0)'; }, i * 80);
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1 });
-  reveals.forEach(el => observer.observe(el));
+  }, { threshold: 0.08 });
+  reveals.forEach(el => { el.style.opacity = '0'; el.style.transform = 'translateY(24px)'; el.style.transition = 'opacity 0.6s ease, transform 0.6s ease'; observer.observe(el); });
 </script>
 </body>
 </html>

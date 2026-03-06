@@ -7,282 +7,307 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
   <style>
-    .page-hero {
-      padding: 10rem 4rem 5rem;
-      background: #0D1117;
-      color: var(--bg);
-      position: relative; overflow: hidden;
-    }
-    .page-hero::before {
-      content: '🔐';
-      position: absolute; right: 4rem; top: 50%;
-      transform: translateY(-50%);
-      font-size: 16rem; opacity: 0.05; line-height: 1;
-    }
-    .back-link {
-      font-family: 'DM Mono', monospace; font-size: 0.72rem;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: rgba(247,245,240,0.4); text-decoration: none;
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      margin-bottom: 2rem; transition: color 0.2s;
-    }
+    .page-hero { padding: 10rem 4rem 5rem; background: #0D1117; color: var(--bg); position: relative; overflow: hidden; }
+    .page-hero::before { content: '🔐'; position: absolute; right: 4rem; top: 50%; transform: translateY(-50%); font-size: 16rem; opacity: 0.05; line-height: 1; }
+    .back-link { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(247,245,240,0.4); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; transition: color 0.2s; }
     .back-link:hover { color: var(--accent); }
-    .page-label {
-      font-family: 'DM Mono', monospace; font-size: 0.72rem;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 0.8rem;
-    }
-    .page-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.5rem;
-    }
+    .page-label { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; }
+    .page-title { font-family: 'DM Serif Display', serif; font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
     .page-title em { font-style: italic; color: var(--accent); }
     .page-intro { font-size: 1.05rem; color: rgba(247,245,240,0.65); max-width: 600px; line-height: 1.8; }
     .projects-list { padding: 5rem 4rem; }
-    .project-entry {
-      display: grid; grid-template-columns: auto 1fr;
-      gap: 3rem; padding: 3rem 0;
-      border-bottom: 1px solid var(--border);
-    }
+    .project-entry { display: grid; grid-template-columns: auto 1fr; gap: 3rem; padding: 3.5rem 0; border-bottom: 1px solid var(--border); }
     .project-entry:last-child { border-bottom: none; }
-    .project-num-big {
-      font-family: 'DM Serif Display', serif;
-      font-size: 4rem; color: var(--border);
-      line-height: 1; padding-top: 0.2rem;
-      width: 80px; text-align: right;
-    }
+    .project-num-big { font-family: 'DM Serif Display', serif; font-size: 4rem; color: var(--border); line-height: 1; padding-top: 0.2rem; width: 80px; text-align: right; flex-shrink: 0; }
     .project-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.8rem; flex-wrap: wrap; }
     .project-title-big { font-family: 'DM Serif Display', serif; font-size: 1.8rem; line-height: 1.2; margin-bottom: 1rem; }
-    .project-abstract { font-size: 0.95rem; color: var(--muted); line-height: 1.8; margin-bottom: 1.5rem; max-width: 700px; }
+    .project-abstract { font-size: 0.95rem; color: var(--muted); line-height: 1.8; margin-bottom: 1.5rem; max-width: 720px; }
     .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
     .project-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .tech-breakdown {
-      background: #0D1117; color: var(--bg);
-      padding: 1.5rem; margin-top: 1.2rem; max-width: 700px;
-    }
-    .tech-breakdown h4 {
-      font-family: 'DM Mono', monospace; font-size: 0.68rem;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 1rem;
-    }
+    .tech-breakdown { background: #0D1117; color: var(--bg); padding: 1.5rem; margin-top: 1.2rem; max-width: 720px; }
+    .tech-breakdown h4 { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
     .tech-row { display: flex; gap: 1.5rem; flex-wrap: wrap; }
     .tech-item { font-family: 'DM Mono', monospace; font-size: 0.8rem; color: rgba(247,245,240,0.7); }
     .tech-item::before { content: '> '; color: var(--accent); }
-
+    .bench-table { width: 100%; max-width: 720px; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.88rem; }
+    .bench-table thead tr { background: #0D1117; color: var(--bg); }
+    .bench-table thead th { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.8rem 1rem; text-align: left; font-weight: 400; }
+    .bench-table tbody tr { border-bottom: 1px solid var(--border); }
+    .bench-table tbody tr:last-child { border-bottom: none; }
+    .bench-table tbody td { padding: 0.75rem 1rem; color: var(--muted); }
+    .bench-table tbody td:first-child { color: var(--ink); font-weight: 500; }
+    .bench-table .winner { color: var(--accent); font-weight: 600; }
+    .bench-table .badge { display: inline-block; font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.15rem 0.5rem; border: 1px solid currentColor; margin-left: 0.4rem; vertical-align: middle; }
+    .bench-table .badge.best { color: var(--accent); border-color: var(--accent); }
+    .bench-table .badge.legacy { color: #999; border-color: #ccc; }
+    .highlights-box { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--accent); padding: 1.5rem 1.8rem; margin: 1.2rem 0; max-width: 720px; }
+    .highlights-box h4 { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+    .highlights-box ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+    .highlights-box ul li { font-size: 0.9rem; color: var(--muted); line-height: 1.6; padding-left: 1.2rem; position: relative; }
+    .highlights-box ul li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.8rem; }
+    .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--border); margin: 1.5rem 0; max-width: 720px; }
+    .result-cell { padding: 1rem 1.2rem; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .result-cell:nth-child(3n) { border-right: none; }
+    .result-cell:nth-last-child(-n+3) { border-bottom: none; }
+    .result-label { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.3rem; }
+    .result-value { font-size: 0.92rem; font-weight: 500; color: var(--ink); }
+    .result-value.accent { color: var(--accent); }
     @media (max-width: 900px) {
       .page-hero { padding: 8rem 1.5rem 3rem; }
       .projects-list { padding: 3rem 1.5rem; }
       .project-entry { grid-template-columns: 1fr; gap: 1rem; }
       .project-num-big { font-size: 2rem; width: auto; text-align: left; }
+      .results-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
 <body>
-
 <nav>
   <a href="index.html" class="nav-logo">Kush Mehta</a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="projects-aerial.html">Aerial Robotics</a></li>
-    <li><a href="projects-embedded.html" class="active">Embedded & Security</a></li>
+    <li><a href="projects-embedded.html" class="active">Embedded &amp; Security</a></li>
     <li><a href="projects-data.html">Data Science</a></li>
   </ul>
 </nav>
 
 <div class="page-hero">
   <a href="index.html" class="back-link">← Back to Home</a>
-  <p class="page-label">Domain — Embedded Systems & Security</p>
+  <p class="page-label">Domain — Embedded Systems &amp; Security</p>
   <h1 class="page-title">Hardware meets<br/><em>cryptography.</em></h1>
-  <p class="page-intro">From FPGA digital design to lightweight encryption on microcontrollers — projects at the intersection of hardware architecture and security engineering.</p>
+  <p class="page-intro">From FPGA digital design to lightweight encryption on microcontrollers — projects at the intersection of hardware architecture, security engineering, and IoT systems.</p>
 </div>
 
 <div class="projects-list">
 
+  <!-- 01 Crypto Simulation -->
   <div class="project-entry reveal">
     <div class="project-num-big">01</div>
     <div class="project-content">
       <div class="project-meta">
         <span class="tag accent">Research</span>
         <span class="tag">Cryptography</span>
+        <span class="tag">B.Tech ECE · Nirma University</span>
       </div>
-      <h2 class="project-title-big">Simulation & Comparison of Cryptography Techniques for Lightweight Systems</h2>
-      <p class="project-abstract">
-        A comparative simulation study of four cryptographic algorithms — AES, DES, ECC, and ASCON — evaluated for suitability in lightweight embedded systems. The study benchmarks each algorithm across key metrics: encryption/decryption speed, key size, memory footprint, and energy consumption on resource-constrained hardware profiles. ASCON, the NIST-selected lightweight cryptography standard, is evaluated against traditional algorithms to quantify its advantages for IoT and embedded use cases. Simulation conducted using Python with custom benchmarking scripts.
-      </p>
+      <h2 class="project-title-big">Simulation &amp; Comparison of Cryptography Algorithms for Lightweight Embedded Systems</h2>
+      <p class="project-abstract">A comparative simulation study of four cryptographic algorithms — DES, AES-GCM, ASCON, and ECC — evaluated for suitability in resource-constrained embedded systems. Each algorithm was benchmarked across total execution time and per-operation latency on identical hardware. ASCON, the NIST-selected lightweight cryptography standard, demonstrated a 78× speed advantage over AES-GCM and a 12× advantage over DES — directly validating its design intent for IoT edge devices. ECC was evaluated separately as an asymmetric key exchange primitive.</p>
+
+      <table class="bench-table">
+        <thead>
+          <tr><th>Algorithm</th><th>Total Time (1000 ops)</th><th>Per-Op Latency</th><th>Category</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>DES</td><td>0.19853 s</td><td>0.0397 ms</td><td><span class="badge legacy">Legacy</span></td></tr>
+          <tr><td>AES-GCM</td><td>1.24794 s</td><td>0.2496 ms</td><td><span class="badge legacy">Standard</span></td></tr>
+          <tr><td class="winner">ASCON (C impl.)</td><td class="winner">0.01611 s</td><td class="winner">0.0032 ms <span class="badge best">78× faster than AES</span></td><td><span class="badge best">Lightweight</span></td></tr>
+          <tr><td>ECC Handshake</td><td>0.00845 s</td><td>N/A</td><td><span class="badge best">Key Exchange</span></td></tr>
+        </tbody>
+      </table>
+
+      <div class="highlights-box">
+        <h4>Key Findings</h4>
+        <ul>
+          <li>ASCON achieved 0.0032 ms per operation — 78× faster than AES-GCM and 12× faster than DES</li>
+          <li>AES-GCM's authenticated encryption overhead is the dominant cost on constrained hardware, making it unsuitable for high-frequency IoT sensor data</li>
+          <li>ECC provides efficient asymmetric key exchange at 8.45 ms per handshake — viable for session establishment but not per-message encryption</li>
+          <li>Results directly motivated the follow-up ESP32 hardware implementation to validate simulation findings on real constrained hardware</li>
+        </ul>
+      </div>
       <div class="tech-breakdown">
         <h4>Technical Stack</h4>
         <div class="tech-row">
-          <span class="tech-item">Python</span>
-          <span class="tech-item">PyCryptodome</span>
-          <span class="tech-item">AES-128/256</span>
-          <span class="tech-item">DES/3DES</span>
-          <span class="tech-item">ECC</span>
-          <span class="tech-item">ASCON</span>
-          <span class="tech-item">Matplotlib</span>
+          <span class="tech-item">Python</span><span class="tech-item">PyCryptodome</span><span class="tech-item">ASCON (C ref impl.)</span><span class="tech-item">AES-GCM / DES</span><span class="tech-item">ECC</span><span class="tech-item">Matplotlib</span>
         </div>
       </div>
       <div style="margin-top:1.2rem;">
         <div class="project-tags">
-          <span class="tag accent">Cryptography</span>
-          <span class="tag">AES</span><span class="tag">ASCON</span>
-          <span class="tag">ECC</span><span class="tag">Python</span>
-          <span class="tag">Lightweight Security</span>
+          <span class="tag accent">Cryptography</span><span class="tag">ASCON</span><span class="tag">AES</span><span class="tag">ECC</span><span class="tag">Python</span><span class="tag">NIST Lightweight</span><span class="tag">Benchmarking</span>
         </div>
       </div>
-      <div class="project-actions">
-        <a href="#" class="btn btn-primary">Full Report (Coming Soon)</a>
-        <a href="#" class="btn-small">GitHub</a>
-      </div>
+      <div class="project-actions"><a href="#" class="btn btn-primary">Full Report (Coming Soon)</a><a href="#" class="btn-small">GitHub</a></div>
     </div>
   </div>
 
+  <!-- 02 ESP32 MQTT -->
   <div class="project-entry reveal">
     <div class="project-num-big">02</div>
     <div class="project-content">
       <div class="project-meta">
-        <span class="tag accent">IoT · Security</span>
-        <span class="tag">ESP32</span>
+        <span class="tag accent">IoT · Security</span><span class="tag">ESP32</span>
       </div>
-      <h2 class="project-title-big">AES & ASCON Implementation on ESP32 via MQTT with Python Decryption</h2>
-      <p class="project-abstract">
-        End-to-end implementation of AES and ASCON encryption on an ESP32 microcontroller, transmitting encrypted payloads over MQTT to a broker, with a Python-based subscriber performing decryption on the host machine. Demonstrates a practical IoT security pipeline — from sensor data encryption at the edge to secure cloud delivery. The project validates the feasibility of ASCON on constrained hardware and benchmarks its performance against AES in a real communication scenario.
-      </p>
+      <h2 class="project-title-big">AES &amp; ASCON Encryption on ESP32 over MQTT with Python Decryption</h2>
+      <p class="project-abstract">End-to-end hardware implementation validating the simulation findings from Project 01. AES and ASCON encryption were implemented on an ESP32 microcontroller, transmitting encrypted payloads over MQTT to a Mosquitto broker, with a Python subscriber performing decryption on the host. The ESP32 was chosen deliberately because it includes AES hardware acceleration — giving AES its best possible advantage over software-only ASCON on constrained hardware. ASCON's advantage on the Xtensa LX6 core was measured and validated against simulation predictions, demonstrating practical feasibility in a real IoT security pipeline.</p>
+      <div class="highlights-box">
+        <h4>Key Engineering Decisions</h4>
+        <ul>
+          <li>ESP32 selected specifically for its AES hardware accelerator — ensures AES competes at its strongest against ASCON</li>
+          <li>MQTT pub-sub transport matches real IoT deployment patterns; Mosquitto broker deployed locally to isolate encryption latency from network latency</li>
+          <li>Python subscriber decrypts both ciphers and measures end-to-end round-trip latency for direct comparison</li>
+          <li>Demonstrates full IoT security pipeline: edge encryption → secure transport → cloud decryption</li>
+        </ul>
+      </div>
       <div class="tech-breakdown">
         <h4>Technical Stack</h4>
         <div class="tech-row">
-          <span class="tech-item">ESP32</span>
-          <span class="tech-item">Arduino IDE</span>
-          <span class="tech-item">MQTT</span>
-          <span class="tech-item">Mosquitto Broker</span>
-          <span class="tech-item">Python</span>
-          <span class="tech-item">Paho MQTT</span>
-          <span class="tech-item">AES / ASCON</span>
+          <span class="tech-item">ESP32</span><span class="tech-item">Arduino IDE / C++</span><span class="tech-item">MQTT</span><span class="tech-item">Mosquitto Broker</span><span class="tech-item">Python</span><span class="tech-item">Paho MQTT</span><span class="tech-item">AES / ASCON</span>
         </div>
       </div>
       <div style="margin-top:1.2rem;">
         <div class="project-tags">
-          <span class="tag accent">IoT</span>
-          <span class="tag">ESP32</span><span class="tag">MQTT</span>
-          <span class="tag">Python</span><span class="tag">AES</span>
-          <span class="tag">ASCON</span><span class="tag">Embedded C</span>
+          <span class="tag accent">IoT</span><span class="tag">ESP32</span><span class="tag">MQTT</span><span class="tag">ASCON</span><span class="tag">AES</span><span class="tag">Embedded C++</span><span class="tag">Edge Security</span>
         </div>
       </div>
-      <div class="project-actions">
-        <a href="#" class="btn btn-primary">Full Report (Coming Soon)</a>
-        <a href="#" class="btn-small">GitHub</a>
-      </div>
+      <div class="project-actions"><a href="#" class="btn btn-primary">Full Report (Coming Soon)</a><a href="#" class="btn-small">GitHub</a></div>
     </div>
   </div>
 
+  <!-- 03 gem5 -->
   <div class="project-entry reveal">
     <div class="project-num-big">03</div>
     <div class="project-content">
       <div class="project-meta">
-        <span class="tag accent">Computer Architecture</span>
-        <span class="tag">gem5</span>
+        <span class="tag accent">Computer Architecture</span><span class="tag">gem5</span><span class="tag">3EC503CC24 · Nirma University · 2026</span>
       </div>
-      <h2 class="project-title-big">Cache Analysis of Matrix Multiplication & AES Encryption Benchmarks using gem5</h2>
-      <p class="project-abstract">
-        Architectural simulation and cache performance analysis using the gem5 simulator. Two workloads were benchmarked: a matrix multiplication routine (compute-bound) and AES encryption (memory-access-intensive). Analysis covers L1/L2 cache hit rates, miss penalties, memory bandwidth utilization, and the effect of cache size and associativity on performance. Results provide insight into how cryptographic workloads behave differently from standard compute benchmarks at the microarchitecture level.
-      </p>
+      <h2 class="project-title-big">L1 Cache Sensitivity Analysis: Matrix Multiplication vs AES Encryption using gem5</h2>
+      <p class="project-abstract">Microarchitectural simulation study using gem5 v25.1 on an X86 TimingSimpleCPU, comparing cache sensitivity across two fundamentally different workloads: a 100×100 matrix multiplication (~40kB working set, memory-intensive) and an AES SubBytes encryption benchmark (150kB payload, non-linear S-Box lookups). Three experiments were conducted — varying cache capacity (4kB→64kB) on each workload, and varying associativity (1-way→8-way) at fixed 16kB. The key finding is that cache optimization is strictly workload-dependent: matrix multiplication responds dramatically to both capacity and associativity, while AES is almost entirely insensitive to cache scaling.</p>
+
+      <div class="results-grid">
+        <div class="result-cell"><div class="result-label">Matrix Miss Rate (4kB)</div><div class="result-value">5.06%</div></div>
+        <div class="result-cell"><div class="result-label">Matrix Miss Rate (64kB)</div><div class="result-value accent">0.04%</div></div>
+        <div class="result-cell"><div class="result-label">Matrix IPC Improvement</div><div class="result-value accent">0.277 → 0.310</div></div>
+        <div class="result-cell"><div class="result-label">AES Miss Rate (4kB)</div><div class="result-value">0.14%</div></div>
+        <div class="result-cell"><div class="result-label">AES Miss Rate (64kB)</div><div class="result-value">0.14% (flat)</div></div>
+        <div class="result-cell"><div class="result-label">AES Cache Sensitivity</div><div class="result-value">None — bottleneck elsewhere</div></div>
+        <div class="result-cell"><div class="result-label">Assoc. Miss Rate (1-Way)</div><div class="result-value">4.74%</div></div>
+        <div class="result-cell"><div class="result-label">Assoc. Miss Rate (8-Way)</div><div class="result-value accent">0.34%</div></div>
+        <div class="result-cell"><div class="result-label">IPC Gain (1→8 Way)</div><div class="result-value accent">+10.4%</div></div>
+      </div>
+
+      <div class="highlights-box">
+        <h4>Key Conclusions</h4>
+        <ul>
+          <li>Matrix multiplication is highly cache-sensitive: miss rate drops 99% (5.06%→0.04%) as cache grows large enough to hold the ~40kB working set</li>
+          <li>AES SubBytes is cache-insensitive: the 256-byte S-Box fits even in a 4kB cache, so the bottleneck lies in instruction execution, not memory capacity</li>
+          <li>At constrained 16kB, conflict misses dominate matrix multiply — 8-Way associativity reduces miss rate from 4.74% to 0.34% and improves IPC by 10.4%</li>
+          <li>Practical recommendation for UAV flight controllers and IoT edge nodes: use highly-associative but modestly-sized caches — 8-Way at 16kB outperforms direct-mapped at the same size while avoiding the area and power cost of larger caches</li>
+        </ul>
+      </div>
       <div class="tech-breakdown">
         <h4>Technical Stack</h4>
         <div class="tech-row">
-          <span class="tech-item">gem5 Simulator</span>
-          <span class="tech-item">C / C++</span>
-          <span class="tech-item">Assembly</span>
-          <span class="tech-item">Linux</span>
-          <span class="tech-item">Python (gem5 config)</span>
-          <span class="tech-item">x86 ISA</span>
+          <span class="tech-item">gem5 v25.1</span><span class="tech-item">X86 TimingSimpleCPU</span><span class="tech-item">C / C++</span><span class="tech-item">Python (gem5 config)</span><span class="tech-item">Linux</span>
         </div>
       </div>
       <div style="margin-top:1.2rem;">
         <div class="project-tags">
-          <span class="tag accent">Architecture</span>
-          <span class="tag">gem5</span><span class="tag">Cache Analysis</span>
-          <span class="tag">Assembly</span><span class="tag">C</span>
-          <span class="tag">AES</span>
+          <span class="tag accent">Computer Architecture</span><span class="tag">gem5</span><span class="tag">Cache Analysis</span><span class="tag">AES</span><span class="tag">IPC</span><span class="tag">Microarchitecture</span><span class="tag">Cache Associativity</span>
         </div>
       </div>
-      <div class="project-actions">
-        <a href="#" class="btn btn-primary">Full Report (Coming Soon)</a>
-        <a href="#" class="btn-small">GitHub</a>
-      </div>
+      <div class="project-actions"><a href="#" class="btn btn-primary">Full Report (Coming Soon)</a><a href="#" class="btn-small">GitHub</a></div>
     </div>
   </div>
 
+  <!-- 04 FPGA -->
   <div class="project-entry reveal">
     <div class="project-num-big">04</div>
     <div class="project-content">
       <div class="project-meta">
-        <span class="tag accent">FPGA</span>
-        <span class="tag">Digital Design</span>
+        <span class="tag accent">FPGA</span><span class="tag">Digital Design</span><span class="tag">2EC202 · Nirma University</span>
       </div>
-      <h2 class="project-title-big">FPGA Projects — Fastest Finger First Game & Wallace Tree Multiplier</h2>
-      <p class="project-abstract">
-        Two digital design projects implemented on FPGA using Verilog HDL. The Fastest Finger First (FFF) game detects the first button press among multiple players with microsecond precision, using finite state machines and debounce logic. The Wallace Tree Multiplier implements a high-speed parallel multiplier architecture using carry-save adders for reduced propagation delay compared to standard array multipliers — demonstrating understanding of combinational optimization and hardware arithmetic.
-      </p>
+      <h2 class="project-title-big">FPGA Digital Design — Wallace Tree Multiplier &amp; Fastest Finger First Game</h2>
+      <p class="project-abstract">Two digital design projects implemented on FPGA using Verilog HDL. The Wallace Tree Multiplier implements an 8×8 bit parallel multiplier producing a 16-bit output, reducing partial product addition to O(log n) stages using carry-save adder trees — significantly lower propagation delay than conventional O(n) array multipliers. The Fastest Finger First (FFF) buzzer system detects the first button press among multiple players with microsecond precision using finite state machines and hardware debounce logic. Both designs were fully verified with ModelSim testbenches before FPGA synthesis and timing closure in Quartus Prime.</p>
+      <div class="highlights-box">
+        <h4>Design Details</h4>
+        <ul>
+          <li>Wallace Tree: three-stage pipeline — partial product generation (AND gates), tree reduction (HA/FA carry-save adders), final carry-propagate addition</li>
+          <li>8×8 implementation produces all 64 partial products then reduces column-by-column; result[7] alone requires six full adders and one half adder in sequence</li>
+          <li>Simulation confirmed correct output in ModelSim (e.g., 10 × 11 = 110 decimal validated in waveform); RTL and TTL synthesis views confirmed tree structure</li>
+          <li>FFF game: FSM-based priority encoder with hardware debounce — first-press latency bounded by clock period, not software polling loop</li>
+          <li>Timing closure achieved post place-and-route in Quartus Prime — no setup/hold violations</li>
+        </ul>
+      </div>
       <div class="tech-breakdown">
         <h4>Technical Stack</h4>
         <div class="tech-row">
-          <span class="tech-item">Verilog HDL</span>
-          <span class="tech-item">Quartus Prime</span>
-          <span class="tech-item">ModelSim</span>
-          <span class="tech-item">FPGA (Cyclone)</span>
-          <span class="tech-item">FSM Design</span>
-          <span class="tech-item">Testbenches</span>
+          <span class="tech-item">Verilog HDL</span><span class="tech-item">Quartus Prime</span><span class="tech-item">ModelSim</span><span class="tech-item">FPGA (Cyclone)</span><span class="tech-item">FSM Design</span><span class="tech-item">Testbenches</span>
         </div>
       </div>
       <div style="margin-top:1.2rem;">
         <div class="project-tags">
-          <span class="tag accent">FPGA</span>
-          <span class="tag">Verilog HDL</span><span class="tag">Quartus</span>
-          <span class="tag">ModelSim</span><span class="tag">Digital Design</span>
-          <span class="tag">FSM</span>
+          <span class="tag accent">FPGA</span><span class="tag">Verilog HDL</span><span class="tag">Wallace Tree</span><span class="tag">Quartus Prime</span><span class="tag">ModelSim</span><span class="tag">FSM</span><span class="tag">Hardware Arithmetic</span>
         </div>
       </div>
-      <div class="project-actions">
-        <a href="#" class="btn btn-primary">Full Report (Coming Soon)</a>
-        <a href="#" class="btn-small">GitHub</a>
-      </div>
+      <div class="project-actions"><a href="#" class="btn btn-primary">Full Report (Coming Soon)</a><a href="#" class="btn-small">GitHub</a></div>
     </div>
   </div>
 
+  <!-- 05 Log Analytics -->
   <div class="project-entry reveal">
     <div class="project-num-big">05</div>
     <div class="project-content">
       <div class="project-meta">
-        <span class="tag accent">DevOps · Scripting</span>
-        <span class="tag">Linux</span>
+        <span class="tag accent">DevOps · Scripting</span><span class="tag">Linux</span><span class="tag">3EC504ME24 · Nirma University · 2026</span>
       </div>
-      <h2 class="project-title-big">Log Analytics & Alert Mail System Automation</h2>
-      <p class="project-abstract">
-        Automated system monitoring and alerting pipeline built with Bash and Python on Ubuntu. The system parses system and application logs, detects anomalies and critical events using pattern matching and threshold rules, and triggers automated email alerts to administrators. Designed for reliability in headless server environments, with cron-based scheduling and modular script architecture for easy extension to new log sources.
-      </p>
+      <h2 class="project-title-big">Log Analytics and Anomaly Detection Tool</h2>
+      <p class="project-abstract">A hybrid two-module system monitoring pipeline built with Bash and Python on Ubuntu. The Bash module (collector.sh) interfaces directly with Linux kernel utilities (top, free, df) via command substitution and pipelines, extracting CPU, memory, disk, and failed login metrics into a timestamped CSV — scheduled via cron for fully automated collection. The Python module (detector.py) parses the CSV with pandas, computes a statistical baseline (µ and σ) from historical data, and raises anomaly alerts when readings breach the dynamic µ+2σ threshold — dispatching automated email alerts via smtplib. Validated by CPU stress-testing with background loop processes that successfully triggered the threshold breach and alert pipeline.</p>
+      <div class="highlights-box">
+        <h4>System Design</h4>
+        <ul>
+          <li>Two-module architecture: Bash handles kernel-level data extraction; Python handles statistical analysis and alerting — each language used for its strengths</li>
+          <li>Dynamic µ+2σ threshold computed from historical baseline — adapts to the system's normal operating conditions rather than using fixed thresholds</li>
+          <li>Metrics collected: CPU usage (via top pipeline), memory (free), disk utilisation (df), and failed SSH login attempts</li>
+          <li>Validated under stress test: background yes &gt; /dev/null loop processes successfully breached threshold and triggered email alert</li>
+          <li>Known limitation: cold start problem — µ+2σ becomes accurate only after sufficient baseline data is collected; early runs may yield false positives</li>
+        </ul>
+      </div>
       <div class="tech-breakdown">
         <h4>Technical Stack</h4>
         <div class="tech-row">
-          <span class="tech-item">Bash</span>
-          <span class="tech-item">Python</span>
-          <span class="tech-item">Cron</span>
-          <span class="tech-item">Ubuntu</span>
-          <span class="tech-item">SMTP / smtplib</span>
-          <span class="tech-item">Regex</span>
+          <span class="tech-item">Bash</span><span class="tech-item">Python</span><span class="tech-item">pandas</span><span class="tech-item">Cron</span><span class="tech-item">Ubuntu</span><span class="tech-item">SMTP / smtplib</span><span class="tech-item">grep / awk / sed</span>
         </div>
       </div>
       <div style="margin-top:1.2rem;">
         <div class="project-tags">
-          <span class="tag accent">DevOps</span>
-          <span class="tag">Bash</span><span class="tag">Python</span>
-          <span class="tag">Ubuntu</span><span class="tag">Automation</span>
-          <span class="tag">Linux</span>
+          <span class="tag accent">DevOps</span><span class="tag">Bash</span><span class="tag">Python</span><span class="tag">Linux</span><span class="tag">Anomaly Detection</span><span class="tag">Statistical Thresholding</span><span class="tag">Automation</span>
         </div>
       </div>
-      <div class="project-actions">
-        <a href="#" class="btn btn-primary">Full Report (Coming Soon)</a>
-        <a href="#" class="btn-small">GitHub</a>
+      <div class="project-actions"><a href="#" class="btn btn-primary">Full Report (Coming Soon)</a><a href="#" class="btn-small">GitHub</a></div>
+    </div>
+  </div>
+
+  <!-- 06 IoT Digital Communications -->
+  <div class="project-entry reveal">
+    <div class="project-num-big">06</div>
+    <div class="project-content">
+      <div class="project-meta">
+        <span class="tag accent">Review Paper</span><span class="tag">IoT · Communications</span><span class="tag">B.Tech ECE · Nirma University</span>
       </div>
+      <h2 class="project-title-big">Applications of Digital Communication in IoT — Survey &amp; Smart Agriculture Case Study</h2>
+      <p class="project-abstract">A technical survey paper covering digital communication technologies, protocols, and signal processing principles as applied to IoT systems, with a detailed smart agriculture end-to-end case study. The paper classifies IoT wireless technologies into three tiers — short-range (BLE, Zigbee, Wi-Fi), medium-range (LTE, 5G), and long-range LPWANs (LoRaWAN, Sigfox) — and analyses each as a deliberate trade-off among the IoT design triangle of range, data rate, and battery life. Communication fundamentals covered include Shannon-Hartley capacity, CSS and GFSK modulation, FEC coding, DSSS/FHSS spread spectrum, and ALOHA vs CSMA/CA channel access for dense IoT deployments.</p>
+      <div class="highlights-box">
+        <h4>Key Technical Content</h4>
+        <ul>
+          <li>LoRaWAN with Chirp Spread Spectrum (CSS) identified as dominant choice for remote field sensors — CSS decodes signals even at negative SNR</li>
+          <li>Non-Terrestrial Networks (NTN): satellite backhaul and UAV drones as mobile data collectors bridge connectivity gaps in areas without terrestrial coverage</li>
+          <li>Three-tier data processing hierarchy: edge devices (real-time actuation) → fog gateways (local filtering) → cloud (long-term predictive analytics)</li>
+          <li>MQTT highlighted as preferred application-layer transport for its lightweight pub-sub footprint — connects directly to ESP32 MQTT project</li>
+          <li>Future trends: RF energy harvesting targeting 15–20 year sensor lifetimes, Reconfigurable Intelligent Surfaces (RIS) for terrain-blocked rural deployments</li>
+          <li>Security analysis across perception, network, and application layers — DoS, eavesdropping, and data injection attack vectors</li>
+        </ul>
+      </div>
+      <div class="tech-breakdown">
+        <h4>Technologies Surveyed</h4>
+        <div class="tech-row">
+          <span class="tech-item">LoRaWAN / CSS</span><span class="tech-item">BLE / Zigbee</span><span class="tech-item">5G / NOMA</span><span class="tech-item">MQTT</span><span class="tech-item">Shannon-Hartley</span><span class="tech-item">FEC</span><span class="tech-item">NTN / UAV Relay</span>
+        </div>
+      </div>
+      <div style="margin-top:1.2rem;">
+        <div class="project-tags">
+          <span class="tag accent">IoT</span><span class="tag">LoRaWAN</span><span class="tag">5G</span><span class="tag">MQTT</span><span class="tag">Smart Agriculture</span><span class="tag">UAV Relay</span><span class="tag">Digital Communications</span><span class="tag">LPWAN</span>
+        </div>
+      </div>
+      <div class="project-actions"><a href="#" class="btn btn-primary">Full Paper (Coming Soon)</a></div>
     </div>
   </div>
 
@@ -291,7 +316,7 @@
 <footer>
   <span>© 2025 Kush Mehta</span>
   <a href="index.html">← Back to Portfolio</a>
-  <a href="mailto:379kushmehta@gmail.com">379kushmehta@gmail.com</a>
+  <a href="mailto:kush@example.com">kush@example.com</a>
 </footer>
 
 <script>
@@ -299,12 +324,12 @@
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+        setTimeout(() => { entry.target.style.opacity = '1'; entry.target.style.transform = 'translateY(0)'; }, i * 80);
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1 });
-  reveals.forEach(el => observer.observe(el));
+  }, { threshold: 0.08 });
+  reveals.forEach(el => { el.style.opacity = '0'; el.style.transform = 'translateY(24px)'; el.style.transition = 'opacity 0.6s ease, transform 0.6s ease'; observer.observe(el); });
 </script>
 </body>
 </html>
