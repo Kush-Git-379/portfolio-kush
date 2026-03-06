@@ -107,7 +107,7 @@
           <span class="tag blue">Python</span><span class="tag">OOP</span><span class="tag">Finance</span><span class="tag">Pandas</span><span class="tag">Data Visualization</span><span class="tag">Portfolio Analysis</span>
         </div>
       </div>
-      <div class="project-actions"><a href="#" class="btn btn-primary">Full Report (Coming Soon)</a><a href="#" class="btn-small">GitHub</a></div>
+      <div class="project-actions"><a href="#" class="btn btn-primary">Full Report (Coming Soon)</a><a href="https://github.com/Kush-Git-379/investment-portfolio-analyzer" target="_blank" class="btn-small">GitHub</a></div>
     </div>
   </div>
 
@@ -181,7 +181,7 @@
           <span class="tag blue">Computer Vision</span><span class="tag">OpenCV</span><span class="tag">Augmented Reality</span><span class="tag">Python</span><span class="tag">Face Detection</span><span class="tag">HSV</span><span class="tag">Real-Time</span>
         </div>
       </div>
-      <div class="project-actions"><a href="#" class="btn btn-primary">Full Report (Coming Soon)</a><a href="#" class="btn-small">GitHub</a></div>
+      <div class="project-actions"><a href="#" class="btn btn-primary">Full Report (Coming Soon)</a><a href="https://github.com/Kush-Git-379/virtual-tryon-sunglasses" target="_blank" class="btn-small">GitHub</a></div>
     </div>
   </div>
 
@@ -193,30 +193,30 @@
         <span class="tag blue">Software Engineering</span>
         <span class="tag">Python · MySQL</span>
       </div>
-      <h2 class="project-title-big">Student Management System — Python &amp; MySQL</h2>
-      <p class="project-abstract">A full-featured student records management application built with Python and MySQL. The relational database schema is normalized to 3NF with separate tables for students, courses, enrollments, grades, and attendance. All queries use parameterized statements via mysql-connector-python to prevent SQL injection. Multi-step operations such as enrollment and grade assignment are wrapped in atomic transactions with rollback on failure. A menu-driven CLI supports search and filter by name, student ID, course, grade range, and attendance percentage, with CSV export for external reporting.</p>
+      <h2 class="project-title-big">Student Information System — Python &amp; CSV</h2>
+      <p class="project-abstract">A feature-complete CLI-based student records management system built in Python. Student data is stored in CSV files and all CRUD operations — add, view, search, update, and delete — are supported with field-level input validation for name, class, roll number, DOB, gender, and phone number. The terminal UI uses colour-coded output via termcolor and formatted table display via PrettyTable, with automatic duplicate header removal during CSV write operations.</p>
       <div class="highlights-box">
         <h4>Technical Design</h4>
         <ul>
-          <li>3NF-normalized schema — eliminates redundancy across students, courses, enrollments, grades, and attendance tables</li>
-          <li>All queries parameterized via mysql-connector-python — no string interpolation into SQL</li>
-          <li>Transaction management: multi-step operations wrapped in atomic transactions with rollback on failure</li>
-          <li>Search and filter by name, student ID, course, grade range, and attendance percentage</li>
-          <li>CSV export for integration with external reporting tools without requiring database access</li>
+          <li>Full CRUD via CSV — append on add, full rewrite on update/delete to maintain data integrity</li>
+          <li>Field-level validation: name (letters only), class (1–12), roll number (numeric), DOB (DD/MM/YYYY), phone (10 digits)</li>
+          <li>Duplicate header removal — raw_data.csv is deduplicated into students.csv on every write</li>
+          <li>Search by roll number with formatted PrettyTable output</li>
+          <li>Colour-coded terminal UI using termcolor — green for success, red for warnings, cyan for prompts</li>
         </ul>
       </div>
       <div class="tech-breakdown">
         <h4>Technical Stack</h4>
         <div class="tech-row">
-          <span class="tech-item">Python</span><span class="tech-item">MySQL</span><span class="tech-item">mysql-connector-python</span><span class="tech-item">Relational DB Design</span><span class="tech-item">CLI</span>
+          <span class="tech-item">Python</span><span class="tech-item">CSV</span><span class="tech-item">termcolor</span><span class="tech-item">PrettyTable</span><span class="tech-item">CLI</span>
         </div>
       </div>
       <div style="margin-top:1.2rem;">
         <div class="project-tags">
-          <span class="tag blue">Python</span><span class="tag">MySQL</span><span class="tag">3NF Normalization</span><span class="tag">CRUD</span><span class="tag">SQL</span><span class="tag">Transactions</span>
+          <span class="tag blue">Python</span><span class="tag">CSV</span><span class="tag">CRUD</span><span class="tag">CLI</span><span class="tag">Input Validation</span><span class="tag">termcolor</span>
         </div>
       </div>
-      <div class="project-actions"><a href="#" class="btn btn-primary">Full Report (Coming Soon)</a><a href="#" class="btn-small">GitHub</a></div>
+      <div class="project-actions"><a href="#" class="btn btn-primary">Full Report (Coming Soon)</a><a href="https://github.com/Kush-Git-379/student-management-system" target="_blank" class="btn-small">GitHub</a></div>
     </div>
   </div>
 
@@ -261,10 +261,10 @@
 <footer>
   <span>© 2025 Kush Mehta</span>
   <a href="index.html">← Back to Portfolio</a>
-  <a href="mailto:kush@example.com">kush@example.com</a>
+  <a href="/cdn-cgi/l/email-protection#92f9e7e1fad2f7eaf3ffe2fef7bcf1fdff"><span class="__cf_email__" data-cfemail="0d66787e654d68756c607d6168236e6260">[email&#160;protected]</span></a>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
@@ -272,9 +272,4 @@
         setTimeout(() => { entry.target.style.opacity = '1'; entry.target.style.transform = 'translateY(0)'; }, i * 80);
         observer.unobserve(entry.target);
       }
-    });
-  }, { threshold: 0.08 });
-  reveals.forEach(el => { el.style.opacity = '0'; el.style.transform = 'translateY(24px)'; el.style.transition = 'opacity 0.6s ease, transform 0.6s ease'; observer.observe(el); });
-</script>
-</body>
-</html>
+    }
