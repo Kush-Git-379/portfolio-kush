@@ -7,149 +7,63 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
   <style>
-    .page-hero {
-      padding: 10rem 4rem 5rem;
-      background: var(--ink);
-      color: var(--bg);
-      position: relative;
-      overflow: hidden;
-    }
-    .page-hero::before {
-      content: '✈';
-      position: absolute;
-      right: 4rem; top: 50%;
-      transform: translateY(-50%);
-      font-size: 18rem;
-      opacity: 0.04;
-      line-height: 1;
-    }
-    .back-link {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: rgba(247,245,240,0.4);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 2rem;
-      transition: color 0.2s;
-    }
+    .page-hero { padding: 10rem 4rem 5rem; background: var(--ink); color: var(--bg); position: relative; overflow: hidden; }
+    .page-hero::before { content: '✈'; position: absolute; right: 4rem; top: 50%; transform: translateY(-50%); font-size: 18rem; opacity: 0.04; line-height: 1; }
+    .back-link { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(247,245,240,0.4); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; transition: color 0.2s; }
     .back-link:hover { color: var(--accent); }
-    .page-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.8rem;
-    }
-    .page-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.5rem;
-    }
+    .page-label { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; }
+    .page-title { font-family: 'DM Serif Display', serif; font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
     .page-title em { font-style: italic; color: var(--accent); }
-    .page-intro {
-      font-size: 1.05rem;
-      color: rgba(247,245,240,0.65);
-      max-width: 600px;
-      line-height: 1.8;
-    }
-    .achievements-strip {
-      display: flex; gap: 0; background: var(--accent);
-    }
-    .ach-item {
-      flex: 1; padding: 1.5rem 2rem;
-      border-right: 1px solid rgba(255,255,255,0.2);
-      color: white;
-    }
+    .page-intro { font-size: 1.05rem; color: rgba(247,245,240,0.65); max-width: 600px; line-height: 1.8; }
+    .achievements-strip { display: flex; gap: 0; background: var(--accent); }
+    .ach-item { flex: 1; padding: 1.5rem 2rem; border-right: 1px solid rgba(255,255,255,0.2); color: white; }
     .ach-item:last-child { border-right: none; }
-    .ach-num {
-      font-family: 'DM Serif Display', serif;
-      font-size: 2rem; line-height: 1; margin-bottom: 0.3rem;
-    }
-    .ach-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.68rem; letter-spacing: 0.08em;
-      text-transform: uppercase; opacity: 0.8;
-    }
+    .ach-num { font-family: 'DM Serif Display', serif; font-size: 2rem; line-height: 1; margin-bottom: 0.3rem; }
+    .ach-label { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.8; }
     .projects-list { padding: 5rem 4rem; }
-    .project-entry {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 3rem;
-      padding: 3rem 0;
-      border-bottom: 1px solid var(--border);
-    }
+    .project-entry { display: grid; grid-template-columns: auto 1fr; gap: 3rem; padding: 3.5rem 0; border-bottom: 1px solid var(--border); }
     .project-entry:last-child { border-bottom: none; }
-    .project-num-big {
-      font-family: 'DM Serif Display', serif;
-      font-size: 4rem; color: var(--border);
-      line-height: 1; padding-top: 0.2rem;
-      width: 80px; text-align: right;
-      flex-shrink: 0;
-    }
-    .project-content {}
-    .project-meta {
-      display: flex; align-items: center; gap: 1rem;
-      margin-bottom: 0.8rem; flex-wrap: wrap;
-    }
-    .project-title-big {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.8rem; line-height: 1.2; margin-bottom: 1rem;
-    }
-    .project-abstract {
-      font-size: 0.95rem; color: var(--muted);
-      line-height: 1.8; margin-bottom: 1.5rem;
-      max-width: 700px;
-    }
+    .project-num-big { font-family: 'DM Serif Display', serif; font-size: 4rem; color: var(--border); line-height: 1; padding-top: 0.2rem; width: 80px; text-align: right; flex-shrink: 0; }
+    .project-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.8rem; flex-wrap: wrap; }
+    .project-title-big { font-family: 'DM Serif Display', serif; font-size: 1.8rem; line-height: 1.2; margin-bottom: 1rem; }
+    .project-abstract { font-size: 0.95rem; color: var(--muted); line-height: 1.8; margin-bottom: 1.5rem; max-width: 720px; }
     .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
-    .project-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .team-arrow-section {
-      background: var(--card);
-      border: 1px solid var(--border);
-      padding: 2rem;
-      margin-top: 1.5rem;
-      max-width: 700px;
-    }
-    .team-arrow-section h4 {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--muted);
-      margin-bottom: 1rem;
-    }
-    .timeline { display: flex; flex-direction: column; gap: 0.8rem; }
-    .timeline-item { display: flex; gap: 1.2rem; align-items: flex-start; }
-    .timeline-year {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem; color: var(--accent);
-      letter-spacing: 0.06em; flex-shrink: 0;
-      padding-top: 0.1rem; width: 40px;
-    }
-    .timeline-text { font-size: 0.9rem; color: var(--muted); line-height: 1.5; }
-    .timeline-text strong { color: var(--ink); }
-
+    .spec-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--border); margin: 1.5rem 0; max-width: 720px; }
+    .spec-cell { padding: 1rem 1.2rem; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .spec-cell:nth-child(3n) { border-right: none; }
+    .spec-cell:nth-last-child(-n+3) { border-bottom: none; }
+    .spec-label { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.3rem; }
+    .spec-value { font-size: 0.92rem; font-weight: 500; color: var(--ink); }
+    .spec-value.accent { color: var(--accent); }
+    .role-callout { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--ink); color: var(--bg); padding: 0.4rem 1rem; font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem; }
+    .role-callout.accent-bg { background: var(--accent); color: white; }
+    .highlights-box { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--accent); padding: 1.5rem 1.8rem; margin: 1.2rem 0; max-width: 720px; }
+    .highlights-box h4 { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+    .highlights-box ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+    .highlights-box ul li { font-size: 0.9rem; color: var(--muted); line-height: 1.6; padding-left: 1.2rem; position: relative; }
+    .highlights-box ul li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.8rem; }
+    .result-badge { display: inline-block; padding: 0.25rem 0.8rem; font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.08em; border: 1px solid currentColor; }
+    .result-badge.gold { color: #b8860b; border-color: #b8860b; background: #fffbf0; }
+    .result-badge.silver { color: #666; border-color: #999; background: #f8f8f8; }
+    .result-badge.intl { color: var(--accent); border-color: var(--accent); background: rgba(180,60,30,0.05); }
+    .result-badge.upcoming { color: #2d6a4f; border-color: #2d6a4f; background: #f0fdf4; }
     @media (max-width: 900px) {
       .page-hero { padding: 8rem 1.5rem 3rem; }
       .projects-list { padding: 3rem 1.5rem; }
       .project-entry { grid-template-columns: 1fr; gap: 1rem; }
       .project-num-big { font-size: 2rem; width: auto; text-align: left; }
       .achievements-strip { flex-wrap: wrap; }
+      .spec-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
 <body>
-
 <nav>
   <a href="index.html" class="nav-logo">Kush Mehta</a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="projects-aerial.html" class="active">Aerial Robotics</a></li>
-    <li><a href="projects-embedded.html">Embedded & Security</a></li>
+    <li><a href="projects-embedded.html">Embedded &amp; Security</a></li>
     <li><a href="projects-data.html">Data Science</a></li>
   </ul>
 </nav>
@@ -157,98 +71,219 @@
 <div class="page-hero">
   <a href="index.html" class="back-link">← Back to Home</a>
   <p class="page-label">Domain — Aerial Robotics</p>
-  <h1 class="page-title">Flying machines &<br/><em>competition wins.</em></h1>
-  <p class="page-intro">Three years as Electronics Lead for Team Arrow — Nirma University's official aeromodelling club — building competition aircraft and earning international recognition at SAE events.</p>
+  <h1 class="page-title">Competition aircraft &amp;<br/><em>engineered flight.</em></h1>
+  <p class="page-intro">Four years building and flying competition aircraft with Team Arrow, Nirma University — from hand-launched payload carriers to autonomous tilt-rotor VTOL systems competing internationally at SAE events.</p>
 </div>
 
 <div class="achievements-strip">
-  <div class="ach-item">
-    <div class="ach-num">2nd</div>
-    <div class="ach-label">SAE DDC Micro 2024 & 2026 — Overall</div>
-  </div>
-  <div class="ach-item">
-    <div class="ach-num">3rd</div>
-    <div class="ach-label">SAE DDC Micro 2025 — Overall</div>
-  </div>
-  <div class="ach-item">
-    <div class="ach-num">5th</div>
-    <div class="ach-label">SAE Aero Design West 2025 — International Mission Score</div>
-  </div>
-  <div class="ach-item">
-    <div class="ach-num">3+</div>
-    <div class="ach-label">Years as Electronics Lead</div>
-  </div>
+  <div class="ach-item"><div class="ach-num">2nd</div><div class="ach-label">SAE DDC Micro 2024 — National</div></div>
+  <div class="ach-item"><div class="ach-num">5th</div><div class="ach-label">SAE Aero Design West 2025 — International Mission</div></div>
+  <div class="ach-item"><div class="ach-num">4th</div><div class="ach-label">Technoxian 2024 — RC Plane Challenge</div></div>
+  <div class="ach-item"><div class="ach-num">5+</div><div class="ach-label">Competition Aircraft Built &amp; Flown</div></div>
 </div>
 
 <div class="projects-list">
 
+  <!-- 01 SAE Aero Design East 2026 -->
   <div class="project-entry reveal">
     <div class="project-num-big">01</div>
     <div class="project-content">
       <div class="project-meta">
         <span class="tag accent">Flagship Project</span>
-        <span class="tag">Team Arrow</span>
-        <span class="tag">2024–2025</span>
+        <span class="tag">SAE International</span>
+        <span class="tag">2025–2026</span>
+        <span class="result-badge upcoming">Competition Upcoming</span>
       </div>
-      <h2 class="project-title-big">Autonomous VTOL Tricopter Tilt-Rotor Plane with Payload Delivery & Capture</h2>
-      <p class="project-abstract">
-        Designed and built a hybrid fixed-wing/multirotor aircraft capable of vertical takeoff and landing (VTOL) using a tricopter tilt-rotor configuration. The aircraft transitions between hover and forward flight modes autonomously using ArduPilot with custom parameter tuning. Key engineering challenges included designing the tilt-rotor servo mechanism, calibrating the flight controller for stable mode transitions, and integrating a payload delivery and capture system capable of precision drop at target coordinates. The electronics stack included custom power distribution, telemetry, GPS-assisted navigation, and a camera-based image processing pipeline for target detection.
-      </p>
+      <h2 class="project-title-big">Autonomous Tilt-Rotor VTOL Tricopter with AGV Payload — SAE Aero Design East 2026</h2>
+      <div class="role-callout accent-bg">Electronics Head &amp; Avionics Lead</div>
+      <p class="project-abstract">Designed and built a hybrid tilt-rotor tricopter (Team Arrow Advanced-224) for SAE Aero Design East 2026. The aircraft combines a NACA 9325 lifting-body fuselage with S1223 rectangular wings and three T-Motor F80 Pro 2500KV motors — two forward-mounted tilting motors on a CFRP boom and one fixed tail motor. The system operates fully autonomously, carrying an Autonomous Ground Vehicle (AGV) payload that independently navigates a target zone using a magnetometer, ToF sensors, and IR line-following — qualifying for the competition's highest 14× capture score multiplier. A fully autonomous low-payload strategy was chosen after scoring analysis showed it yields ~52 points versus ~30 for a manual high-payload approach. As Electronics and Avionics Lead, I was responsible for the complete avionics stack: flight controller integration, GPS navigation, tilt mechanism actuation, power systems design, and Software-in-the-Loop simulation validation.</p>
+      <div class="spec-grid">
+        <div class="spec-cell"><div class="spec-label">Configuration</div><div class="spec-value">Tilt-Rotor Tricopter VTOL</div></div>
+        <div class="spec-cell"><div class="spec-label">Wing Span</div><div class="spec-value">800 mm</div></div>
+        <div class="spec-cell"><div class="spec-label">Gross Weight</div><div class="spec-value">3.415 lbs</div></div>
+        <div class="spec-cell"><div class="spec-label">Motors</div><div class="spec-value">T-Motor F80 Pro 2500KV ×3</div></div>
+        <div class="spec-cell"><div class="spec-label">Thrust-to-Weight</div><div class="spec-value accent">2:1 (32 N total)</div></div>
+        <div class="spec-cell"><div class="spec-label">Hover Endurance</div><div class="spec-value">~4 minutes</div></div>
+        <div class="spec-cell"><div class="spec-label">Flight Controller</div><div class="spec-value">TBS Lucid H7</div></div>
+        <div class="spec-cell"><div class="spec-label">GPS</div><div class="spec-value">Here4 (cm-level)</div></div>
+        <div class="spec-cell"><div class="spec-label">Airfoils</div><div class="spec-value">NACA 9325 / S1223</div></div>
+        <div class="spec-cell"><div class="spec-label">Static Margin</div><div class="spec-value">6.37%</div></div>
+        <div class="spec-cell"><div class="spec-label">Cruise Lift</div><div class="spec-value">19 N @ 16 m/s</div></div>
+        <div class="spec-cell"><div class="spec-label">Takeoff Distance</div><div class="spec-value accent">3.93 m (VTOL)</div></div>
+      </div>
+      <div class="highlights-box">
+        <h4>Engineering Highlights — Electronics &amp; Avionics</h4>
+        <ul>
+          <li>Designed servo-actuated tilt mechanism with airspeed-dependent interlock to prevent stall during VTOL-to-cruise transition</li>
+          <li>Integrated TBS Lucid H7 flight controller with Here4 GPS for centimetre-level autonomous navigation</li>
+          <li>Built and validated full mission profile via Software-in-the-Loop (SITL) simulation before first real flight</li>
+          <li>Designed AGV payload electronics: magnetometer + ToF sensors + IR line-following for autonomous target capture, qualifying for 14× score multiplier</li>
+          <li>Scoring analysis drove key design decision: fully autonomous low-payload strategy (~52 pts) outperforms manual high-payload approach (~30 pts)</li>
+          <li>Modal and harmonic analysis in ANSYS confirmed no resonance between motor vibration and wing natural frequencies</li>
+          <li>Full-body CFD in ANSYS Fluent with Spalart-Allmaras turbulence model; topology optimization via Fusion 360</li>
+        </ul>
+      </div>
       <div class="project-tags">
-        <span class="tag accent">Aerial Robotics</span>
-        <span class="tag">ArduPilot</span>
-        <span class="tag">Flight Controllers</span>
-        <span class="tag">Embedded C</span>
-        <span class="tag">Image Processing</span>
-        <span class="tag">SolidWorks</span>
-        <span class="tag">Fusion 360</span>
-        <span class="tag">Python</span>
-      </div>
-      <div class="project-actions">
-        <a href="#" class="btn btn-primary">Full Report (Coming Soon)</a>
-        <a href="#" class="btn-small">GitHub</a>
+        <span class="tag accent">VTOL</span><span class="tag">Tilt-Rotor</span><span class="tag">Autonomous Flight</span><span class="tag">ArduPilot</span><span class="tag">AGV</span><span class="tag">GPS Navigation</span><span class="tag">SITL Simulation</span><span class="tag">ANSYS Fluent</span><span class="tag">XFLR5</span><span class="tag">CFRP Structures</span><span class="tag">Power Systems</span>
       </div>
     </div>
   </div>
 
+  <!-- 02 SAE Aero Design West 2025 -->
   <div class="project-entry reveal">
     <div class="project-num-big">02</div>
     <div class="project-content">
       <div class="project-meta">
-        <span class="tag blue">Competition Journey</span>
-        <span class="tag">SAE DDC · SAE Aero Design</span>
-        <span class="tag">2022–2026</span>
+        <span class="tag blue">International Competition</span>
+        <span class="tag">SAE International — Van Nuys, CA</span>
+        <span class="tag">2024–2025</span>
+        <span class="result-badge intl">5th in Mission Score</span>
       </div>
-      <h2 class="project-title-big">Team Arrow — SAE Competition Electronics Lead</h2>
-      <p class="project-abstract">
-        As Electronics Lead for Team Arrow, Nirma University's official aeromodelling club, I was responsible for the complete electronics design, integration, and debugging of competition aircraft across multiple SAE seasons. This included power systems design, ESC/motor selection, flight controller integration, telemetry setup, and sensor fusion. The role demanded rapid iteration under competition deadlines and cross-functional collaboration with mechanical and software sub-teams.
-      </p>
-      <div class="team-arrow-section">
-        <h4>Competition Timeline</h4>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-year">2024</div>
-            <div class="timeline-text"><strong>2nd Overall</strong> — SAE DDC Micro 2024. First major international podium as Electronics Lead.</div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2025</div>
-            <div class="timeline-text"><strong>3rd Overall</strong> — SAE DDC Micro 2025 · <strong>5th Internationally</strong> in Mission Score — SAE Aero Design West 2025.</div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2026</div>
-            <div class="timeline-text"><strong>2nd Overall</strong> — SAE DDC Micro 2026. Consistent podium performance over three competition years.</div>
-          </div>
-        </div>
+      <h2 class="project-title-big">Fixed-Wing Micro Class Aircraft with Water Payload — SAE Aero Design West 2025</h2>
+      <div class="role-callout">Propulsion Lead</div>
+      <p class="project-abstract">Designed and built a high-wing micro class aircraft (Team Arrow-325) for the SAE Aero Design West competition in Van Nuys, California — Team Arrow's first international SAE event. The aircraft carried a 67 oz water payload, completed a runway takeoff circuit, and landed within a defined zone. As Propulsion Lead, I engineered the entire power plant under a strict 400W electrical power limit — requiring careful motor and propeller matching to maximise thrust within the constraint. The aircraft placed 5th internationally in mission score.</p>
+      <div class="spec-grid">
+        <div class="spec-cell"><div class="spec-label">Configuration</div><div class="spec-value">High-Wing Monoplane</div></div>
+        <div class="spec-cell"><div class="spec-label">Wing Span</div><div class="spec-value">1382 mm</div></div>
+        <div class="spec-cell"><div class="spec-label">Gross Weight</div><div class="spec-value">~4 kg</div></div>
+        <div class="spec-cell"><div class="spec-label">Airfoil</div><div class="spec-value">S1223 modified 120%</div></div>
+        <div class="spec-cell"><div class="spec-label">Aspect Ratio</div><div class="spec-value">5.96</div></div>
+        <div class="spec-cell"><div class="spec-label">Motor</div><div class="spec-value">Sunnysky X3520 560KV</div></div>
+        <div class="spec-cell"><div class="spec-label">Propeller</div><div class="spec-value">16×10 inch</div></div>
+        <div class="spec-cell"><div class="spec-label">Power Limit</div><div class="spec-value accent">≤ 400W (competition rule)</div></div>
+        <div class="spec-cell"><div class="spec-label">Takeoff Distance</div><div class="spec-value accent">14.18 m (46.5 ft)</div></div>
+        <div class="spec-cell"><div class="spec-label">Static Margin</div><div class="spec-value">12.90%</div></div>
+        <div class="spec-cell"><div class="spec-label">Full-Body CFD Lift</div><div class="spec-value">49.36 N @ 16 m/s</div></div>
+        <div class="spec-cell"><div class="spec-label">Landing Gear</div><div class="spec-value">Tricycle (CNC Al clamp)</div></div>
       </div>
-      <div style="margin-top:1.5rem;">
-        <div class="project-tags">
-          <span class="tag accent">SAE Competition</span>
-          <span class="tag">ArduPilot</span>
-          <span class="tag">Power Systems</span>
-          <span class="tag">Telemetry</span>
-          <span class="tag">Sensor Fusion</span>
-          <span class="tag">Robotics</span>
-        </div>
+      <div class="highlights-box">
+        <h4>Engineering Highlights — Propulsion</h4>
+        <ul>
+          <li>Selected Sunnysky X3520 560KV to deliver required 26 N thrust while staying within the 400W competition power ceiling at 70–80% throttle</li>
+          <li>Sized 16×10 inch propeller using Gabriel Staples equation; validated by practical thrust bench test against E-Calc predictions</li>
+          <li>Implemented flaps via symmetric aileron deflection, increasing CL by 20%+ to reduce takeoff distance</li>
+          <li>Teardrop fuselage selected over circular and square via three-way CFD comparison (0.705N drag vs 1.156N and 1.368N)</li>
+          <li>Topology optimization: landing gear 20% mass reduction, wing ribs 15% mass reduction via Fusion 360</li>
+          <li>Water sloshing CG analysis confirmed stable static margin across −10° to +15° angle of attack</li>
+          <li>CFRP main spar introduced for first time; Altair HyperMesh used for wing meshing</li>
+        </ul>
+      </div>
+      <div class="project-tags">
+        <span class="tag accent">SAE International</span><span class="tag">Propulsion Design</span><span class="tag">Power-Constrained Systems</span><span class="tag">ANSYS Fluent</span><span class="tag">XFLR5</span><span class="tag">FEA</span><span class="tag">Altair HyperMesh</span><span class="tag">CFRP</span><span class="tag">SolidWorks</span><span class="tag">E-Calc</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 SAE DDC 2025 -->
+  <div class="project-entry reveal">
+    <div class="project-num-big">03</div>
+    <div class="project-content">
+      <div class="project-meta">
+        <span class="tag">SAE India — DDC Micro</span>
+        <span class="tag">2024–2025</span>
+        <span class="result-badge silver">3rd Overall</span>
+      </div>
+      <h2 class="project-title-big">High Payload-Fraction Fixed-Wing MCA — SAE DDC 2025</h2>
+      <div class="role-callout">Propulsion Head &amp; Pilot</div>
+      <p class="project-abstract">Iterating on the 2024 entry, the team scaled up to a larger box-type fuselage monoplane targeting a 2.5 kg payload with an improved payload fraction of 0.670. As Propulsion Head and one of two competition pilots, I led the full power plant redesign — upgrading to a larger AT2820 T-Motor 1250KV with a 12×6 propeller and 100A ESC to handle the increased thrust requirement of 28 N. The aircraft introduced transient CFD stall simulation with a rotating domain and improved topology optimization, achieving 30% mass reduction per rib.</p>
+      <div class="spec-grid">
+        <div class="spec-cell"><div class="spec-label">Configuration</div><div class="spec-value">Shoulder-Wing, Box Fuselage</div></div>
+        <div class="spec-cell"><div class="spec-label">Wing Span</div><div class="spec-value">1306 mm</div></div>
+        <div class="spec-cell"><div class="spec-label">Payload Capacity</div><div class="spec-value accent">2.5 kg</div></div>
+        <div class="spec-cell"><div class="spec-label">Payload Fraction</div><div class="spec-value accent">0.670</div></div>
+        <div class="spec-cell"><div class="spec-label">Motor</div><div class="spec-value">AT2820 T-Motor 1250KV</div></div>
+        <div class="spec-cell"><div class="spec-label">Propeller</div><div class="spec-value">12×6 inch</div></div>
+        <div class="spec-cell"><div class="spec-label">Battery</div><div class="spec-value">1550mAh 75C 3S LiPo</div></div>
+        <div class="spec-cell"><div class="spec-label">ESC</div><div class="spec-value">100A (120A peak)</div></div>
+        <div class="spec-cell"><div class="spec-label">Static Margin</div><div class="spec-value">18.34%</div></div>
+        <div class="spec-cell"><div class="spec-label">CFD Lift</div><div class="spec-value">37.9 N</div></div>
+        <div class="spec-cell"><div class="spec-label">Rib Mass Reduction</div><div class="spec-value">30% (topology opt.)</div></div>
+        <div class="spec-cell"><div class="spec-label">Assembly Time</div><div class="spec-value">90 seconds</div></div>
+      </div>
+      <div class="highlights-box">
+        <h4>Engineering Highlights — Propulsion &amp; Piloting</h4>
+        <ul>
+          <li>Selected AT2820 1250KV from 4-motor comparative analysis; 12×6 propeller sized via Gabriel Staples equation</li>
+          <li>Transient CFD stall simulation using rotating domain in ANSYS Fluent — wing stall predicted at α = 13°</li>
+          <li>Modal analysis confirmed no resonance between motor vibration and wing natural frequencies at takeoff, cruise, and landing throttle settings</li>
+          <li>Topology optimization improved to 30% mass reduction per rib (vs 20% in 2024 entry)</li>
+          <li>Served as one of two competition pilots — hand-launch, circuit flight, and belly landing</li>
+          <li>Box fuselage chosen over circular via CFD: 4.8× greater usable volume at only marginally higher drag</li>
+        </ul>
+      </div>
+      <div class="project-tags">
+        <span class="tag accent">SAE DDC</span><span class="tag">Propulsion</span><span class="tag">RC Piloting</span><span class="tag">Transient CFD</span><span class="tag">ANSYS Fluent</span><span class="tag">FEA</span><span class="tag">XFLR5</span><span class="tag">Topology Optimization</span><span class="tag">E-Calc</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 SAE DDC 2024 -->
+  <div class="project-entry reveal">
+    <div class="project-num-big">04</div>
+    <div class="project-content">
+      <div class="project-meta">
+        <span class="tag">SAE India — DDC Micro</span>
+        <span class="tag">2023–2024</span>
+        <span class="result-badge gold">2nd Overall</span>
+      </div>
+      <h2 class="project-title-big">High Payload-Fraction Fixed-Wing MCA — SAE DDC 2024</h2>
+      <div class="role-callout">Propulsion Engineer</div>
+      <p class="project-abstract">First major competition entry with Team Arrow. The aircraft achieved 2nd place overall in the SAE DDC 2024 Micro category with a payload fraction of 0.635 — the primary competition metric. As Propulsion Engineer, I was responsible for motor selection, propeller sizing, battery and ESC selection, servo torque calculations, and thrust bench testing. The design philosophy centred on minimising empty weight (772 g) to maximise payload fraction — a constraint that shaped every component decision.</p>
+      <div class="spec-grid">
+        <div class="spec-cell"><div class="spec-label">Configuration</div><div class="spec-value">Shoulder-Wing Monoplane</div></div>
+        <div class="spec-cell"><div class="spec-label">Wing Span</div><div class="spec-value">1000 mm</div></div>
+        <div class="spec-cell"><div class="spec-label">Payload Capacity</div><div class="spec-value accent">1.35 kg</div></div>
+        <div class="spec-cell"><div class="spec-label">Payload Fraction</div><div class="spec-value accent">0.635</div></div>
+        <div class="spec-cell"><div class="spec-label">Empty Weight</div><div class="spec-value">772 g</div></div>
+        <div class="spec-cell"><div class="spec-label">Airfoil</div><div class="spec-value">S1223 modified 120%</div></div>
+        <div class="spec-cell"><div class="spec-label">Motor</div><div class="spec-value">AT2317 T-Motor 1400KV</div></div>
+        <div class="spec-cell"><div class="spec-label">Propeller</div><div class="spec-value">10×8 inch</div></div>
+        <div class="spec-cell"><div class="spec-label">Battery</div><div class="spec-value">850mAh 40/80C 3S LiPo</div></div>
+        <div class="spec-cell"><div class="spec-label">Static Margin</div><div class="spec-value">24.08%</div></div>
+        <div class="spec-cell"><div class="spec-label">CFD Lift</div><div class="spec-value">22.9 N</div></div>
+        <div class="spec-cell"><div class="spec-label">Assembly Time</div><div class="spec-value">30–40 seconds</div></div>
+      </div>
+      <div class="highlights-box">
+        <h4>Engineering Highlights — Propulsion</h4>
+        <ul>
+          <li>Selected AT2317 1400KV from 4-motor comparative analysis; sized 10×8 propeller via Gabriel Staples equation</li>
+          <li>Low-capacity 850mAh battery chosen specifically to minimise empty weight for maximum payload fraction</li>
+          <li>Servo torque calculated using Chuck Gadd's formula for all three control surfaces; MG90 servos selected</li>
+          <li>Thrust bench test validated theoretical E-Calc predictions across full throttle range</li>
+          <li>Wind tunnel testing of 3D-printed 120% S1223 airfoil validated XFLR5 Cp predictions; stall confirmed via thread flow visualisation</li>
+          <li>Topology optimization via Fusion 360: 20% mass reduction per wing rib</li>
+          <li>FEA wing loading test exceeded theoretical (15.29 vs 12.94 kg/m²), confirming structural robustness</li>
+        </ul>
+      </div>
+      <div class="project-tags">
+        <span class="tag accent">SAE DDC</span><span class="tag">Propulsion</span><span class="tag">ANSYS Fluent</span><span class="tag">XFLR5</span><span class="tag">Wind Tunnel</span><span class="tag">FEA</span><span class="tag">Topology Optimization</span><span class="tag">E-Calc</span><span class="tag">SolidWorks</span><span class="tag">Altair HyperMesh</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 Technoxian 2024 -->
+  <div class="project-entry reveal">
+    <div class="project-num-big">05</div>
+    <div class="project-content">
+      <div class="project-meta">
+        <span class="tag">Technoxian World Championships</span>
+        <span class="tag">2024</span>
+        <span class="result-badge silver">4th Place</span>
+      </div>
+      <h2 class="project-title-big">RC Plane Challenge — Technoxian World Championships 2024</h2>
+      <div class="role-callout">Electronics Head</div>
+      <p class="project-abstract">Competed in the RC Plane challenge at the Technoxian World Championships 2024, placing 4th. As Electronics Head, I was responsible for the complete aircraft electronics integration — motor, ESC, receiver, power distribution, and control surface servos — as well as pre-competition airworthiness checks and real-time troubleshooting during flight operations.</p>
+      <div class="highlights-box">
+        <h4>Key Responsibilities</h4>
+        <ul>
+          <li>Full electronics integration: motor, ESC, receiver, servos, and power distribution</li>
+          <li>Pre-competition airworthiness checks and systems validation</li>
+          <li>Real-time troubleshooting and fault diagnosis during competition operations</li>
+          <li>4th place at an international multi-discipline robotics championship</li>
+        </ul>
+      </div>
+      <div class="project-tags">
+        <span class="tag accent">Technoxian</span><span class="tag">RC Aircraft</span><span class="tag">Electronics Integration</span><span class="tag">Competition</span>
       </div>
     </div>
   </div>
@@ -258,7 +293,7 @@
 <footer>
   <span>© 2025 Kush Mehta</span>
   <a href="index.html">← Back to Portfolio</a>
-  <a href="mailto:379kushmehta@gmail.com">379kushmehta@gmail.com</a>
+  <a href="mailto:kush@example.com">kush@example.com</a>
 </footer>
 
 <script>
@@ -266,12 +301,20 @@
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+        setTimeout(() => {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }, i * 80);
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1 });
-  reveals.forEach(el => observer.observe(el));
+  }, { threshold: 0.08 });
+  reveals.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
 </script>
 </body>
 </html>
