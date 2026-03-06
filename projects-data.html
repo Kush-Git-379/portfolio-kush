@@ -69,7 +69,7 @@
 <div class="projects-list">
 
   <!-- 01 Portfolio Analyzer -->
-  <div class="project-entry reveal">
+  <div class="project-entry">
     <div class="project-num-big">01</div>
     <div class="project-content">
       <div class="project-meta">
@@ -112,7 +112,7 @@
   </div>
 
   <!-- 02 Credit Score -->
-  <div class="project-entry reveal">
+  <div class="project-entry">
     <div class="project-num-big">02</div>
     <div class="project-content">
       <div class="project-meta">
@@ -149,7 +149,7 @@
   </div>
 
   <!-- 03 Virtual Try-On -->
-  <div class="project-entry reveal">
+  <div class="project-entry">
     <div class="project-num-big">03</div>
     <div class="project-content">
       <div class="project-meta">
@@ -186,7 +186,7 @@
   </div>
 
   <!-- 04 Student Management -->
-  <div class="project-entry reveal">
+  <div class="project-entry">
     <div class="project-num-big">04</div>
     <div class="project-content">
       <div class="project-meta">
@@ -221,7 +221,7 @@
   </div>
 
   <!-- 05 IPL Prediction -->
-  <div class="project-entry reveal">
+  <div class="project-entry">
     <div class="project-num-big">05</div>
     <div class="project-content">
       <div class="project-meta">
@@ -265,16 +265,7 @@
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => { entry.target.style.opacity = '1'; entry.target.style.transform = 'translateY(0)'; }, i * 80);
-        observer.unobserve(entry.target);
-      }
-    }    });
-  }, { threshold: 0.08 });
-  reveals.forEach(el => { el.style.opacity = '0'; el.style.transform = 'translateY(24px)'; el.style.transition = 'opacity 0.6s ease, transform 0.6s ease'; observer.observe(el); });
+  // Reveal animation disabled for compatibility
 </script>
 </body>
 </html>
