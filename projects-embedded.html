@@ -129,36 +129,37 @@
     </div>
   </div>
 
-  <!-- 02 ESP32 MQTT -->
+  <!-- 02 ESP32 GPS Tracker -->
   <div class="project-entry">
     <div class="project-num-big">02</div>
     <div class="project-content">
       <div class="project-meta">
-        <span class="tag accent">IoT · Security</span><span class="tag">ESP32</span>
+        <span class="tag accent">IoT · Security</span><span class="tag">ESP32</span><span class="tag">3EC504ME24 · Nirma University</span>
       </div>
-      <h2 class="project-title-big">AES &amp; ASCON Encryption on ESP32 over MQTT with Python Decryption</h2>
-      <p class="project-abstract">End-to-end hardware implementation validating the simulation findings from Project 01. AES and ASCON encryption were implemented on an ESP32 microcontroller, transmitting encrypted payloads over MQTT to a Mosquitto broker, with a Python subscriber performing decryption on the host. The ESP32 was chosen deliberately because it includes AES hardware acceleration — giving AES its best possible advantage over software-only ASCON on constrained hardware. ASCON's advantage on the Xtensa LX6 core was measured and validated against simulation predictions, demonstrating practical feasibility in a real IoT security pipeline.</p>
+      <h2 class="project-title-big">Secure GPS Location Tracker — ESP32 + AES-128 + MQTT + Google Maps</h2>
+      <p class="project-abstract">A real-time IoT location tracking system demonstrating an end-to-end secure telemetry pipeline. An ESP32 reads GPS coordinates via TinyGPS++ over UART2, serializes them to JSON, encrypts with AES-128 (mbedTLS), and publishes the hex ciphertext over MQTT. A Python subscriber decrypts each message and automatically opens the live location in Google Maps. Validated at Nirma University (23°07'44.5"N, 72°32'31.9"E) — confirming correct GPS acquisition, encryption, MQTT transport, and decryption across the full pipeline.</p>
       <div class="highlights-box">
-        <h4>Key Engineering Decisions</h4>
+        <h4>System Pipeline</h4>
         <ul>
-          <li>ESP32 selected specifically for its AES hardware accelerator — ensures AES competes at its strongest against ASCON</li>
-          <li>MQTT pub-sub transport matches real IoT deployment patterns; Mosquitto broker deployed locally to isolate encryption latency from network latency</li>
-          <li>Python subscriber decrypts both ciphers and measures end-to-end round-trip latency for direct comparison</li>
-          <li>Demonstrates full IoT security pipeline: edge encryption → secure transport → cloud decryption</li>
+          <li>GPS module on UART2 (GPIO 16/17) → TinyGPS++ parses NMEA sentences → JSON payload: <code>{"lat":23.129021,"lon":72.542191}</code></li>
+          <li>AES-128 ECB encryption via mbedTLS (built into ESP32 SDK) — zero-padded to 16-byte boundary, hex-encoded output</li>
+          <li>MQTT publish to <code>kush/esp32/gps_encrypted</code> on HiveMQ broker every 3 seconds</li>
+          <li>Python subscriber: AES decrypt → JSON parse → <code>webbrowser.open(google.com/maps?q=lat,lon)</code></li>
+          <li>Verified: Serial monitor confirmed GPS fix, Mosquitto terminal showed continuous encrypted hex stream, browser opened correct Nirma University location</li>
         </ul>
       </div>
       <div class="tech-breakdown">
         <h4>Technical Stack</h4>
         <div class="tech-row">
-          <span class="tech-item">ESP32</span><span class="tech-item">Arduino IDE / C++</span><span class="tech-item">MQTT</span><span class="tech-item">Mosquitto Broker</span><span class="tech-item">Python</span><span class="tech-item">Paho MQTT</span><span class="tech-item">AES / ASCON</span>
+          <span class="tech-item">ESP32</span><span class="tech-item">TinyGPS++</span><span class="tech-item">mbedTLS AES-128</span><span class="tech-item">MQTT / HiveMQ</span><span class="tech-item">Python</span><span class="tech-item">Paho MQTT</span><span class="tech-item">PyCryptodome</span>
         </div>
       </div>
       <div style="margin-top:1.2rem;">
         <div class="project-tags">
-          <span class="tag accent">IoT</span><span class="tag">ESP32</span><span class="tag">MQTT</span><span class="tag">ASCON</span><span class="tag">AES</span><span class="tag">Embedded C++</span><span class="tag">Edge Security</span>
+          <span class="tag accent">IoT</span><span class="tag">ESP32</span><span class="tag">GPS</span><span class="tag">AES-128</span><span class="tag">MQTT</span><span class="tag">Embedded C++</span><span class="tag">Edge Security</span>
         </div>
       </div>
-      <div class="project-actions"><a href="#" class="btn btn-primary">Full Report (Coming Soon)</a><a href="https://github.com/Kush-Git-379/esp32-mqtt-encryption" target="_blank" class="btn-small">GitHub</a></div>
+      <div class="project-actions"><a href="#" class="btn btn-primary">Full Report (Coming Soon)</a><a href="https://github.com/Kush-Git-379/esp32-gps-tracker" target="_blank" class="btn-small">GitHub</a></div>
     </div>
   </div>
 
