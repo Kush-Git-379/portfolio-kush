@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Embedded Systems & Security — Kush Mehta</title>
+  <title>Embedded Systems &amp; Security — Kush Mehta</title>
+  <meta name="description" content="Real-time Galileo HAS decoder built at SAC/ISRO, lightweight cryptography benchmarking (ASCON, AES, DES, ECC), ESP32 secure GPS telemetry, gem5 cache analysis, and FPGA digital design by Kush Mehta."/>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230F0F0E'/%3E%3Ctext x='50' y='70' font-size='60' font-family='serif' fill='%23C85C2D' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E"/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
   <style>
@@ -18,6 +20,7 @@
     .projects-list { padding: 5rem 4rem; }
     .project-entry { display: grid; grid-template-columns: auto 1fr; gap: 3rem; padding: 3.5rem 0; border-bottom: 1px solid var(--border); }
     .project-entry:last-child { border-bottom: none; }
+    .project-entry[id] { scroll-margin-top: 100px; }
     .project-num-big { font-family: 'DM Serif Display', serif; font-size: 4rem; color: var(--border); line-height: 1; padding-top: 0.2rem; width: 80px; text-align: right; flex-shrink: 0; }
     .project-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.8rem; flex-wrap: wrap; }
     .project-title-big { font-family: 'DM Serif Display', serif; font-size: 1.8rem; line-height: 1.2; margin-bottom: 1rem; }
@@ -76,14 +79,66 @@
   <a href="index.html" class="back-link">← Back to Home</a>
   <p class="page-label">Domain — Embedded Systems &amp; Security</p>
   <h1 class="page-title">Hardware meets<br/><em>cryptography.</em></h1>
-  <p class="page-intro">From FPGA digital design to lightweight encryption on microcontrollers — projects at the intersection of hardware architecture, security engineering, and IoT systems.</p>
+  <p class="page-intro">From satellite navigation decoders written at ISRO to FPGA digital design and lightweight encryption on microcontrollers — projects at the intersection of hardware architecture, coding theory, security engineering, and IoT systems.</p>
 </div>
 
 <div class="projects-list">
 
-  <!-- 01 Crypto Simulation -->
-  <div class="project-entry">
+  <!-- 01 ISRO HAS Decoder -->
+  <div class="project-entry" id="isro">
     <div class="project-num-big">01</div>
+    <div class="project-content">
+      <div class="project-meta">
+        <span class="tag accent">Summer Internship</span>
+        <span class="tag">SAC · ISRO</span>
+        <span class="tag">Navigation Receiver Division</span>
+        <span class="tag">May – Jul 2026 · 10 Weeks</span>
+      </div>
+      <h2 class="project-title-big">Development of a Real-Time HAS (High Accuracy Service) Decoding Utility — SAC, ISRO</h2>
+      <p class="project-abstract">A ten-week research internship at the Space Applications Centre, ISRO, Ahmedabad, in the Navigation Receiver Division — the group responsible for GNSS and NavIC receiver technology. The project was a real-time, multi-protocol decoding utility that ingests a multiplexed stream from a network socket carrying three interleaved components: raw RTCM hex payloads, Galileo HAS pages from the E6-B signal, and Time-of-Transfer epoch metadata. The utility tokenizes and routes each component down its own pipeline — native RTCM is converted from hex back to binary and forwarded directly, while HAS pages are reassembled and passed through a Reed–Solomon erasure decoder over GF(256) to recover Precise Point Positioning corrections, which are then re-encoded as standard RTCM 3.x messages on an independent output port. Built in C and then C++ under a pre-C++11 compiler constraint, and validated end-to-end in RTKLIB's RTKNAVI to achieve centimetre-level positioning.</p>
+
+      <div class="results-grid">
+        <div class="result-cell"><div class="result-label">Coding Scheme</div><div class="result-value">Reed–Solomon (255, 32)</div></div>
+        <div class="result-cell"><div class="result-label">Finite Field</div><div class="result-value">GF(2⁸), poly 0x11D</div></div>
+        <div class="result-cell"><div class="result-label">HAS Page Size</div><div class="result-value">492 bits (448 payload)</div></div>
+        <div class="result-cell"><div class="result-label">RTCM — GPS</div><div class="result-value">1057 / 1058 / 1059 / 1060</div></div>
+        <div class="result-cell"><div class="result-label">RTCM — Galileo</div><div class="result-value">1240 / 1241 / 1242 / 1243</div></div>
+        <div class="result-cell"><div class="result-label">Framing</div><div class="result-value">CRC-24Q</div></div>
+        <div class="result-cell"><div class="result-label">Constellations Decoded</div><div class="result-value">GPS PRN 1–32, Galileo 1–36</div></div>
+        <div class="result-cell"><div class="result-label">Transport</div><div class="result-value">WinSock 2.2 TCP + Win32 serial</div></div>
+        <div class="result-cell"><div class="result-label">Validated Accuracy</div><div class="result-value accent">Centimetre-level PPP</div></div>
+      </div>
+
+      <div class="highlights-box">
+        <h4>Engineering Highlights</h4>
+        <ul>
+          <li>Implemented Galois Field GF(256) arithmetic from first principles — log/exp lookup tables, XOR addition, and Gaussian elimination for k×k matrix inversion — material outside the undergraduate syllabus</li>
+          <li>Reed–Solomon erasure decoding recovers a complete HAS message from any MS valid pages out of 255, tolerating page loss and out-of-order arrival</li>
+          <li>Reverse-engineered the Galileo RTCM messages 1240–1243 and the CRC-24Q routine, which were absent from the RTCM manual available at the time, by cross-referencing the HASlib source against the Galileo HAS ICD</li>
+          <li>Dual-egress architecture: native RTCM to Port A, HAS-decoded RTCM to Port B, with TOT metadata anchoring both pipelines to the correct satellite clock epoch</li>
+          <li>Timestamp-based stale-page purging discards buffered pages after 150 s without completing a message</li>
+          <li>Worked around a pre-C++11 Dev-C++ / MinGW toolchain using fixed-array data structures and Win32 <code>CreateThread</code> for concurrency</li>
+          <li>Validated at two levels — per-stage unit comparison against a Python reference utility, then end-to-end with RTKNAVI consuming the live correction stream over localhost</li>
+        </ul>
+      </div>
+      <div class="tech-breakdown">
+        <h4>Technical Stack</h4>
+        <div class="tech-row">
+          <span class="tech-item">C / C++</span><span class="tech-item">Galois Field GF(256)</span><span class="tech-item">Reed–Solomon</span><span class="tech-item">RTCM 3.x</span><span class="tech-item">Galileo HAS ICD</span><span class="tech-item">WinSock 2.2</span><span class="tech-item">Win32 API</span><span class="tech-item">RTKLIB / RTKNAVI</span><span class="tech-item">com0com</span>
+        </div>
+      </div>
+      <div style="margin-top:1.2rem;">
+        <div class="project-tags">
+          <span class="tag accent">ISRO</span><span class="tag">GNSS</span><span class="tag">Galileo HAS</span><span class="tag">Reed–Solomon</span><span class="tag">Coding Theory</span><span class="tag">Precise Point Positioning</span><span class="tag">Real-Time Systems</span><span class="tag">TCP/IP</span><span class="tag">C++</span>
+        </div>
+      </div>
+      <!-- TODO: confirm the internship report may be published publicly before linking it here. -->
+    </div>
+  </div>
+
+  <!-- 02 Crypto Simulation -->
+  <div class="project-entry">
+    <div class="project-num-big">02</div>
     <div class="project-content">
       <div class="project-meta">
         <span class="tag accent">Research</span>
@@ -129,9 +184,9 @@
     </div>
   </div>
 
-  <!-- 02 ESP32 GPS Tracker -->
+  <!-- 03 ESP32 GPS Tracker -->
   <div class="project-entry">
-    <div class="project-num-big">02</div>
+    <div class="project-num-big">03</div>
     <div class="project-content">
       <div class="project-meta">
         <span class="tag accent">IoT · Security</span><span class="tag">ESP32</span><span class="tag">3EC504ME24 · Nirma University</span>
@@ -163,9 +218,9 @@
     </div>
   </div>
 
-  <!-- 03 gem5 -->
+  <!-- 04 gem5 -->
   <div class="project-entry">
-    <div class="project-num-big">03</div>
+    <div class="project-num-big">04</div>
     <div class="project-content">
       <div class="project-meta">
         <span class="tag accent">Computer Architecture</span><span class="tag">gem5</span><span class="tag">3EC503CC24 · Nirma University · 2026</span>
@@ -209,9 +264,9 @@
     </div>
   </div>
 
-  <!-- 04 FPGA -->
+  <!-- 05 FPGA -->
   <div class="project-entry">
-    <div class="project-num-big">04</div>
+    <div class="project-num-big">05</div>
     <div class="project-content">
       <div class="project-meta">
         <span class="tag accent">FPGA</span><span class="tag">Digital Design</span><span class="tag">2EC202 · Nirma University</span>
@@ -243,9 +298,9 @@
     </div>
   </div>
 
-  <!-- 05 Log Analytics -->
+  <!-- 06 Log Analytics -->
   <div class="project-entry">
-    <div class="project-num-big">05</div>
+    <div class="project-num-big">06</div>
     <div class="project-content">
       <div class="project-meta">
         <span class="tag accent">DevOps · Scripting</span><span class="tag">Linux</span><span class="tag">3EC504ME24 · Nirma University · 2026</span>
@@ -277,9 +332,9 @@
     </div>
   </div>
 
-  <!-- 06 IoT Digital Communications -->
+  <!-- 07 IoT Digital Communications -->
   <div class="project-entry">
-    <div class="project-num-big">06</div>
+    <div class="project-num-big">07</div>
     <div class="project-content">
       <div class="project-meta">
         <span class="tag accent">Review Paper</span><span class="tag">IoT · Communications</span><span class="tag">B.Tech ECE · Nirma University</span>
@@ -315,13 +370,9 @@
 </div>
 
 <footer>
-  <span>© 2025 Kush Mehta</span>
+  <span>© 2026 Kush Mehta</span>
   <a href="index.html">← Back to Portfolio</a>
-  <a href="/cdn-cgi/l/email-protection#18736d6b70587d60797568747d367b7775"><span class="__cf_email__" data-cfemail="f59e80869db5908d9498859990db969a98">[email&#160;protected]</span></a>
+  <a href="mailto:379kushmehta@gmail.com">379kushmehta@gmail.com</a>
 </footer>
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // Reveal animation disabled for compatibility
-</script>
 </body>
 </html>
