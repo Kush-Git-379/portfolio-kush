@@ -9,31 +9,31 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
   <style>
-    .page-hero { padding: 10rem 4rem 5rem; background: #0D1117; color: var(--bg); position: relative; overflow: hidden; }
-    .page-hero::before { content: '🔐'; position: absolute; right: 4rem; top: 50%; transform: translateY(-50%); font-size: 16rem; opacity: 0.05; line-height: 1; }
-    .back-link { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(247,245,240,0.4); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; transition: color 0.2s; }
+    .page-hero { padding: 9rem 4rem 3rem; background: none; color: var(--ink); border-bottom: 1.5px solid var(--rule); }
+    
+    .back-link { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; transition: color 0.2s; }
     .back-link:hover { color: var(--accent); }
     .page-label { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; }
-    .page-title { font-family: 'DM Serif Display', serif; font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
-    .page-title em { font-style: italic; color: var(--accent); }
-    .page-intro { font-size: 1.05rem; color: rgba(247,245,240,0.65); max-width: 600px; line-height: 1.8; }
+    .page-title { font-family: 'DM Mono', monospace; font-weight: 500; font-size: clamp(1.9rem, 3.6vw, 2.8rem); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
+    .page-title em { font-style: normal; color: var(--accent); }
+    .page-intro { font-size: 1.02rem; color: var(--muted); max-width: 600px; line-height: 1.8; }
     .projects-list { padding: 5rem 4rem; }
     .project-entry { display: grid; grid-template-columns: auto 1fr; gap: 3rem; padding: 3.5rem 0; border-bottom: 1px solid var(--border); }
     .project-entry:last-child { border-bottom: none; }
     .project-entry[id] { scroll-margin-top: 100px; }
-    .project-num-big { font-family: 'DM Serif Display', serif; font-size: 4rem; color: var(--border); line-height: 1; padding-top: 0.2rem; width: 80px; text-align: right; flex-shrink: 0; }
+    .project-num-big { font-family: 'DM Mono', monospace; font-size: 1.1rem; color: var(--muted); line-height: 1; padding-top: 0.2rem; width: 80px; text-align: right; flex-shrink: 0; }
     .project-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.8rem; flex-wrap: wrap; }
-    .project-title-big { font-family: 'DM Serif Display', serif; font-size: 1.8rem; line-height: 1.2; margin-bottom: 1rem; }
+    .project-title-big { font-family: 'DM Mono', monospace; font-weight: 500; font-size: 1.22rem; line-height: 1.2; margin-bottom: 1rem; }
     .project-abstract { font-size: 0.95rem; color: var(--muted); line-height: 1.8; margin-bottom: 1.5rem; max-width: 720px; }
     .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
     .project-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .tech-breakdown { background: #0D1117; color: var(--bg); padding: 1.5rem; margin-top: 1.2rem; max-width: 720px; }
+    .tech-breakdown { background: none; color: var(--ink); border-top: 1px solid var(--border); padding: 1rem 0 0; margin-top: 1.2rem; max-width: 720px; }
     .tech-breakdown h4 { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
     .tech-row { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-    .tech-item { font-family: 'DM Mono', monospace; font-size: 0.8rem; color: rgba(247,245,240,0.7); }
+    .tech-item { font-family: 'DM Mono', monospace; font-size: 0.8rem; color: var(--muted); }
     .tech-item::before { content: '> '; color: var(--accent); }
     .bench-table { width: 100%; max-width: 720px; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.88rem; }
-    .bench-table thead tr { background: #0D1117; color: var(--bg); }
+    .bench-table thead tr { background: none; color: var(--ink); border-bottom: 1.5px solid var(--rule); }
     .bench-table thead th { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.8rem 1rem; text-align: left; font-weight: 400; }
     .bench-table tbody tr { border-bottom: 1px solid var(--border); }
     .bench-table tbody tr:last-child { border-bottom: none; }
