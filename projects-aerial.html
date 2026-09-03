@@ -9,25 +9,25 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
   <style>
-    .page-hero { padding: 9rem 4rem 3rem; background: none; color: var(--ink); border-bottom: 1.5px solid var(--rule); }
-    
-    .back-link { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; transition: color 0.2s; }
+    .page-hero { padding: 10rem 4rem 5rem; background: var(--ink); color: var(--bg); position: relative; overflow: hidden; }
+    .page-hero::before { content: '✈'; position: absolute; right: 4rem; top: 50%; transform: translateY(-50%); font-size: 18rem; opacity: 0.04; line-height: 1; }
+    .back-link { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(247,245,240,0.4); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; transition: color 0.2s; }
     .back-link:hover { color: var(--accent); }
     .page-label { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; }
-    .page-title { font-family: 'DM Mono', monospace; font-weight: 500; font-size: clamp(1.9rem, 3.6vw, 2.8rem); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
-    .page-title em { font-style: normal; color: var(--accent); }
-    .page-intro { font-size: 1.02rem; color: var(--muted); max-width: 600px; line-height: 1.8; }
-    .achievements-strip { display: flex; gap: 0; background: none; border-bottom: 1.5px solid var(--rule); }
-    .ach-item { flex: 1; padding: 1.3rem 2rem 1.3rem 0; border-right: 1px solid var(--border); color: var(--ink); }
+    .page-title { font-family: 'DM Serif Display', serif; font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
+    .page-title em { font-style: italic; color: var(--accent); }
+    .page-intro { font-size: 1.05rem; color: rgba(247,245,240,0.65); max-width: 600px; line-height: 1.8; }
+    .achievements-strip { display: flex; gap: 0; background: var(--accent); }
+    .ach-item { flex: 1; padding: 1.5rem 2rem; border-right: 1px solid rgba(255,255,255,0.2); color: white; }
     .ach-item:last-child { border-right: none; }
-    .ach-num { font-family: 'DM Mono', monospace; font-weight: 500; font-size: 1.4rem; line-height: 1; margin-bottom: 0.3rem; }
-    .ach-label { font-family: 'DM Mono', monospace; font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+    .ach-num { font-family: 'DM Serif Display', serif; font-size: 2rem; line-height: 1; margin-bottom: 0.3rem; }
+    .ach-label { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.8; }
     .projects-list { padding: 5rem 4rem; }
     .project-entry { display: grid; grid-template-columns: auto 1fr; gap: 3rem; padding: 3.5rem 0; border-bottom: 1px solid var(--border); }
     .project-entry:last-child { border-bottom: none; }
-    .project-num-big { font-family: 'DM Mono', monospace; font-size: 1.1rem; color: var(--muted); line-height: 1; padding-top: 0.2rem; width: 80px; text-align: right; flex-shrink: 0; }
+    .project-num-big { font-family: 'DM Serif Display', serif; font-size: 4rem; color: var(--border); line-height: 1; padding-top: 0.2rem; width: 80px; text-align: right; flex-shrink: 0; }
     .project-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.8rem; flex-wrap: wrap; }
-    .project-title-big { font-family: 'DM Mono', monospace; font-weight: 500; font-size: 1.22rem; line-height: 1.2; margin-bottom: 1rem; }
+    .project-title-big { font-family: 'DM Serif Display', serif; font-size: 1.8rem; line-height: 1.2; margin-bottom: 1rem; }
     .project-abstract { font-size: 0.95rem; color: var(--muted); line-height: 1.8; margin-bottom: 1.5rem; max-width: 720px; }
     .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
     .spec-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--border); margin: 1.5rem 0; max-width: 720px; }
@@ -37,8 +37,8 @@
     .spec-label { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.3rem; }
     .spec-value { font-size: 0.92rem; font-weight: 500; color: var(--ink); }
     .spec-value.accent { color: var(--accent); }
-    .role-callout { display: inline-flex; align-items: center; gap: 0.6rem; background: none; color: var(--ink); border: 1px solid var(--border); padding: 0.4rem 1rem; font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem; }
-    .role-callout.accent-bg { background: none; color: var(--accent); border: 1px solid var(--accent); }
+    .role-callout { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--ink); color: var(--bg); padding: 0.4rem 1rem; font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem; }
+    .role-callout.accent-bg { background: var(--accent); color: white; }
     .highlights-box { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--accent); padding: 1.5rem 1.8rem; margin: 1.2rem 0; max-width: 720px; }
     .highlights-box h4 { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
     .highlights-box ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }

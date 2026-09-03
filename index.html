@@ -37,14 +37,14 @@
     .hero-name {
       font-family: 'DM Mono', monospace;
       font-weight: 500;
-      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      font-size: clamp(2.6rem, 5.2vw, 4.6rem);
       line-height: 1.05;
       letter-spacing: -0.02em;
       margin-bottom: 1.5rem;
       opacity: 0;
       animation: fadeUp 0.8s 0.4s forwards;
     }
-    .hero-name em { font-style: normal; color: var(--accent); }
+    .hero-name em { font-style: italic; color: var(--accent); }
     .hero-bio {
       font-size: 1.05rem;
       color: var(--muted);
@@ -83,14 +83,15 @@
     }
     .hero-stat-row { display: flex; gap: 1rem; }
     .hero-stat {
-      flex: 1; background: none;
-      border: none; border-top: 1.5px solid var(--rule);
-      padding: 0.9rem 0 0;
+      flex: 1; background: var(--card);
+      border: 1px solid var(--border); padding: 1.5rem;
+      transition: border-color 0.2s;
     }
+    .hero-stat:hover { border-color: var(--accent); }
     .hero-stat-num {
-      font-family: 'DM Mono', monospace; font-weight: 500;
-      font-size: 1.55rem; color: var(--ink);
-      line-height: 1; margin-bottom: 0.4rem;
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.2rem; color: var(--accent);
+      line-height: 1; margin-bottom: 0.3rem;
     }
     .hero-stat-label {
       font-family: 'DM Mono', monospace;
@@ -144,7 +145,7 @@
     }
 
     /* ABOUT */
-    #about { padding: 6rem 4rem; background: none; border-top: 1.5px solid var(--rule); }
+    #about { padding: 6rem 4rem; background: var(--card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .about-grid { display: grid; grid-template-columns: 1.35fr 0.65fr; gap: 4.5rem; align-items: start; }
     .about-portrait { position: sticky; top: 110px; }
     .about-portrait img { width: 100%; max-width: 240px; display: block; filter: grayscale(1) contrast(1.05); border: 1px solid var(--border); }
@@ -163,12 +164,10 @@
 
     /* PROJECTS HUB */
     #projects { padding: 6rem 4rem; }
-    .project-categories { display: block; border-top: 1.5px solid var(--rule); }
+    .project-categories { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: var(--border); border: 1.5px solid var(--border); margin-bottom: 1.5px; }
     .category-card {
-      background: none;
-      border-bottom: 1px solid var(--border);
-      padding: 1.9rem 0;
-      display: grid; grid-template-columns: 2.2rem 1fr auto; gap: 1.6rem; align-items: baseline;
+      background: var(--card);
+      padding: 2.5rem 2rem;
       text-decoration: none; color: inherit;
       position: relative; overflow: hidden;
       transition: background 0.2s;
@@ -176,14 +175,14 @@
     }
     .category-card::after {
       content: '→';
-      font-size: 1rem;
+      position: absolute;
+      bottom: 2rem; right: 2rem;
+      font-size: 1.4rem;
       color: var(--border);
       transition: color 0.2s, transform 0.2s;
-      align-self: center;
     }
-    .category-card:hover { background: none; }
-    .category-card:hover .category-title { color: var(--accent); }
-    .category-card:hover::after { color: var(--accent); transform: translateX(5px); }
+    .category-card:hover { background: #FAFAF7; }
+    .category-card:hover::after { color: var(--accent); transform: translateX(4px); }
     .category-card::before {
       content: '';
       position: absolute; top: 0; left: 0;
@@ -193,10 +192,10 @@
       transform-origin: left;
       transition: transform 0.3s;
     }
-    .category-card:hover::before { transform: scaleX(0); }
-    .category-icon { font-family: 'DM Mono', monospace; font-size: 0.8rem; color: var(--muted); }
-    .category-title { font-family: 'DM Mono', monospace; font-weight: 500; font-size: 1.05rem; margin-bottom: 0.45rem; transition: color 0.2s; }
-    .category-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.65; margin-bottom: 0; max-width: 62ch; }
+    .category-card:hover::before { transform: scaleX(1); }
+    .category-icon { font-size: 2rem; margin-bottom: 1.2rem; }
+    .category-title { font-family: 'DM Serif Display', serif; font-size: 1.3rem; margin-bottom: 0.6rem; }
+    .category-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.6; margin-bottom: 1.5rem; flex: 1; }
     .category-count {
       font-family: 'DM Mono', monospace;
       font-size: 0.68rem; letter-spacing: 0.1em;
@@ -204,19 +203,19 @@
     }
 
     /* SKILLS STRIP */
-    #skills { padding: 6rem 4rem; background: none; color: var(--ink); border-top: 1.5px solid var(--rule); }
-    #skills .section-label { color: var(--muted); }
-    #skills .section-title { color: var(--ink); }
+    #skills { padding: 6rem 4rem; background: var(--ink); color: var(--bg); }
+    #skills .section-label { color: var(--accent); }
+    #skills .section-title { color: var(--bg); }
     .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
     .skill-group h3 {
-      font-family: 'DM Mono', monospace; font-size: 0.7rem;
+      font-family: 'DM Mono', monospace; font-size: 0.72rem;
       letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--ink); margin-bottom: 0.9rem;
-      padding-bottom: 0.5rem; border-bottom: 1px solid var(--border);
+      color: var(--accent); margin-bottom: 1rem;
+      padding-bottom: 0.6rem; border-bottom: 1px solid rgba(255,255,255,0.1);
     }
     .skill-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-    .skill-list li { font-size: 0.88rem; color: var(--muted); display: flex; align-items: baseline; gap: 0.5rem; }
-    .skill-list li::before { content: '·'; color: var(--accent); font-family: 'DM Mono', monospace; }
+    .skill-list li { font-size: 0.9rem; color: rgba(247,245,240,0.75); display: flex; align-items: center; gap: 0.5rem; }
+    .skill-list li::before { content: '—'; color: var(--accent); font-family: 'DM Mono', monospace; font-size: 0.7rem; }
 
     /* RESEARCH */
     #research { padding: 6rem 4rem; background: var(--bg); }
@@ -236,12 +235,11 @@
     .research-title { font-family: 'DM Serif Display', serif; font-size: 1.3rem; margin-bottom: 0.6rem; }
     .research-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
 
-    .dl-block { margin-top: 1.8rem; }
+    .dl-block { margin-top: 1.5rem; }
     .dl-head {
       font-family: 'DM Mono', monospace; font-size: 0.66rem;
       letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
-      margin: 1.2rem 0 0.6rem; padding-bottom: 0.4rem;
-      border-bottom: 1px solid var(--border);
+      margin: 1.1rem 0 0.55rem;
     }
     .dl-row { display: flex; gap: 0.6rem; flex-wrap: wrap; }
 
@@ -270,30 +268,30 @@
 
 
     /* GF(2^8) PLAYGROUND */
-    #gf-playground { padding: 6rem 4rem; background: none; color: var(--ink); border-top: 1.5px solid var(--rule); }
-    #gf-playground .section-label { color: var(--muted); }
-    #gf-playground .section-title { color: var(--ink); }
-    .gf-lede { max-width: 620px; color: var(--muted); line-height: 1.85; font-size: 1rem; margin-bottom: 2.5rem; }
-    .gf-lede a { color: var(--accent); border-bottom: 1px solid var(--border); text-decoration: none; }
+    #gf-playground { padding: 6rem 4rem; background: var(--ink); color: var(--bg); }
+    #gf-playground .section-label { color: var(--accent); }
+    #gf-playground .section-title { color: var(--bg); }
+    .gf-lede { max-width: 620px; color: rgba(247,245,240,0.7); line-height: 1.85; font-size: 1rem; margin-bottom: 2.5rem; }
+    .gf-lede a { color: var(--accent); border-bottom: 1px solid rgba(200,92,45,0.5); text-decoration: none; }
     .gf-lede a:hover { border-bottom-color: var(--accent); }
-    .gf-box { border: 1.5px solid var(--rule); padding: 1.8rem; max-width: 760px; background: var(--card); }
+    .gf-box { border: 1px solid rgba(255,255,255,0.14); padding: 2rem; max-width: 760px; background: rgba(255,255,255,0.02); }
     .gf-inputs { display: flex; align-items: center; gap: 0.85rem; flex-wrap: wrap; }
-    .gf-inputs label { font-family: 'DM Mono', monospace; font-size: 0.8rem; color: var(--muted); }
+    .gf-inputs label { font-family: 'DM Mono', monospace; font-size: 0.8rem; color: rgba(247,245,240,0.5); }
     .gf-inputs input {
-      width: 4.2rem; background: transparent; border: 1px solid var(--border);
-      color: var(--ink); font-family: 'DM Mono', monospace; font-size: 1.5rem;
+      width: 4.2rem; background: transparent; border: 1px solid rgba(255,255,255,0.25);
+      color: var(--bg); font-family: 'DM Mono', monospace; font-size: 1.5rem;
       padding: 0.45rem 0.6rem; text-align: center; text-transform: uppercase;
     }
     .gf-inputs input:focus { outline: none; border-color: var(--accent); }
-    .gf-op { font-family: 'DM Mono', monospace; font-size: 1.2rem; color: var(--muted); }
+    .gf-op { font-family: 'DM Mono', monospace; font-size: 1.2rem; color: rgba(247,245,240,0.45); }
     #gf-out {
       font-family: 'DM Mono', monospace; font-size: 1.5rem; color: var(--accent);
       border-bottom: 2px solid var(--accent); padding: 0.45rem 0.9rem; min-width: 4.2rem;
       text-align: center; display: inline-block;
     }
     #gf-rand {
-      margin-left: auto; background: transparent; color: var(--muted);
-      border: 1px solid var(--border); font-family: 'DM Mono', monospace;
+      margin-left: auto; background: transparent; color: rgba(247,245,240,0.6);
+      border: 1px solid rgba(255,255,255,0.25); font-family: 'DM Mono', monospace;
       font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
       padding: 0.55rem 1.1rem; cursor: pointer; transition: color 0.2s, border-color 0.2s;
     }
@@ -303,16 +301,16 @@
     .gf-steps { width: 100%; border-collapse: collapse; font-family: 'DM Mono', monospace; font-size: 0.78rem; }
     .gf-steps th {
       text-align: left; font-weight: 400; font-size: 0.62rem; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--muted);
-      border-bottom: 1.5px solid var(--rule); padding: 0 0.8rem 0.6rem 0;
+      text-transform: uppercase; color: rgba(247,245,240,0.4);
+      border-bottom: 1px solid rgba(255,255,255,0.18); padding: 0 0.8rem 0.6rem 0;
     }
-    .gf-steps td { padding: 0.42rem 0.8rem 0.42rem 0; color: var(--muted); border-bottom: 1px solid var(--border); white-space: nowrap; }
-    .gf-steps tr.on td { color: var(--ink); }
+    .gf-steps td { padding: 0.42rem 0.8rem 0.42rem 0; color: rgba(247,245,240,0.75); border-bottom: 1px solid rgba(255,255,255,0.06); white-space: nowrap; }
+    .gf-steps tr.on td { color: var(--bg); }
     .gf-steps tr.on td:first-child { color: var(--accent); }
-    .gf-steps .muted { color: #A8A79F; }
+    .gf-steps .muted { color: rgba(247,245,240,0.32); }
     .gf-steps .xor { color: var(--accent); }
-    .gf-foot { margin-top: 1.6rem; font-size: 0.84rem; color: var(--muted); line-height: 1.7; max-width: 620px; }
-    .gf-foot code { font-family: 'DM Mono', monospace; color: var(--ink); }
+    .gf-foot { margin-top: 1.6rem; font-size: 0.84rem; color: rgba(247,245,240,0.45); line-height: 1.7; max-width: 620px; }
+    .gf-foot code { font-family: 'DM Mono', monospace; color: rgba(247,245,240,0.75); }
     @media (max-width: 900px) {
       #gf-playground { padding: 4rem 1.5rem; }
       .gf-box { padding: 1.2rem; }
@@ -364,7 +362,7 @@
     </div>
     <div class="hero-ctas">
       <a href="#projects" class="btn btn-primary">View Projects</a>
-      <a href="Kush_Mehta_Resume_General.pdf" class="btn btn-accent" download>Résumé</a>
+      <a href="Kush_Mehta_Resume_General.pdf" class="btn btn-accent" download>Download Résumé</a>
       <a href="#contact" class="btn btn-outline">Get in Touch</a>
     </div>
   </div>
