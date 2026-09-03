@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kush Mehta — Electronics & Communication Engineer</title>
-  <meta name="description" content="Kush Mehta — Electronics &amp; Communication Engineering student at Nirma University. Research intern at SAC, ISRO (Galileo HAS decoder). Electronics Lead at Team Arrow UAV Club. Aerial robotics, embedded security, and applied data science."/>
+  <title>Kush Mehta: Electronics & Communication Engineer</title>
+  <meta name="description" content="Kush Mehta, Electronics &amp; Communication Engineering student at Nirma University. Research intern at SAC, ISRO (Galileo HAS decoder). Electronics Lead at Team Arrow UAV Club. Aerial robotics, embedded security, and applied data science."/>
   <meta name="author" content="Kush Mehta"/>
   <meta property="og:type" content="website"/>
-  <meta property="og:title" content="Kush Mehta — Electronics &amp; Communication Engineer"/>
+  <meta property="og:title" content="Kush Mehta; Electronics &amp; Communication Engineer"/>
   <meta property="og:description" content="Research intern at SAC, ISRO. Electronics Lead at Team Arrow UAV Club. Aerial robotics, coding theory, embedded security, and applied data science."/>
   <meta name="twitter:card" content="summary"/>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230F0F0E'/%3E%3Ctext x='50' y='70' font-size='60' font-family='serif' fill='%23C85C2D' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E"/>
@@ -145,7 +145,14 @@
 
     /* ABOUT */
     #about { padding: 6rem 4rem; background: var(--card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .about-grid { display: grid; grid-template-columns: 1.35fr 0.65fr; gap: 4.5rem; align-items: start; }
+    .about-portrait { position: sticky; top: 110px; }
+    .about-portrait img { width: 100%; max-width: 240px; display: block; filter: grayscale(1) contrast(1.05); border: 1px solid var(--border); }
+    .about-portrait figcaption {
+      font-family: 'DM Mono', monospace; font-size: 0.66rem; letter-spacing: 0.06em;
+      color: var(--muted); margin-top: 0.7rem; max-width: 240px; line-height: 1.6;
+    }
+    .about-portrait img:hover { filter: none; }
     .about-text p { color: var(--muted); font-size: 1.05rem; line-height: 1.9; margin-bottom: 1.2rem; }
     .about-highlights { display: flex; flex-direction: column; gap: 1rem; }
     .highlight-item {
@@ -254,6 +261,57 @@
     .spec-item-text { font-size: 0.9rem; color: var(--muted); }
     .spec-item-text strong { display: block; font-size: 1rem; color: var(--ink); font-weight: 500; }
 
+
+    /* GF(2^8) PLAYGROUND */
+    #gf-playground { padding: 6rem 4rem; background: var(--ink); color: var(--bg); }
+    #gf-playground .section-label { color: var(--accent); }
+    #gf-playground .section-title { color: var(--bg); }
+    .gf-lede { max-width: 620px; color: rgba(247,245,240,0.7); line-height: 1.85; font-size: 1rem; margin-bottom: 2.5rem; }
+    .gf-lede a { color: var(--accent); border-bottom: 1px solid rgba(200,92,45,0.5); text-decoration: none; }
+    .gf-lede a:hover { border-bottom-color: var(--accent); }
+    .gf-box { border: 1px solid rgba(255,255,255,0.14); padding: 2rem; max-width: 760px; background: rgba(255,255,255,0.02); }
+    .gf-inputs { display: flex; align-items: center; gap: 0.85rem; flex-wrap: wrap; }
+    .gf-inputs label { font-family: 'DM Mono', monospace; font-size: 0.8rem; color: rgba(247,245,240,0.5); }
+    .gf-inputs input {
+      width: 4.2rem; background: transparent; border: 1px solid rgba(255,255,255,0.25);
+      color: var(--bg); font-family: 'DM Mono', monospace; font-size: 1.5rem;
+      padding: 0.45rem 0.6rem; text-align: center; text-transform: uppercase;
+    }
+    .gf-inputs input:focus { outline: none; border-color: var(--accent); }
+    .gf-op { font-family: 'DM Mono', monospace; font-size: 1.2rem; color: rgba(247,245,240,0.45); }
+    #gf-out {
+      font-family: 'DM Mono', monospace; font-size: 1.5rem; color: var(--accent);
+      border-bottom: 2px solid var(--accent); padding: 0.45rem 0.9rem; min-width: 4.2rem;
+      text-align: center; display: inline-block;
+    }
+    #gf-rand {
+      margin-left: auto; background: transparent; color: rgba(247,245,240,0.6);
+      border: 1px solid rgba(255,255,255,0.25); font-family: 'DM Mono', monospace;
+      font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.55rem 1.1rem; cursor: pointer; transition: color 0.2s, border-color 0.2s;
+    }
+    #gf-rand:hover { color: var(--accent); border-color: var(--accent); }
+    .gf-err { color: #e5794f; font-family: 'DM Mono', monospace; font-size: 0.75rem; margin-top: 0.9rem; }
+    .gf-tablewrap { overflow-x: auto; margin-top: 1.6rem; }
+    .gf-steps { width: 100%; border-collapse: collapse; font-family: 'DM Mono', monospace; font-size: 0.78rem; }
+    .gf-steps th {
+      text-align: left; font-weight: 400; font-size: 0.62rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(247,245,240,0.4);
+      border-bottom: 1px solid rgba(255,255,255,0.18); padding: 0 0.8rem 0.6rem 0;
+    }
+    .gf-steps td { padding: 0.42rem 0.8rem 0.42rem 0; color: rgba(247,245,240,0.75); border-bottom: 1px solid rgba(255,255,255,0.06); white-space: nowrap; }
+    .gf-steps tr.on td { color: var(--bg); }
+    .gf-steps tr.on td:first-child { color: var(--accent); }
+    .gf-steps .muted { color: rgba(247,245,240,0.32); }
+    .gf-steps .xor { color: var(--accent); }
+    .gf-foot { margin-top: 1.6rem; font-size: 0.84rem; color: rgba(247,245,240,0.45); line-height: 1.7; max-width: 620px; }
+    .gf-foot code { font-family: 'DM Mono', monospace; color: rgba(247,245,240,0.75); }
+    @media (max-width: 900px) {
+      #gf-playground { padding: 4rem 1.5rem; }
+      .gf-box { padding: 1.2rem; }
+      #gf-rand { margin-left: 0; }
+    }
+
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; padding: 6rem 1.5rem 3rem; }
       .hero-right { display: none; }
@@ -287,10 +345,10 @@
     <p class="hero-tag">Electronics &amp; Communication Engineer · Data Science Minor · Nirma University</p>
     <h1 class="hero-name">Kush<br/><em>Mehta</em></h1>
     <p class="hero-bio">
-      Final-year engineer working in <strong>aerial robotics</strong> and <strong>embedded security</strong>.
-      I design systems that fly, sense, and compute — from autonomous tilt-rotor VTOL aircraft
-      to lightweight cryptography on microcontrollers. Electronics Lead at
-      <strong>Team Arrow</strong>; research intern at <strong>SAC, ISRO</strong>.
+      Final-year ECE student. I work on things that fly, things that decode, and lately
+      things that synthesize to gates. Electronics Lead at <strong>Team Arrow</strong>,
+      research intern at <strong>SAC, ISRO</strong>, where I spent ten weeks
+      teaching a receiver to recover satellite corrections it had partly lost.
     </p>
     <div class="hero-social">
       <a href="https://www.linkedin.com/in/-kushmehta" target="_blank" rel="noopener" class="social-link">LinkedIn</a>
@@ -307,27 +365,27 @@
     <div class="hero-stat-row">
       <div class="hero-stat">
         <div class="hero-stat-num">AIR 2</div>
-        <div class="hero-stat-label">SAE DDC Micro 2024 — National</div>
+        <div class="hero-stat-label">SAE DDC Micro 2024: National</div>
       </div>
       <div class="hero-stat">
         <div class="hero-stat-num">AIR 3</div>
-        <div class="hero-stat-label">SAE DDC Micro 2025 — National</div>
+        <div class="hero-stat-label">SAE DDC Micro 2025, National</div>
       </div>
     </div>
     <div class="hero-stat-row">
       <div class="hero-stat">
         <div class="hero-stat-num">5th</div>
-        <div class="hero-stat-label">International — SAE Aero Design West 2025</div>
+        <div class="hero-stat-label">International; SAE Aero Design West 2025</div>
       </div>
       <div class="hero-stat">
         <div class="hero-stat-num">8.59</div>
-        <div class="hero-stat-label">CGPA — Nirma University</div>
+        <div class="hero-stat-label">CGPA, Nirma University</div>
       </div>
     </div>
     <div class="hero-badge">
       <div class="hero-badge-icon">&#128640;&#65038;</div>
       <div class="hero-badge-text">
-        <strong>Research Intern — SAC, ISRO</strong>
+        <strong>Research Intern, SAC, ISRO</strong>
         Navigation Receiver Division · Real-time Galileo HAS decoder in C++, validated to centimetre-level PPP in RTKLIB
       </div>
     </div>
@@ -337,7 +395,7 @@
 <!-- ISRO BANNER -->
 <a href="projects-embedded.html#isro" class="internship-banner">
   <div class="internship-banner-text">
-    <strong>&#128752;&#65038; Research Intern — Navigation Receiver Division, SAC · ISRO</strong>
+    <strong>&#128752;&#65038; Research Intern: Navigation Receiver Division, SAC · ISRO</strong>
     Real-Time Galileo HAS Decoding Utility · May – July 2026 · Ahmedabad
   </div>
   <div class="isro-badge">10 Weeks · Completed</div>
@@ -348,43 +406,18 @@
   <div class="about-grid">
     <div class="about-text reveal">
       <p class="section-label">About Me</p>
-      <h2 class="section-title">Engineer by training,<br/>builder by instinct.</h2>
-      <p>I'm Kush Mehta, an Electronics &amp; Communication Engineering student at Nirma University (B.Tech, Aug 2023 – May 2027) with a minor in Data Science. My work sits at the intersection of hardware and software — designing circuits that fly, programming microcontrollers that sense, and writing code that makes sense of data.</p>
-      <p>As Electronics Lead for Team Arrow, Nirma's official aeromodelling and UAV club, I've led electronics design and integration for competition aircraft across three years and five SAE and Technoxian events — earning AIR 2 and AIR 3 nationally and a 5th-place international mission score at SAE Aero Design West 2025 in California.</p>
-      <p>In mid-2026 I spent ten weeks at the Space Applications Centre, ISRO, in the Navigation Receiver Division — building a real-time Galileo High Accuracy Service decoding utility in C++, implementing Reed–Solomon erasure decoding over GF(256) from the ICD, and validating the output end-to-end in RTKLIB to achieve centimetre-level Precise Point Positioning.</p>
+      <h2 class="section-title">Mostly I just<br/>build things.</h2>
+      <p>I'm Kush Mehta, an Electronics &amp; Communication Engineering student at Nirma University (B.Tech, Aug 2023 – May 2027) with a minor in Data Science. I like work that straddles hardware and software, designing circuits that fly, programming microcontrollers that sense, and writing code that makes sense of data.</p>
+      <p>As Electronics Lead for Team Arrow, Nirma's official aeromodelling and UAV club, I've led electronics design and integration for competition aircraft across three years and five SAE and Technoxian events; earning AIR 2 and AIR 3 nationally and a 5th-place international mission score at SAE Aero Design West 2025 in California.</p>
+      <p>In mid-2026 I spent ten weeks at the Space Applications Centre, ISRO, in the Navigation Receiver Division, building a real-time Galileo High Accuracy Service decoding utility in C++, implementing Reed–Solomon erasure decoding over GF(256) from the ICD, and validating the output end-to-end in RTKLIB to achieve centimetre-level Precise Point Positioning.</p>
       <p>Alongside the flight work, I benchmark lightweight cryptography for constrained devices, run microarchitectural simulations in gem5, and build classical computer-vision systems. I'm applying for an MS in Robotics, Autonomous Systems, and Embedded Systems for entry after graduation.</p>
     </div>
-    <div class="about-highlights reveal">
-      <div class="highlight-item">
-        <div class="highlight-icon">&#9992;&#65038;</div>
-        <div class="highlight-content">
-          <h4>Aerial Robotics</h4>
-          <p>Autonomous VTOL aircraft, flight controller tuning, ArduPilot, payload systems, and competition-grade aeromodelling.</p>
-        </div>
-      </div>
-      <div class="highlight-item">
-        <div class="highlight-icon">&#128225;&#65038;</div>
-        <div class="highlight-content">
-          <h4>IoT & Embedded Systems</h4>
-          <p>ESP32, Raspberry Pi, MQTT, Node-RED — connecting hardware to the cloud with efficient, reliable firmware.</p>
-        </div>
-      </div>
-      <div class="highlight-item">
-        <div class="highlight-icon">&#128272;&#65038;</div>
-        <div class="highlight-content">
-          <h4>Coding Theory &amp; Security</h4>
-          <p>Reed–Solomon erasure decoding over GF(256) for Galileo HAS at ISRO; lightweight cryptography — AES, ASCON — on embedded hardware.</p>
-        </div>
-      </div>
-      <div class="highlight-item">
-        <div class="highlight-icon">&#128202;&#65038;</div>
-        <div class="highlight-content">
-          <h4>Data Science</h4>
-          <p>Portfolio analysis, credit scoring, visualization with Python, KNIME, and Tableau.</p>
-        </div>
-      </div>
+    <figure class="about-portrait reveal">
+      <img src="kush.jpg" alt="Kush Mehta" width="240" height="300"/>
+      <figcaption>Ahmedabad, Gujarat.<br/>Currently: final year, and a Verilog core that
+      took three rewrites before the testbench stopped lying to me.</figcaption>
+    </figure>
     </div>
-  </div>
 </section>
 
 <div class="divider"></div>
@@ -392,12 +425,12 @@
 <!-- PROJECTS HUB -->
 <section id="projects">
   <p class="section-label reveal">Projects</p>
-  <h2 class="section-title reveal">Organized by domain.</h2>
+  <h2 class="section-title reveal">Sorted by what they are.</h2>
   <div class="project-categories reveal">
     <a href="projects-aerial.html" class="category-card">
       <div class="category-icon">&#9992;&#65038;</div>
       <div class="category-title">Aerial Robotics & Team Arrow</div>
-      <div class="category-desc">Autonomous tilt-rotor VTOL aircraft, competition aeromodelling, propulsion and avionics design across a multi-year SAE competition journey.</div>
+      <div class="category-desc">Autonomous tilt-rotor VTOL aircraft, competition aeromodelling, propulsion and avionics design across a several years of SAE competitions.</div>
       <div class="category-count">5 Aircraft · 3 Years</div>
     </a>
     <a href="projects-embedded.html" class="category-card">
@@ -415,12 +448,54 @@
   </div>
 </section>
 
+<!-- GF(2^8) INTERACTIVE MULTIPLIER -->
+<section id="gf-playground">
+  <p class="section-label reveal">Try it</p>
+  <h2 class="section-title reveal">Multiply two bytes<br/>the way the hardware does.</h2>
+  <p class="gf-lede reveal">
+    My ISRO decoder and the Verilog core underneath it both live in GF(2<sup>8</sup>), a field with
+    exactly 256 elements where addition is XOR and nothing ever carries. Pick two bytes and watch the
+    shift-and-reduce multiplier work through them. This is the same algorithm my
+    <a href="https://github.com/Kush-Git-379/gf256-rtl" target="_blank" rel="noopener">Verilog module</a>
+    synthesizes to, running in your browser instead of on a Cyclone IV.
+  </p>
+
+  <div class="gf-box reveal">
+    <div class="gf-inputs">
+      <label for="gf-a">a</label>
+      <input id="gf-a" type="text" value="57" maxlength="2" spellcheck="false" autocomplete="off" aria-label="operand a, hex"/>
+      <span class="gf-op">&times;</span>
+      <label for="gf-b">b</label>
+      <input id="gf-b" type="text" value="83" maxlength="2" spellcheck="false" autocomplete="off" aria-label="operand b, hex"/>
+      <span class="gf-op">=</span>
+      <output id="gf-out" for="gf-a gf-b">31</output>
+      <button id="gf-rand" type="button">random</button>
+    </div>
+    <p id="gf-err" class="gf-err" hidden>Two hex bytes, 00 to FF.</p>
+
+    <div class="gf-tablewrap">
+      <table class="gf-steps">
+        <thead>
+          <tr><th>#</th><th>b bit</th><th>a</th><th>accumulator</th><th>what happens</th></tr>
+        </thead>
+        <tbody id="gf-tbody"></tbody>
+      </table>
+    </div>
+
+    <p class="gf-foot">
+      Reduction polynomial <code>0x11D</code>, not AES's <code>0x11B</code>. Galileo's HAS
+      specification picks a different one, which is exactly the sort of detail that costs you an
+      afternoon if you assume instead of reading the ICD.
+    </p>
+  </div>
+</section>
+
 <div class="divider"></div>
 
 <!-- SKILLS -->
 <section id="skills">
   <p class="section-label reveal">Skills</p>
-  <h2 class="section-title reveal">My toolkit.</h2>
+  <h2 class="section-title reveal">What I use.</h2>
   <div class="skills-grid">
     <div class="skill-group reveal">
       <h3>Languages &amp; Hardware Design</h3>
@@ -428,7 +503,7 @@
         <li>Python, C / C++</li>
         <li>Verilog HDL, Assembly</li>
         <li>Bash, TCL, MATLAB, SQL</li>
-        <li>FPGA — Quartus II / ModelSim</li>
+        <li>FPGA; Quartus II / ModelSim</li>
         <li>Keil uVision, 8051</li>
         <li>MICROWIND, Simulink</li>
       </ul>
@@ -472,7 +547,7 @@
 <!-- RESEARCH -->
 <section id="research">
   <p class="section-label reveal">Research &amp; IP</p>
-  <h2 class="section-title reveal">Papers and filings.</h2>
+  <h2 class="section-title reveal">Written up, or being filed.</h2>
   <div class="research-card reveal">
     <div>
       <div class="research-status">In Progress</div>
@@ -496,10 +571,10 @@
   <!-- Jamming utilization paper -->
   <div class="research-card reveal" style="margin-top:1.5rem;">
     <div>
-      <div class="research-status">Under Review — Not Yet Accepted</div>
+      <div class="research-status">Under Review, Not Yet Accepted</div>
       <div class="research-title">Jamming Utilization: An Evaluation Hazard in Learned Frequency-Hopping Receivers</div>
       <p class="research-desc">
-        Co-authored with Mishri Bhavsar, Preya Parikh, and Prof. Sachin Gajjar (Nirma University). The paper shows that a conventionally trained learned hop detector reports <em>higher</em> accuracy under a follower jammer (0.842) than with no jammer at all (0.712) — not because it is robust, but because it is reading the jammer's own emission as the signal. Restricted to packets where the jammer targeted a decoy, the same detector finds the true hop on 1.8% of packets, statistically indistinguishable from the 1.6% chance level of a 64-slot band. Because the follower jammer produces this distortion while emitting 8.65× less energy than a barrage jammer, raw accuracy also reverses the apparent ranking of the two attacks. We recommend reporting a decoy-conditioned control alongside raw accuracy for any learned frequency-hopping receiver evaluated against a reactive adversary.
+        Co-authored with Mishri Bhavsar, Preya Parikh, and Prof. Sachin Gajjar (Nirma University). The paper shows that a conventionally trained learned hop detector reports <em>higher</em> accuracy under a follower jammer (0.842) than with no jammer at all (0.712), not because it is robust, but because it is reading the jammer's own emission as the signal. Restricted to packets where the jammer targeted a decoy, the same detector finds the true hop on 1.8% of packets, statistically indistinguishable from the 1.6% chance level of a 64-slot band. Because the follower jammer produces this distortion while emitting 8.65× less energy than a barrage jammer, raw accuracy also reverses the apparent ranking of the two attacks. We recommend reporting a decoy-conditioned control alongside raw accuracy for any learned frequency-hopping receiver evaluated against a reactive adversary.
       </p>
       <div style="margin-top:1.2rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
         <span class="tag accent">Evaluation Methodology</span>
@@ -520,10 +595,10 @@
   <!-- Patent -->
   <div class="research-card reveal" style="margin-top:1.5rem;">
     <div>
-      <div class="research-status" style="background:var(--accent);">Patent — Filing In Progress</div>
-      <div class="research-title">Patent Application — Micro-Class Aircraft Design, SAE DDC 2025</div>
+      <div class="research-status" style="background:var(--accent);">Patent: Filing In Progress</div>
+      <div class="research-title">Patent Application, Micro-Class Aircraft Design, SAE DDC 2025</div>
       <p class="research-desc">
-        Patent procedure initiated for the design developed for the SAE India DDC 2025 Micro Class competition — the AIR 3 aircraft, a shoulder-wing box-fuselage monoplane achieving a 0.670 payload fraction with a 2.5 kg payload. The filing is underway and not yet granted.
+        Patent procedure initiated for the design developed for the SAE India DDC 2025 Micro Class competition; the AIR 3 aircraft, a shoulder-wing box-fuselage monoplane achieving a 0.670 payload fraction with a 2.5 kg payload. The filing is underway and not yet granted.
       </p>
       <div style="margin-top:1.2rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
         <span class="tag accent">Patent</span>
@@ -546,7 +621,7 @@
   <div class="contact-inner">
     <div class="contact-left reveal">
       <p class="section-label">Contact</p>
-      <h2 class="section-title">Let's work<br/>together.</h2>
+      <h2 class="section-title">Get in<br/>touch.</h2>
       <p class="contact-sub">I'm open to MS supervision and funding conversations, research collaborations, and internships in aerospace, embedded systems, IoT, and data science. Feel free to reach out.</p>
       <a href="mailto:379kushmehta@gmail.com" class="contact-email">379kushmehta@gmail.com</a>
       <p style="margin-top:1.5rem;font-family:'DM Mono',monospace;font-size:0.75rem;letter-spacing:0.06em;color:var(--muted);">
@@ -600,6 +675,73 @@
     });
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
+</script>
+<script>
+// GF(2^8) multiply over primitive polynomial 0x11D, the field Galileo HAS uses.
+// Same algorithm as the shift-and-reduce variant in github.com/Kush-Git-379/gf256-rtl
+(function () {
+  var POLY = 0x11D;
+  var aEl = document.getElementById('gf-a'),
+      bEl = document.getElementById('gf-b'),
+      out = document.getElementById('gf-out'),
+      err = document.getElementById('gf-err'),
+      body = document.getElementById('gf-tbody'),
+      rnd = document.getElementById('gf-rand');
+  if (!aEl) return;
+
+  function hex(v, w) { var s = v.toString(16).toUpperCase(); while (s.length < (w || 2)) s = '0' + s; return s; }
+  function bin(v) { var s = v.toString(2); while (s.length < 8) s = '0' + s; return s; }
+
+  function steps(a, b) {
+    var acc = 0, rows = [], i;
+    for (i = 0; i < 8; i++) {
+      var bit = (b >> i) & 1, before = acc, act;
+      if (bit) { acc ^= a; act = 'acc ^= a  ->  ' + hex(acc); }
+      else { act = 'bit clear, skip'; }
+      rows.push({ i: i, bit: bit, a: a, acc: acc, before: before, act: act });
+      a <<= 1;
+      if (a & 0x100) { a ^= POLY; rows[rows.length - 1].reduced = true; }
+    }
+    return { rows: rows, result: acc };
+  }
+
+  function render() {
+    var av = parseInt(aEl.value, 16), bv = parseInt(bEl.value, 16);
+    var bad = isNaN(av) || isNaN(bv) || av < 0 || av > 255 || bv < 0 || bv > 255;
+    err.hidden = !bad;
+    if (bad) { out.textContent = '--'; body.innerHTML = ''; return; }
+
+    var r = steps(av, bv);
+    out.textContent = hex(r.result);
+    var html = '';
+    for (var k = 0; k < r.rows.length; k++) {
+      var s = r.rows[k];
+      html += '<tr class="' + (s.bit ? 'on' : '') + '">'
+           +  '<td>' + k + '</td>'
+           +  '<td class="' + (s.bit ? 'xor' : 'muted') + '">' + s.bit + '</td>'
+           +  '<td>' + hex(s.a) + '  <span class="muted">' + bin(s.a & 0xFF) + '</span></td>'
+           +  '<td>' + hex(s.acc) + '</td>'
+           +  '<td class="' + (s.bit ? '' : 'muted') + '">' + s.act
+           +  (s.reduced ? '<span class="xor">  + reduce ^0x11D</span>' : '') + '</td>'
+           +  '</tr>';
+    }
+    body.innerHTML = html;
+  }
+
+  function clean(el) {
+    el.value = el.value.replace(/[^0-9a-fA-F]/g, '').toUpperCase().slice(0, 2);
+  }
+  [aEl, bEl].forEach(function (el) {
+    el.addEventListener('input', function () { clean(el); render(); });
+    el.addEventListener('focus', function () { el.select(); });
+  });
+  rnd.addEventListener('click', function () {
+    aEl.value = hex(1 + Math.floor(Math.random() * 255));
+    bEl.value = hex(1 + Math.floor(Math.random() * 255));
+    render();
+  });
+  render();
+})();
 </script>
 </body>
 </html>

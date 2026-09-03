@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Data Science &amp; Software — Kush Mehta</title>
+  <title>Data Science &amp; Software: Kush Mehta</title>
   <meta name="description" content="Investment portfolio analytics, KNIME/Tableau credit risk dashboards, real-time OpenCV augmented reality, and machine learning projects by Kush Mehta."/>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230F0F0E'/%3E%3Ctext x='50' y='70' font-size='60' font-family='serif' fill='%23C85C2D' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E"/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
@@ -63,9 +63,9 @@
 
 <div class="page-hero">
   <a href="index.html" class="back-link">← Back to Home</a>
-  <p class="page-label">Domain — Data Science &amp; Software</p>
+  <p class="page-label">Domain: Data Science &amp; Software</p>
   <h1 class="page-title">Data that tells<br/><em>a story.</em></h1>
-  <p class="page-intro">Analytics, computer vision, and software engineering projects — from financial portfolio optimization and credit risk dashboards to real-time augmented reality and sports prediction.</p>
+  <p class="page-intro">Analytics, computer vision, and a few things I built to learn a language properly. Some of these are course work; I've said so where they are.</p>
 </div>
 
 <div class="projects-list">
@@ -78,7 +78,7 @@
         <span class="tag blue">Data Science · Finance</span>
         <span class="tag">PSC · Semester 5 · Oct 2025</span>
       </div>
-      <h2 class="project-title-big">Investment Portfolio Analyzer — OOP &amp; Financial Metrics in Python</h2>
+      <h2 class="project-title-big">Investment Portfolio Analyzer, OOP &amp; Financial Metrics in Python</h2>
       <p class="project-abstract">A Python-based investment portfolio analysis tool that reads a synthetic multi-asset portfolio from CSV, models each investment using an OOP inheritance hierarchy, computes portfolio-wide financial metrics, and produces visualizations and a written summary report. The system follows a four-stage pipeline: CSV ingestion via pandas, OOP modeling (Investment base class with Stock, RealEstate, BankDeposit, MutualFund, and DebtBond subclasses), statistical analysis with NumPy, and chart generation with Matplotlib. Each subclass inherits computed_growth(), predict_value(), and info() methods, making the system extensible to new asset types without modifying core logic.</p>
 
       <div class="stat-row">
@@ -122,8 +122,8 @@
         <span class="tag">KNIME · Tableau</span>
         <span class="tag">DAV · Semester 5 · Oct 2025</span>
       </div>
-      <h2 class="project-title-big">Credit Risk Analysis &amp; Stakeholder Dashboard — KNIME &amp; Tableau</h2>
-      <p class="project-abstract">End-to-end credit risk analysis pipeline on a 100,000-record Kaggle credit scoring dataset (28 features, three-class target: Good / Standard / Poor). KNIME Analytics Platform was used for preprocessing — including missing salary imputation from annual income, median imputation of delayed payments, data type correction, and credit history age parsing — followed by decision tree classification. Tableau was used to build stakeholder-specific dashboard views, explicitly designed around the analytical questions of three different business teams: Sales &amp; Marketing, Risk Management, and Product Development.</p>
+      <h2 class="project-title-big">Credit Risk Analysis &amp; Stakeholder Dashboard; KNIME &amp; Tableau</h2>
+      <p class="project-abstract">End-to-end credit risk analysis pipeline on a 100,000-record Kaggle credit scoring dataset (28 features, three-class target: Good / Standard / Poor). KNIME Analytics Platform was used for preprocessing, including missing salary imputation from annual income, median imputation of delayed payments, data type correction, and credit history age parsing, followed by decision tree classification. Tableau was used to build stakeholder-specific dashboard views, explicitly designed around the analytical questions of three different business teams: Sales &amp; Marketing, Risk Management, and Product Development.</p>
 
       <div class="highlights-box">
         <h4>Stakeholder-Driven Dashboard Design</h4>
@@ -131,7 +131,7 @@
           <li>Sales &amp; Marketing view: treemap of credit score distribution by occupation; bubble chart of average customer age per credit score category</li>
           <li>Risk Management view: Sankey diagram mapping credit score → payment behavior flow; bar chart of credit utilisation ratio per payment pattern</li>
           <li>Pearson correlation heatmap surfaces relationships between outstanding debt, interest rate, and credit utilisation ratio</li>
-          <li>Visual segmentation achieves classification without ML models — the occupation treemap inherently groups professions by dominant credit score</li>
+          <li>Visual segmentation achieves classification without ML models: the occupation treemap inherently groups professions by dominant credit score</li>
           <li>Future scope: Logistic Regression, Random Forest, XGBoost for automated scoring; Explainable AI (XAI) for regulatory compliance</li>
         </ul>
       </div>
@@ -160,15 +160,15 @@
         <span class="tag">Sep 2025 · Nirma University</span>
       </div>
       <h2 class="project-title-big">Real-Time Virtual Try-On of Color-Adjustable Sunglasses using OpenCV</h2>
-      <p class="project-abstract">A real-time augmented reality virtual try-on system for sunglasses built entirely using classical computer vision — no deep learning or GPU required. The system detects faces and eyes via Viola-Jones Haar Cascade classifiers, estimates geometric pose from inter-pupillary distance and eye midpoint coordinates, and overlays a sunglasses model scaled and rotated to match head tilt. A key differentiating feature is on-the-fly color customization via HSV hue shifting — the hue channel is shifted modulo 180 while preserving brightness and the alpha channel, allowing seamless cycling through the full color spectrum without reloading assets. Frame-to-frame jitter is suppressed using Exponential Moving Average (α = 0.2) as a temporal low-pass filter on all positional parameters.</p>
+      <p class="project-abstract">A real-time augmented reality virtual try-on system for sunglasses built entirely using classical computer vision, no deep learning or GPU required. The system detects faces and eyes via Viola-Jones Haar Cascade classifiers, estimates geometric pose from inter-pupillary distance and eye midpoint coordinates, and overlays a sunglasses model scaled and rotated to match head tilt. A key differentiating feature is on-the-fly color customization via HSV hue shifting; the hue channel is shifted modulo 180 while preserving brightness and the alpha channel, allowing seamless cycling through the full color spectrum without reloading assets. Frame-to-frame jitter is suppressed using Exponential Moving Average (α = 0.2) as a temporal low-pass filter on all positional parameters.</p>
       <div class="highlights-box">
         <h4>Technical Pipeline</h4>
         <ul>
           <li>Preprocessing: CLAHE (Contrast Limited Adaptive Histogram Equalization) enhances local contrast under varying lighting without amplifying noise</li>
-          <li>Detection: Viola-Jones Haar Cascade for face, then eye detection restricted to face ROI — reduces search space and improves accuracy</li>
+          <li>Detection: Viola-Jones Haar Cascade for face, then eye detection restricted to face ROI, reduces search space and improves accuracy</li>
           <li>Pose estimation: scale from Euclidean inter-pupillary distance; rotation via atan2 on eye center coordinates; position at eye midpoint</li>
           <li>Color customization: BGR→HSV conversion, hue channel shift (mod 180), alpha channel preserved and restored after conversion</li>
-          <li>Temporal smoothing: EMA with α=0.2 on x, y, scale, and rotation — eliminates jitter without introducing lag</li>
+          <li>Temporal smoothing: EMA with α=0.2 on x, y, scale, and rotation, eliminates jitter without introducing lag</li>
           <li>Per-pixel alpha blending for seamless compositing of glasses onto live video stream</li>
         </ul>
       </div>
@@ -195,16 +195,16 @@
         <span class="tag blue">Software Engineering</span>
         <span class="tag">Python · CSV</span>
       </div>
-      <h2 class="project-title-big">Student Information System — Python &amp; CSV</h2>
-      <p class="project-abstract">A feature-complete CLI-based student records management system built in Python. Student data is stored in CSV files and all CRUD operations — add, view, search, update, and delete — are supported with field-level input validation for name, class, roll number, DOB, gender, and phone number. The terminal UI uses colour-coded output via termcolor and formatted table display via PrettyTable, with automatic duplicate header removal during CSV write operations.</p>
+      <h2 class="project-title-big">Student Information System: Python &amp; CSV</h2>
+      <p class="project-abstract">A command-line records system, written while I was still learning Python properly. Student data is stored in CSV files and all CRUD operations, add, view, search, update, and delete; are supported with field-level input validation for name, class, roll number, DOB, gender, and phone number. The terminal UI uses colour-coded output via termcolor and formatted table display via PrettyTable, with automatic duplicate header removal during CSV write operations.</p>
       <div class="highlights-box">
         <h4>Technical Design</h4>
         <ul>
-          <li>Full CRUD via CSV — append on add, full rewrite on update/delete to maintain data integrity</li>
+          <li>Full CRUD via CSV, append on add, full rewrite on update/delete to maintain data integrity</li>
           <li>Field-level validation: name (letters only), class (1–12), roll number (numeric), DOB (DD/MM/YYYY), phone (10 digits)</li>
-          <li>Duplicate header removal — raw_data.csv is deduplicated into students.csv on every write</li>
+          <li>Duplicate header removal, raw_data.csv is deduplicated into students.csv on every write</li>
           <li>Search by roll number with formatted PrettyTable output</li>
-          <li>Colour-coded terminal UI using termcolor — green for success, red for warnings, cyan for prompts</li>
+          <li>Colour-coded terminal UI using termcolor: green for success, red for warnings, cyan for prompts</li>
         </ul>
       </div>
       <div class="tech-breakdown">
@@ -232,15 +232,15 @@
         <span class="semester-badge">First ML Project</span>
       </div>
       <h2 class="project-title-big">IPL Match Winner Prediction using K-Nearest Neighbours</h2>
-      <p class="project-abstract">A classification model predicting IPL cricket match winners using historical match data — built as a first introduction to machine learning in Semester II. The dataset (636 matches, 6 columns from Kaggle) uses four features: Team 1, Team 2, Toss Winner, and Toss Decision. A KNN classifier with K=9 and Euclidean distance was implemented in Python after categorical encoding. The model achieved 57.81% accuracy — interpreted as reflecting cricket's inherent unpredictability rather than model failure, given only four input features and no player statistics, venue, or pitch condition data.</p>
+      <p class="project-abstract">My first machine-learning project, from second semester. Predicting IPL winners from four features, which turns out to be about as hard as it sounds. The dataset (636 matches, 6 columns from Kaggle) uses four features: Team 1, Team 2, Toss Winner, and Toss Decision. A KNN classifier with K=9 and Euclidean distance was implemented in Python after categorical encoding. The model achieved 57.81% accuracy, interpreted as reflecting cricket's inherent unpredictability rather than model failure, given only four input features and no player statistics, venue, or pitch condition data.</p>
       <div class="highlights-box">
         <h4>Results &amp; Observations</h4>
         <ul>
           <li>Overall accuracy: 57.81% on historical IPL data (636 matches)</li>
           <li>Strong performers: Mumbai Indians (precision 0.64 / recall 0.74), Kolkata Knight Riders (0.65 / 0.73)</li>
-          <li>Per-team variance reflects sample size imbalance — Kochi Tuskers Kerala (few matches, perfect 1.0/1.0) vs Rising Pune Supergiant (0.0/0.0)</li>
+          <li>Per-team variance reflects sample size imbalance; Kochi Tuskers Kerala (few matches, perfect 1.0/1.0) vs Rising Pune Supergiant (0.0/0.0)</li>
           <li>Feature limitation identified: toss outcome alone is a weak predictor; player form, venue, and pitch conditions would substantially improve accuracy</li>
-          <li>Toss Decision column had 21 null values — imputed with most frequent value ("field") as preprocessing step</li>
+          <li>Toss Decision column had 21 null values, imputed with most frequent value ("field") as preprocessing step</li>
         </ul>
       </div>
       <div class="tech-breakdown">

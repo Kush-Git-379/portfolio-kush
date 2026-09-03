@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Embedded Systems &amp; Security — Kush Mehta</title>
+  <title>Embedded Systems &amp; Security: Kush Mehta</title>
   <meta name="description" content="Real-time Galileo HAS decoder built at SAC/ISRO, lightweight cryptography benchmarking (ASCON, AES, DES, ECC), ESP32 secure GPS telemetry, gem5 cache analysis, and FPGA digital design by Kush Mehta."/>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230F0F0E'/%3E%3Ctext x='50' y='70' font-size='60' font-family='serif' fill='%23C85C2D' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E"/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
@@ -77,9 +77,9 @@
 
 <div class="page-hero">
   <a href="index.html" class="back-link">← Back to Home</a>
-  <p class="page-label">Domain — Embedded Systems &amp; Security</p>
+  <p class="page-label">Domain: Embedded Systems &amp; Security</p>
   <h1 class="page-title">Hardware meets<br/><em>cryptography.</em></h1>
-  <p class="page-intro">From satellite navigation decoders written at ISRO to FPGA digital design and lightweight encryption on microcontrollers — projects at the intersection of hardware architecture, coding theory, security engineering, and IoT systems.</p>
+  <p class="page-intro">Satellite navigation decoders, Verilog arithmetic cores, cache simulation, and encryption small enough to run on a microcontroller. Most of this started with a problem I couldn't look up the answer to.</p>
 </div>
 
 <div class="projects-list">
@@ -94,15 +94,15 @@
         <span class="tag">Navigation Receiver Division</span>
         <span class="tag">May – Jul 2026 · 10 Weeks</span>
       </div>
-      <h2 class="project-title-big">Development of a Real-Time HAS (High Accuracy Service) Decoding Utility — SAC, ISRO</h2>
-      <p class="project-abstract">A ten-week research internship at the Space Applications Centre, ISRO, Ahmedabad, in the Navigation Receiver Division — the group responsible for GNSS and NavIC receiver technology. The project was a real-time, multi-protocol decoding utility that ingests a multiplexed stream from a network socket carrying three interleaved components: raw RTCM hex payloads, Galileo HAS pages from the E6-B signal, and Time-of-Transfer epoch metadata. The utility tokenizes and routes each component down its own pipeline — native RTCM is converted from hex back to binary and forwarded directly, while HAS pages are reassembled and passed through a Reed–Solomon erasure decoder over GF(256) to recover Precise Point Positioning corrections, which are then re-encoded as standard RTCM 3.x messages on an independent output port. Built in C and then C++ under a pre-C++11 compiler constraint, and validated end-to-end in RTKLIB's RTKNAVI to achieve centimetre-level positioning.</p>
+      <h2 class="project-title-big">Development of a Real-Time HAS (High Accuracy Service) Decoding Utility, SAC, ISRO</h2>
+      <p class="project-abstract">Ten weeks at ISRO's Space Applications Centre, in the division that builds GNSS and NavIC receivers. The project was a real-time, multi-protocol decoding utility that ingests a multiplexed stream from a network socket carrying three interleaved components: raw RTCM hex payloads, Galileo HAS pages from the E6-B signal, and Time-of-Transfer epoch metadata. The utility tokenizes and routes each component down its own pipeline; native RTCM is converted from hex back to binary and forwarded directly, while HAS pages are reassembled and passed through a Reed–Solomon erasure decoder over GF(256) to recover Precise Point Positioning corrections, which are then re-encoded as standard RTCM 3.x messages on an independent output port. Built in C and then C++ under a pre-C++11 compiler constraint, and validated end-to-end in RTKLIB's RTKNAVI to achieve centimetre-level positioning.</p>
 
       <div class="results-grid">
         <div class="result-cell"><div class="result-label">Coding Scheme</div><div class="result-value">Reed–Solomon (255, 32)</div></div>
         <div class="result-cell"><div class="result-label">Finite Field</div><div class="result-value">GF(2⁸), poly 0x11D</div></div>
         <div class="result-cell"><div class="result-label">HAS Page Size</div><div class="result-value">492 bits (448 payload)</div></div>
-        <div class="result-cell"><div class="result-label">RTCM — GPS</div><div class="result-value">1057 / 1058 / 1059 / 1060</div></div>
-        <div class="result-cell"><div class="result-label">RTCM — Galileo</div><div class="result-value">1240 / 1241 / 1242 / 1243</div></div>
+        <div class="result-cell"><div class="result-label">RTCM, GPS</div><div class="result-value">1057 / 1058 / 1059 / 1060</div></div>
+        <div class="result-cell"><div class="result-label">RTCM, Galileo</div><div class="result-value">1240 / 1241 / 1242 / 1243</div></div>
         <div class="result-cell"><div class="result-label">Framing</div><div class="result-value">CRC-24Q</div></div>
         <div class="result-cell"><div class="result-label">Constellations Decoded</div><div class="result-value">GPS PRN 1–32, Galileo 1–36</div></div>
         <div class="result-cell"><div class="result-label">Transport</div><div class="result-value">WinSock 2.2 TCP + Win32 serial</div></div>
@@ -112,13 +112,13 @@
       <div class="highlights-box">
         <h4>Engineering Highlights</h4>
         <ul>
-          <li>Implemented Galois Field GF(256) arithmetic from first principles — log/exp lookup tables, XOR addition, and Gaussian elimination for k×k matrix inversion — material outside the undergraduate syllabus</li>
+          <li>Implemented Galois Field GF(256) arithmetic from first principles: log/exp lookup tables, XOR addition, and Gaussian elimination for k×k matrix inversion, material outside the undergraduate syllabus</li>
           <li>Reed–Solomon erasure decoding recovers a complete HAS message from any MS valid pages out of 255, tolerating page loss and out-of-order arrival</li>
           <li>Reverse-engineered the Galileo RTCM messages 1240–1243 and the CRC-24Q routine, which were absent from the RTCM manual available at the time, by cross-referencing the HASlib source against the Galileo HAS ICD</li>
           <li>Dual-egress architecture: native RTCM to Port A, HAS-decoded RTCM to Port B, with TOT metadata anchoring both pipelines to the correct satellite clock epoch</li>
           <li>Timestamp-based stale-page purging discards buffered pages after 150 s without completing a message</li>
           <li>Worked around a pre-C++11 Dev-C++ / MinGW toolchain using fixed-array data structures and Win32 <code>CreateThread</code> for concurrency</li>
-          <li>Validated at two levels — per-stage unit comparison against a Python reference utility, then end-to-end with RTKNAVI consuming the live correction stream over localhost</li>
+          <li>Validated at two levels; per-stage unit comparison against a Python reference utility, then end-to-end with RTKNAVI consuming the live correction stream over localhost</li>
         </ul>
       </div>
       <div class="tech-breakdown">
@@ -146,7 +146,7 @@
         <span class="tag">B.Tech ECE · Nirma University</span>
       </div>
       <h2 class="project-title-big">Simulation &amp; Comparison of Cryptography Algorithms for Lightweight Embedded Systems</h2>
-      <p class="project-abstract">A comparative simulation study of four cryptographic algorithms — DES, AES-GCM, ASCON, and ECC — evaluated for suitability in resource-constrained embedded systems. Each algorithm was benchmarked across total execution time and per-operation latency on identical hardware. ASCON, the NIST-selected lightweight cryptography standard, demonstrated a 78× speed advantage over AES-GCM and a 12× advantage over DES — directly validating its design intent for IoT edge devices. ECC was evaluated separately as an asymmetric key exchange primitive.</p>
+      <p class="project-abstract">Four ciphers, one question: which of these can a sensor node actually afford to run? I benchmarked DES, AES-GCM, ASCON and ECC under identical conditions. Each algorithm was benchmarked across total execution time and per-operation latency on identical hardware. ASCON, the NIST-selected lightweight cryptography standard, demonstrated a 78× speed advantage over AES-GCM and a 12× advantage over DES, directly validating its design intent for IoT edge devices. ECC was evaluated separately as an asymmetric key exchange primitive.</p>
 
       <table class="bench-table">
         <thead>
@@ -163,9 +163,9 @@
       <div class="highlights-box">
         <h4>Key Findings</h4>
         <ul>
-          <li>ASCON achieved 0.0032 ms per operation — 78× faster than AES-GCM and 12× faster than DES</li>
+          <li>ASCON achieved 0.0032 ms per operation, 78× faster than AES-GCM and 12× faster than DES</li>
           <li>AES-GCM's authenticated encryption overhead is the dominant cost on constrained hardware, making it unsuitable for high-frequency IoT sensor data</li>
-          <li>ECC provides efficient asymmetric key exchange at 8.45 ms per handshake — viable for session establishment but not per-message encryption</li>
+          <li>ECC provides efficient asymmetric key exchange at 8.45 ms per handshake: viable for session establishment but not per-message encryption</li>
           <li>Results directly motivated the follow-up ESP32 hardware implementation to validate simulation findings on real constrained hardware</li>
         </ul>
       </div>
@@ -191,13 +191,13 @@
       <div class="project-meta">
         <span class="tag accent">IoT · Security</span><span class="tag">ESP32</span><span class="tag">3EC504ME24 · Nirma University</span>
       </div>
-      <h2 class="project-title-big">Secure GPS Location Tracker — ESP32 + AES-128 + MQTT + Google Maps</h2>
-      <p class="project-abstract">A real-time IoT location tracking system demonstrating an end-to-end secure telemetry pipeline. An ESP32 reads GPS coordinates via TinyGPS++ over UART2, serializes them to JSON, encrypts with AES-128 (mbedTLS), and publishes the hex ciphertext over MQTT. A Python subscriber decrypts each message and automatically opens the live location in Google Maps. Validated at Nirma University (23°07'44.5"N, 72°32'31.9"E) — confirming correct GPS acquisition, encryption, MQTT transport, and decryption across the full pipeline.</p>
+      <h2 class="project-title-big">Secure GPS Location Tracker, ESP32 + AES-128 + MQTT + Google Maps</h2>
+      <p class="project-abstract">A GPS tracker where the location never travels in the clear. An ESP32 reads GPS coordinates via TinyGPS++ over UART2, serializes them to JSON, encrypts with AES-128 (mbedTLS), and publishes the hex ciphertext over MQTT. A Python subscriber decrypts each message and automatically opens the live location in Google Maps. Validated at Nirma University (23°07'44.5"N, 72°32'31.9"E); confirming correct GPS acquisition, encryption, MQTT transport, and decryption across the full pipeline.</p>
       <div class="highlights-box">
         <h4>System Pipeline</h4>
         <ul>
           <li>GPS module on UART2 (GPIO 16/17) → TinyGPS++ parses NMEA sentences → JSON payload: <code>{"lat":23.129021,"lon":72.542191}</code></li>
-          <li>AES-128 ECB encryption via mbedTLS (built into ESP32 SDK) — zero-padded to 16-byte boundary, hex-encoded output</li>
+          <li>AES-128 ECB encryption via mbedTLS (built into ESP32 SDK), zero-padded to 16-byte boundary, hex-encoded output</li>
           <li>MQTT publish to <code>kush/esp32/gps_encrypted</code> on HiveMQ broker every 3 seconds</li>
           <li>Python subscriber: AES decrypt → JSON parse → <code>webbrowser.open(google.com/maps?q=lat,lon)</code></li>
           <li>Verified: Serial monitor confirmed GPS fix, Mosquitto terminal showed continuous encrypted hex stream, browser opened correct Nirma University location</li>
@@ -226,7 +226,7 @@
         <span class="tag accent">Computer Architecture</span><span class="tag">gem5</span><span class="tag">3EC503CC24 · Nirma University · 2026</span>
       </div>
       <h2 class="project-title-big">L1 Cache Sensitivity Analysis: Matrix Multiplication vs AES Encryption using gem5</h2>
-      <p class="project-abstract">Microarchitectural simulation study using gem5 v25.1 on an X86 TimingSimpleCPU, comparing cache sensitivity across two fundamentally different workloads: a 100×100 matrix multiplication (~40kB working set, memory-intensive) and an AES SubBytes encryption benchmark (150kB payload, non-linear S-Box lookups). Three experiments were conducted — varying cache capacity (4kB→64kB) on each workload, and varying associativity (1-way→8-way) at fixed 16kB. The key finding is that cache optimization is strictly workload-dependent: matrix multiplication responds dramatically to both capacity and associativity, while AES is almost entirely insensitive to cache scaling.</p>
+      <p class="project-abstract">Microarchitectural simulation study using gem5 v25.1 on an X86 TimingSimpleCPU, comparing cache sensitivity across two fundamentally different workloads: a 100×100 matrix multiplication (~40kB working set, memory-intensive) and an AES SubBytes encryption benchmark (150kB payload, non-linear S-Box lookups). Three experiments were conducted, varying cache capacity (4kB→64kB) on each workload, and varying associativity (1-way→8-way) at fixed 16kB. The key finding is that cache optimization is strictly workload-dependent: matrix multiplication responds dramatically to both capacity and associativity, while AES is almost entirely insensitive to cache scaling.</p>
 
       <div class="results-grid">
         <div class="result-cell"><div class="result-label">Matrix Miss Rate (4kB)</div><div class="result-value">5.06%</div></div>
@@ -234,7 +234,7 @@
         <div class="result-cell"><div class="result-label">Matrix IPC Improvement</div><div class="result-value accent">0.277 → 0.310</div></div>
         <div class="result-cell"><div class="result-label">AES Miss Rate (4kB)</div><div class="result-value">0.14%</div></div>
         <div class="result-cell"><div class="result-label">AES Miss Rate (64kB)</div><div class="result-value">0.14% (flat)</div></div>
-        <div class="result-cell"><div class="result-label">AES Cache Sensitivity</div><div class="result-value">None — bottleneck elsewhere</div></div>
+        <div class="result-cell"><div class="result-label">AES Cache Sensitivity</div><div class="result-value">None: bottleneck elsewhere</div></div>
         <div class="result-cell"><div class="result-label">Assoc. Miss Rate (1-Way)</div><div class="result-value">4.74%</div></div>
         <div class="result-cell"><div class="result-label">Assoc. Miss Rate (8-Way)</div><div class="result-value accent">0.34%</div></div>
         <div class="result-cell"><div class="result-label">IPC Gain (1→8 Way)</div><div class="result-value accent">+10.4%</div></div>
@@ -245,8 +245,8 @@
         <ul>
           <li>Matrix multiplication is highly cache-sensitive: miss rate drops 99% (5.06%→0.04%) as cache grows large enough to hold the ~40kB working set</li>
           <li>AES SubBytes is cache-insensitive: the 256-byte S-Box fits even in a 4kB cache, so the bottleneck lies in instruction execution, not memory capacity</li>
-          <li>At constrained 16kB, conflict misses dominate matrix multiply — 8-Way associativity reduces miss rate from 4.74% to 0.34% and improves IPC by 10.4%</li>
-          <li>Practical recommendation for UAV flight controllers and IoT edge nodes: use highly-associative but modestly-sized caches — 8-Way at 16kB outperforms direct-mapped at the same size while avoiding the area and power cost of larger caches</li>
+          <li>At constrained 16kB, conflict misses dominate matrix multiply, 8-Way associativity reduces miss rate from 4.74% to 0.34% and improves IPC by 10.4%</li>
+          <li>Practical recommendation for UAV flight controllers and IoT edge nodes: use highly-associative but modestly-sized caches; 8-Way at 16kB outperforms direct-mapped at the same size while avoiding the area and power cost of larger caches</li>
         </ul>
       </div>
       <div class="tech-breakdown">
@@ -271,16 +271,16 @@
       <div class="project-meta">
         <span class="tag accent">FPGA</span><span class="tag">Digital Design</span><span class="tag">2EC202 · Nirma University</span>
       </div>
-      <h2 class="project-title-big">FPGA Digital Design — Wallace Tree Multiplier &amp; Fastest Finger First Game</h2>
-      <p class="project-abstract">Two digital design projects implemented on FPGA using Verilog HDL. The Wallace Tree Multiplier implements an 8×8 bit parallel multiplier producing a 16-bit output, reducing partial product addition to O(log n) stages using carry-save adder trees — significantly lower propagation delay than conventional O(n) array multipliers. The Fastest Finger First (FFF) buzzer system detects the first button press among multiple players with microsecond precision using finite state machines and hardware debounce logic. Both designs were fully verified with ModelSim testbenches before FPGA synthesis and timing closure in Quartus Prime.</p>
+      <h2 class="project-title-big">FPGA Digital Design, Wallace Tree Multiplier &amp; Fastest Finger First Game</h2>
+      <p class="project-abstract">Two digital design projects implemented on FPGA using Verilog HDL. The Wallace Tree Multiplier implements an 8×8 bit parallel multiplier producing a 16-bit output, reducing partial product addition to O(log n) stages using carry-save adder trees, significantly lower propagation delay than conventional O(n) array multipliers. The Fastest Finger First (FFF) buzzer system detects the first button press among multiple players with microsecond precision using finite state machines and hardware debounce logic. Both designs were fully verified with ModelSim testbenches before FPGA synthesis and timing closure in Quartus Prime.</p>
       <div class="highlights-box">
         <h4>Design Details</h4>
         <ul>
-          <li>Wallace Tree: three-stage pipeline — partial product generation (AND gates), tree reduction (HA/FA carry-save adders), final carry-propagate addition</li>
+          <li>Wallace Tree: three-stage pipeline: partial product generation (AND gates), tree reduction (HA/FA carry-save adders), final carry-propagate addition</li>
           <li>8×8 implementation produces all 64 partial products then reduces column-by-column; result[7] alone requires six full adders and one half adder in sequence</li>
           <li>Simulation confirmed correct output in ModelSim (e.g., 10 × 11 = 110 decimal validated in waveform); RTL and TTL synthesis views confirmed tree structure</li>
-          <li>FFF game: FSM-based priority encoder with hardware debounce — first-press latency bounded by clock period, not software polling loop</li>
-          <li>Timing closure achieved post place-and-route in Quartus Prime — no setup/hold violations</li>
+          <li>FFF game: FSM-based priority encoder with hardware debounce, first-press latency bounded by clock period, not software polling loop</li>
+          <li>Timing closure achieved post place-and-route in Quartus Prime; no setup/hold violations</li>
         </ul>
       </div>
       <div class="tech-breakdown">
@@ -306,15 +306,15 @@
         <span class="tag accent">DevOps · Scripting</span><span class="tag">Linux</span><span class="tag">3EC504ME24 · Nirma University · 2026</span>
       </div>
       <h2 class="project-title-big">Log Analytics and Anomaly Detection Tool</h2>
-      <p class="project-abstract">A hybrid two-module system monitoring pipeline built with Bash and Python on Ubuntu. The Bash module (collector.sh) interfaces directly with Linux kernel utilities (top, free, df) via command substitution and pipelines, extracting CPU, memory, disk, and failed login metrics into a timestamped CSV — scheduled via cron for fully automated collection. The Python module (detector.py) parses the CSV with pandas, computes a statistical baseline (µ and σ) from historical data, and raises anomaly alerts when readings breach the dynamic µ+2σ threshold — dispatching automated email alerts via smtplib. Validated by CPU stress-testing with background loop processes that successfully triggered the threshold breach and alert pipeline.</p>
+      <p class="project-abstract">A small monitoring tool in two halves, each written in the language that suited it. The Bash module (collector.sh) interfaces directly with Linux kernel utilities (top, free, df) via command substitution and pipelines, extracting CPU, memory, disk, and failed login metrics into a timestamped CSV, scheduled via cron for fully automated collection. The Python module (detector.py) parses the CSV with pandas, computes a statistical baseline (µ and σ) from historical data, and raises anomaly alerts when readings breach the dynamic µ+2σ threshold, dispatching automated email alerts via smtplib. Validated by CPU stress-testing with background loop processes that successfully triggered the threshold breach and alert pipeline.</p>
       <div class="highlights-box">
         <h4>System Design</h4>
         <ul>
-          <li>Two-module architecture: Bash handles kernel-level data extraction; Python handles statistical analysis and alerting — each language used for its strengths</li>
-          <li>Dynamic µ+2σ threshold computed from historical baseline — adapts to the system's normal operating conditions rather than using fixed thresholds</li>
+          <li>Two-module architecture: Bash handles kernel-level data extraction; Python handles statistical analysis and alerting: each language used for its strengths</li>
+          <li>Dynamic µ+2σ threshold computed from historical baseline, adapts to the system's normal operating conditions rather than using fixed thresholds</li>
           <li>Metrics collected: CPU usage (via top pipeline), memory (free), disk utilisation (df), and failed SSH login attempts</li>
           <li>Validated under stress test: background yes &gt; /dev/null loop processes successfully breached threshold and triggered email alert</li>
-          <li>Known limitation: cold start problem — µ+2σ becomes accurate only after sufficient baseline data is collected; early runs may yield false positives</li>
+          <li>Known limitation: cold start problem; µ+2σ becomes accurate only after sufficient baseline data is collected; early runs may yield false positives</li>
         </ul>
       </div>
       <div class="tech-breakdown">
@@ -339,17 +339,17 @@
       <div class="project-meta">
         <span class="tag accent">Review Paper</span><span class="tag">IoT · Communications</span><span class="tag">B.Tech ECE · Nirma University</span>
       </div>
-      <h2 class="project-title-big">Applications of Digital Communication in IoT — Survey &amp; Smart Agriculture Case Study</h2>
-      <p class="project-abstract">A technical survey paper covering digital communication technologies, protocols, and signal processing principles as applied to IoT systems, with a detailed smart agriculture end-to-end case study. The paper classifies IoT wireless technologies into three tiers — short-range (BLE, Zigbee, Wi-Fi), medium-range (LTE, 5G), and long-range LPWANs (LoRaWAN, Sigfox) — and analyses each as a deliberate trade-off among the IoT design triangle of range, data rate, and battery life. Communication fundamentals covered include Shannon-Hartley capacity, CSS and GFSK modulation, FEC coding, DSSS/FHSS spread spectrum, and ALOHA vs CSMA/CA channel access for dense IoT deployments.</p>
+      <h2 class="project-title-big">Applications of Digital Communication in IoT, Survey &amp; Smart Agriculture Case Study</h2>
+      <p class="project-abstract">A survey of the wireless technologies IoT deployments actually choose between, with smart agriculture as the worked example. The paper classifies IoT wireless technologies into three tiers, short-range (BLE, Zigbee, Wi-Fi), medium-range (LTE, 5G), and long-range LPWANs (LoRaWAN, Sigfox): and analyses each as a deliberate trade-off among the IoT design triangle of range, data rate, and battery life. Communication fundamentals covered include Shannon-Hartley capacity, CSS and GFSK modulation, FEC coding, DSSS/FHSS spread spectrum, and ALOHA vs CSMA/CA channel access for dense IoT deployments.</p>
       <div class="highlights-box">
         <h4>Key Technical Content</h4>
         <ul>
-          <li>LoRaWAN with Chirp Spread Spectrum (CSS) identified as dominant choice for remote field sensors — CSS decodes signals even at negative SNR</li>
+          <li>LoRaWAN with Chirp Spread Spectrum (CSS) identified as dominant choice for remote field sensors, CSS decodes signals even at negative SNR</li>
           <li>Non-Terrestrial Networks (NTN): satellite backhaul and UAV drones as mobile data collectors bridge connectivity gaps in areas without terrestrial coverage</li>
           <li>Three-tier data processing hierarchy: edge devices (real-time actuation) → fog gateways (local filtering) → cloud (long-term predictive analytics)</li>
-          <li>MQTT highlighted as preferred application-layer transport for its lightweight pub-sub footprint — connects directly to ESP32 MQTT project</li>
+          <li>MQTT highlighted as preferred application-layer transport for its lightweight pub-sub footprint; connects directly to ESP32 MQTT project</li>
           <li>Future trends: RF energy harvesting targeting 15–20 year sensor lifetimes, Reconfigurable Intelligent Surfaces (RIS) for terrain-blocked rural deployments</li>
-          <li>Security analysis across perception, network, and application layers — DoS, eavesdropping, and data injection attack vectors</li>
+          <li>Security analysis across perception, network, and application layers, DoS, eavesdropping, and data injection attack vectors</li>
         </ul>
       </div>
       <div class="tech-breakdown">
